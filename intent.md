@@ -1,5 +1,8 @@
 # Intent
 
+> Quest assessment: weekly rewards settlement (fictional service, no live systems).
+> Repository: https://github.com/sahilms76/rewardsSettlementQuest · Companion document: [directive.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/directive.md)
+
 ## Why this problem
 
 I chose **duplicate payouts on retry or duplicate input** (DEF-001) because it combines the highest user and business impact with the highest likelihood, at a low cost to reproduce. Retries aren't an edge case for a weekly settlement job: schedulers deliver at least once, operators re-run jobs when something downstream (such as notifications) fails, and task exports can repeat rows. A job written as if it ran exactly once will overpay, and it does so silently, because users still get one notification.
@@ -18,17 +21,38 @@ Scored 1 (low) to 5 (high). Effort is the cost to reproduce and fix in this samp
 
 Candidate 2 scores close to 1, but it needs a task on the exact boundary instant, and its worst case overlaps with candidate 1 (paying twice). Candidate 1 also covers the most realistic trigger chain: notification fails, operator re-runs, everyone is paid again. Candidates 2–5 aren't abandoned. All of them are built into the faulty build: candidate 2 as DEF-004 (window end), candidate 3 as DEF-006 (offset ignored), candidate 4 as DEF-002 and candidate 5 as DEF-003. Every case fails on the faulty build, and the rule check names the rule behind each failure, so a failure can still be traced to one defect.
 
+### Top three, in order
+
+1. **Duplicate payout on retry or duplicate task ID (12.5).** Chosen. Real money, routine trigger, silent failure.
+2. **Window boundary off by one (12.0).** Close second; needs a task on the exact boundary instant.
+3. **Local time used instead of UTC (4.5).** Depends on how producers stamp times; shifts tasks into the wrong week.
+
+### How the candidates map to the faulty build
+
+| Defect | What the faulty build does | Rule broken | Candidate | Cases that catch it |
+|---|---|---|---|---|
+| DEF-001 | Plain insert, no idempotency key: retries and duplicate rows pay again | BR-5 | 1 | TC-07, TC-08, TC-09, TC-10, TC-13 |
+| DEF-002 | A notification failure reverses the account's payout | BR-7 | 4 | TC-11, TC-13 |
+| DEF-003 | Notified amount counted from the input, not the ledger | BR-6 | 5 | TC-09, TC-12 |
+| DEF-004 | Window ends Sun 23:59:59 with the end included | BR-2 | 2 | TC-01, TC-04 |
+| DEF-005 | Run-time cut-off is Tuesday 00:00, not 09:00 | BR-1 | – | TC-02 |
+| DEF-006 | Timestamp offset dropped, local time read as UTC | BR-3 | 3 | TC-05, UI-01 |
+| DEF-007 | Only cancelled tasks excluded, so in-progress tasks are paid | BR-4 | – | TC-06 |
+| DEF-008 | Notification loop stops after the first account | BR-6 | – | TC-03, TC-08 |
+
+DEF-005, DEF-007 and DEF-008 weren't ranked candidates; they were added so that every business rule has a defect behind it and every case fails on the faulty build.
+
 ## What's uncertain
 
 - **No incident history.** This is a fictional service with no real data, so the impact and likelihood scores are reasoned estimates, not measured frequencies. In a real project I'd calibrate them with scheduler retry logs, export duplicate rates and support tickets.
 - **Concurrency.** The in-memory ledger is synchronous, so two overlapping runs aren't tested. The fix relies on a database unique constraint for that, and it's listed as gap G1.
-- **Rule interpretations.** "Counted once" is read as once ever (global key), not once per week. Notification is read as one per account per window. Both are recorded as assumptions in `docs/test-cases.md` and should be confirmed with the product owner.
+- **Rule interpretations.** "Counted once" is read as once ever (global key), not once per week. Notification is read as one per account per window. Both are recorded as assumptions in [docs/test-cases.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/docs/test-cases.md) and should be confirmed with the product owner.
 
 ## Approach
 
-1. Map the flow and mark where each failure can enter ([`docs/flow.md`](docs/flow.md)).
-2. Write 13 cases covering the happy path, cut-off, timezone, duplicate input, retry and partial failure ([`docs/test-cases.md`](docs/test-cases.md)).
+1. Map the flow and mark where each failure can enter ([`docs/flow.md`](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/docs/flow.md)).
+2. Write 13 cases covering the happy path, cut-off, timezone, duplicate input, retry and partial failure ([`docs/test-cases.md`](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/docs/test-cases.md)).
 3. Build a faulty and a corrected implementation that differ only in eight marked defects (DEF-001..DEF-008), one or more per business rule, so every case fails on the faulty build for a named reason.
-4. Prove the regression fails on the faulty build and passes on the fix, and save the evidence (`results/`).
+4. Prove the regression fails on the faulty build and passes on the fix, and save the evidence ([results/](https://github.com/sahilms76/rewardsSettlementQuest/tree/main/results)).
 5. Make every case reproducible by hand in a test bench UI with a Fixed/Buggy switch, and automate the same cases end to end with Playwright through that UI.
 6. Gate both suites in CI so it can't come back.

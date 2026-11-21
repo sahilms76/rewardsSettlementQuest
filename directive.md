@@ -36,6 +36,21 @@ Reproduce and permanently block the highest-impact failure in the settlement, pa
 | BR-7 | A notification failure never reverses a payout. It is retried on a later run, and a delivered notification is never re-sent. |
 | BR-8 | One failed payout write doesn't stop the batch; the task is paid by the next run. |
 
+## Defects reproduced by the faulty build
+
+| Defect | Severity | Rule | Summary |
+|---|---|---|---|
+| **DEF-001** (primary) | S1 | BR-5 | Retries, re-runs and duplicate rows pay the same task again |
+| DEF-002 | S2 | BR-7 | A notification failure reverses the payout |
+| DEF-003 | S2 | BR-6 | The user is told about credits whose payout failed |
+| DEF-004 | S3 | BR-2 | Window ends Sun 23:59:59 with the end included |
+| DEF-005 | S2 | BR-1 | Run-time cut-off is Tuesday 00:00, not 09:00 |
+| DEF-006 | S2 | BR-3 | Timestamp offset ignored, local time read as UTC |
+| DEF-007 | S1 | BR-4 | In-progress tasks are paid |
+| DEF-008 | S3 | BR-6 | Only the first account in a run is notified |
+
+Repro steps, root cause and fix for each are in the [defect report](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/docs/defect-report.md).
+
 ## Requirements for the deliverable
 
 1. 8 or more cases with explicit inputs and expected outcomes, covering the happy path, a cut-off boundary, a timezone conversion, duplicate input, a retry and partial failure.
@@ -50,12 +65,12 @@ Reproduce and permanently block the highest-impact failure in the settlement, pa
 
 | # | Criterion | Met |
 |---|---|---|
-| C1 | 8 or more cases, all six required categories covered | ✅ 13 cases ([test-cases.md](docs/test-cases.md)) |
-| C2 | Regression fails on the faulty build for every case, each with a named defect and broken rule | ✅ all 13 fail ([buggy-run.txt](results/buggy-run.txt)) |
-| C3 | All cases pass on the corrected build | ✅ 13/13 ([fixed-run.txt](results/fixed-run.txt)) |
-| C4 | `npm run evidence` exits 0 (detection and fix both proven) | ✅ ([summary.md](results/summary.md)) |
-| C4b | Playwright: `npm run e2e:evidence` exits 0. Faulty build fails every case and UI-01 (UI-02 passes); fixed build passes 15/15 (13 cases plus 2 UI input tests) | ✅ ([e2e-summary.md](results/e2e-summary.md)) |
-| C5 | CI gates (unit and Playwright) configured to block a merge on failure | ✅ ([ci.yml](.github/workflows/ci.yml)) |
+| C1 | 8 or more cases, all six required categories covered | ✅ 13 cases ([test-cases.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/docs/test-cases.md)) |
+| C2 | Regression fails on the faulty build for every case, each with a named defect and broken rule | ✅ all 13 fail ([buggy-run.txt](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/buggy-run.txt)) |
+| C3 | All cases pass on the corrected build | ✅ 13/13 ([fixed-run.txt](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/fixed-run.txt)) |
+| C4 | `npm run evidence` exits 0 (detection and fix both proven) | ✅ ([summary.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/summary.md)) |
+| C4b | Playwright: `npm run e2e:evidence` exits 0. Faulty build fails every case and UI-01 (UI-02 passes); fixed build passes 15/15 (13 cases plus 2 UI input tests) | ✅ ([e2e-summary.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/e2e-summary.md)) |
+| C5 | CI gates (unit and Playwright) configured to block a merge on failure | ✅ ([ci.yml](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/.github/workflows/ci.yml)) |
 | C6 | Defect report and release-readiness checklist complete | ✅ |
 | C7 | Release decision recorded | ✅ GO for the sample; GO WITH CONDITIONS for production |
 
@@ -65,21 +80,21 @@ Reproduce and permanently block the highest-impact failure in the settlement, pa
 |---|---|
 | Loom walkthrough (5 min or less) | `<LOOM_URL>` |
 | Repository (runnable test project) | https://github.com/sahilms76/rewardsSettlementQuest |
-| Why this problem, and alternatives ranked | [intent.md](intent.md) |
-| Flow map and risk points | [docs/flow.md](docs/flow.md) |
-| Test cases (13) with inputs, expected outcomes and results | [docs/test-cases.md](docs/test-cases.md) |
-| Test bench UI (manual testing, `npm start`) | [ui/index.html](ui/index.html), [ui/app.js](ui/app.js); scenarios in [manual/](manual/index.json) |
-| Playwright E2E suite | [e2e/settlement.spec.ts](e2e/settlement.spec.ts), page object [e2e/pages/TestBench.ts](e2e/pages/TestBench.ts), [playwright.config.ts](playwright.config.ts) |
-| Unit suite | [test/settlement.test.js](test/settlement.test.js), fixtures in [test/fixtures.js](test/fixtures.js) |
-| Faulty implementation (reproduces DEF-001..DEF-008) | [src/settlement.buggy.js](src/settlement.buggy.js) |
-| Corrected implementation | [src/settlement.fixed.js](src/settlement.fixed.js) |
-| Defect and root-cause report | [docs/defect-report.md](docs/defect-report.md) |
-| Release-readiness checklist, gaps and decision | [docs/release-readiness.md](docs/release-readiness.md) |
-| Evidence: faulty build run (fails) | [results/buggy-run.txt](results/buggy-run.txt), [JUnit](results/buggy-run.junit.xml) |
-| Evidence: fixed build run (passes) | [results/fixed-run.txt](results/fixed-run.txt), [JUnit](results/fixed-run.junit.xml) |
-| Evidence: per-case summary, both builds (unit) | [results/summary.md](results/summary.md) |
-| Evidence: Playwright, both builds | [results/e2e-summary.md](results/e2e-summary.md), console output [faulty](results/e2e-buggy-run.txt) and [fixed](results/e2e-fixed-run.txt), JSON [faulty](results/e2e-buggy.json) and [fixed](results/e2e-fixed.json); HTML reports in the CI `e2e-evidence` artifact |
-| CI release gate | [.github/workflows/ci.yml](.github/workflows/ci.yml) |
+| Why this problem, and alternatives ranked | [intent.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/intent.md) |
+| Flow map and risk points | [docs/flow.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/docs/flow.md) |
+| Test cases (13) with inputs, expected outcomes and results | [docs/test-cases.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/docs/test-cases.md) |
+| Test bench UI (manual testing, `npm start`) | [ui/index.html](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/ui/index.html), [ui/app.js](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/ui/app.js); scenarios in [manual/](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/manual/index.json) |
+| Playwright E2E suite | [e2e/settlement.spec.ts](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/e2e/settlement.spec.ts), page object [e2e/pages/TestBench.ts](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/e2e/pages/TestBench.ts), [playwright.config.ts](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/playwright.config.ts) |
+| Unit suite | [test/settlement.test.js](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/test/settlement.test.js), fixtures in [test/fixtures.js](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/test/fixtures.js) |
+| Faulty implementation (reproduces DEF-001..DEF-008) | [src/settlement.buggy.js](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/src/settlement.buggy.js) |
+| Corrected implementation | [src/settlement.fixed.js](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/src/settlement.fixed.js) |
+| Defect and root-cause report | [docs/defect-report.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/docs/defect-report.md) |
+| Release-readiness checklist, gaps and decision | [docs/release-readiness.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/docs/release-readiness.md) |
+| Evidence: faulty build run (fails) | [results/buggy-run.txt](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/buggy-run.txt), [JUnit](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/buggy-run.junit.xml) |
+| Evidence: fixed build run (passes) | [results/fixed-run.txt](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/fixed-run.txt), [JUnit](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/fixed-run.junit.xml) |
+| Evidence: per-case summary, both builds (unit) | [results/summary.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/summary.md) |
+| Evidence: Playwright, both builds | [results/e2e-summary.md](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/e2e-summary.md), console output [faulty](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/e2e-buggy-run.txt) and [fixed](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/e2e-fixed-run.txt), JSON [faulty](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/e2e-buggy.json) and [fixed](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/results/e2e-fixed.json); HTML reports in the CI `e2e-evidence` artifact |
+| CI release gate | [.github/workflows/ci.yml](https://github.com/sahilms76/rewardsSettlementQuest/blob/main/.github/workflows/ci.yml) |
 
 **Final decision:** GO for the reference implementation. For production, GO WITH CONDITIONS: a unique constraint on `payout_key` plus a concurrent-run test, product owner sign-off on BR-5 and BR-6 interpretations, and a reconciliation alert.
 
