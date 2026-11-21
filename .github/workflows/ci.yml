@@ -1,0 +1,50 @@
+name: settlement-regression
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: "Gate 1: unit regression on the shipped build"
+        run: npm test
+      - name: "Gate 2: unit suite detects DEF-001..DEF-008 on the faulty build"
+        run: npm run evidence
+      - name: Upload unit evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: unit-evidence-node-${{ matrix.node }}
+          path: |
+            results/*-run.txt
+            results/*.junit.xml
+            results/summary.md
+
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: "Gate 3: Playwright regression on the shipped build"
+        run: npm run e2e
+      - name: "Gate 4: Playwright suite detects DEF-001..DEF-008 on the faulty build"
+        run: npm run e2e:evidence
+      - name: Upload E2E evidence and HTML reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-evidence
+          path: results/

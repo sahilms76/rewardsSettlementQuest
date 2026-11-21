@@ -1,0 +1,42 @@
+{
+  "id": "TC-08",
+  "title": "Re-running the job for the same week pays nothing new",
+  "description": "DEF-001. The scheduler retries the run. Fixed: 10 each. Buggy: 20 each.",
+  "runAt": "2026-11-10T09:00:00Z",
+  "runs": 2,
+  "tasks": [
+    {
+      "taskId": "T-601",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-03T10:00:00Z"
+    },
+    {
+      "taskId": "T-602",
+      "accountId": "acc-B",
+      "status": "completed",
+      "completedAt": "2026-11-04T10:00:00Z"
+    }
+  ],
+  "expect": {
+    "paidByRun": [
+      [
+        "T-601",
+        "T-602"
+      ],
+      []
+    ],
+    "entriesPerTask": {
+      "T-601": 1,
+      "T-602": 1
+    },
+    "balances": {
+      "acc-A": 10,
+      "acc-B": 10
+    },
+    "notifications": {
+      "acc-A": 1,
+      "acc-B": 1
+    }
+  }
+}

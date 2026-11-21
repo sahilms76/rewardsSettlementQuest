@@ -1,0 +1,27 @@
+{
+  "name": "rewards-settlement-qa",
+  "version": "1.0.0",
+  "description": "Fictional weekly rewards settlement service with a test bench UI, a node:test unit suite and a Playwright E2E suite for duplicate payouts (Quest assessment sample, no live systems).",
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node scripts/run-tests.js fixed",
+    "test:fixed": "node scripts/run-tests.js fixed",
+    "test:buggy": "node scripts/run-tests.js buggy",
+    "evidence": "node scripts/run-evidence.js",
+    "manual": "node scripts/manual.js",
+    "e2e": "node scripts/run-e2e.js fixed",
+    "e2e:buggy": "node scripts/run-e2e.js buggy",
+    "e2e:evidence": "node scripts/run-e2e-evidence.js",
+    "e2e:report": "playwright show-report results/e2e-report-fixed"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "^22.20.5"
+  }
+}

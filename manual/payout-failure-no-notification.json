@@ -1,0 +1,28 @@
+{
+  "id": "TC-12",
+  "title": "No notification when the account's only payout failed",
+  "description": "DEF-003. T-1001's ledger write fails, so acc-F has no payout. Fixed: no notification. Buggy: acc-F is told it earned 10 credits while its balance is 0.",
+  "runAt": "2026-11-10T09:00:00Z",
+  "failPayoutFor": [
+    "T-1001"
+  ],
+  "tasks": [
+    {
+      "taskId": "T-1001",
+      "accountId": "acc-F",
+      "status": "completed",
+      "completedAt": "2026-11-04T10:00:00Z"
+    }
+  ],
+  "expect": {
+    "balances": {
+      "acc-F": 0
+    },
+    "notifications": {
+      "acc-F": 0
+    },
+    "paidByRun": [
+      []
+    ]
+  }
+}

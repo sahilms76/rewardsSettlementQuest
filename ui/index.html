@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Settlement Test Bench</title>
+  <link rel="stylesheet" href="/ui/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Rewards Settlement Test Bench</h1>
+      <p class="muted">Fictional weekly settlement · Tue 09:00 UTC · 10 credits per task · paid once per task ID</p>
+    </div>
+    <div class="build">
+      <span class="label" id="build-label">Build under test</span>
+      <div class="segmented" role="radiogroup" aria-labelledby="build-label">
+        <label><input type="radio" name="impl" value="fixed" data-testid="impl-fixed"><span>Fixed</span></label>
+        <label><input type="radio" name="impl" value="buggy" data-testid="impl-buggy"><span>Buggy</span></label>
+      </div>
+      <span class="badge" data-testid="impl-badge"></span>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-scenario" data-testid="tab-scenario" aria-selected="true" aria-controls="panel-scenario">Scenario</button>
+    <button role="tab" id="tab-all" data-testid="tab-all" aria-selected="false" aria-controls="panel-all">Run all cases</button>
+  </nav>
+
+  <main>
+    <section id="panel-scenario" role="tabpanel" aria-labelledby="tab-scenario" class="grid">
+      <div class="card">
+        <h2>Input</h2>
+        <label class="field">Scenario
+          <select data-testid="scenario-select" id="scenario-select"></select>
+        </label>
+        <p class="description" data-testid="scenario-description"></p>
+
+        <div class="row">
+          <label class="field">Run time (ISO 8601)
+            <input data-testid="run-at" id="run-at" spellcheck="false">
+          </label>
+          <label class="field narrow">Runs
+            <input data-testid="runs" id="runs" type="number" min="1" max="10">
+          </label>
+        </div>
+        <p class="hint" data-testid="run-at-hint"></p>
+
+        <div class="row">
+          <label class="field">Fail first payout for (task IDs, comma separated)
+            <input data-testid="fail-payout-for" id="fail-payout-for" spellcheck="false">
+          </label>
+          <label class="field narrow">Fail notifications
+            <input data-testid="fail-notifications" id="fail-notifications" type="number" min="0" max="10">
+          </label>
+        </div>
+
+        <h3>Tasks</h3>
+        <div data-testid="tasks" id="tasks"></div>
+        <button class="secondary" data-testid="add-task" id="add-task">+ Add task</button>
+
+        <label class="check"><input type="checkbox" data-testid="next-week-toggle" id="next-week-toggle"> Add a run for the following week</label>
+        <div id="next-week" hidden>
+          <label class="field">Next week run time
+            <input data-testid="next-week-run-at" id="next-week-run-at" spellcheck="false">
+          </label>
+          <div data-testid="next-week-tasks" id="next-week-tasks"></div>
+          <button class="secondary" data-testid="add-next-week-task" id="add-next-week-task">+ Add next-week task</button>
+        </div>
+
+        <div class="actions">
+          <button class="primary" data-testid="run-scenario" id="run-scenario">Run scenario</button>
+          <button class="secondary" data-testid="reset" id="reset">Reset input</button>
+        </div>
+      </div>
+
+      <div class="card" data-testid="result" id="result">
+        <h2>Result</h2>
+        <p class="muted" data-testid="result-empty">Choose a scenario and select <strong>Run scenario</strong>.</p>
+      </div>
+    </section>
+
+    <section id="panel-all" role="tabpanel" aria-labelledby="tab-all" hidden>
+      <div class="card">
+        <div class="all-head">
+          <div>
+            <h2>All regression cases</h2>
+            <p class="muted">Runs every scenario in <code>manual/</code> against the selected build and compares it with the scenario's expected outcome.</p>
+          </div>
+          <button class="primary" data-testid="run-all" id="run-all">Run all cases</button>
+        </div>
+        <p class="summary" data-testid="run-all-summary" id="run-all-summary"></p>
+        <table class="cases" data-testid="cases-table">
+          <thead><tr><th>Case</th><th>Scenario</th><th>Result</th><th>Broken rules</th><th></th></tr></thead>
+          <tbody id="cases-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="muted">Assessment sample. No live financial system. Same code as the CLI and the automated suites (<code>src/</code>).</footer>
+  <script type="module" src="/ui/app.js"></script>
+</body>
+</html>

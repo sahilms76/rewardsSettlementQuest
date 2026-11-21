@@ -1,0 +1,28 @@
+{
+  "id": "TC-11",
+  "title": "A notification failure is reported and does not reverse the payout",
+  "description": "DEF-002. The notification provider fails once. Fixed: the 10 credits stay and the failure is reported. Buggy: the payout is reversed (0 credits, no ledger entry).",
+  "runAt": "2026-11-10T09:00:00Z",
+  "failNotifications": 1,
+  "tasks": [
+    {
+      "taskId": "T-901",
+      "accountId": "acc-E",
+      "status": "completed",
+      "completedAt": "2026-11-04T10:00:00Z"
+    }
+  ],
+  "expect": {
+    "balances": {
+      "acc-E": 10
+    },
+    "notifications": {
+      "acc-E": 0
+    },
+    "paidByRun": [
+      [
+        "T-901"
+      ]
+    ]
+  }
+}

@@ -1,0 +1,67 @@
+[
+  {
+    "file": "window.json",
+    "id": "TC-01",
+    "title": "Tuesday 09:00 UTC run settles Mon 2 Nov to Mon 9 Nov"
+  },
+  {
+    "file": "run-time-cutoff.json",
+    "id": "TC-02",
+    "title": "A run at Tue 08:59:59 UTC settles the week before"
+  },
+  {
+    "file": "happy.json",
+    "id": "TC-03",
+    "title": "Happy path: 10 credits per completed task, one notification per account"
+  },
+  {
+    "file": "boundary.json",
+    "id": "TC-04",
+    "title": "Cut-off: Monday 00:00 start included, next Monday 00:00 excluded"
+  },
+  {
+    "file": "timezone.json",
+    "id": "TC-05",
+    "title": "+05:00 timestamps are converted to UTC before the window check"
+  },
+  {
+    "file": "not-completed.json",
+    "id": "TC-06",
+    "title": "Tasks that are not completed earn nothing and trigger no notification"
+  },
+  {
+    "file": "duplicate.json",
+    "id": "TC-07",
+    "title": "The same task ID twice in one export is paid once"
+  },
+  {
+    "file": "retry.json",
+    "id": "TC-08",
+    "title": "Re-running the job for the same week pays nothing new"
+  },
+  {
+    "file": "partial-failure.json",
+    "id": "TC-09",
+    "title": "A retry after a partial ledger failure pays only the failed task"
+  },
+  {
+    "file": "next-week-redelivery.json",
+    "id": "TC-10",
+    "title": "A task paid last week and re-sent next week is not paid again"
+  },
+  {
+    "file": "notification-failure-keeps-payout.json",
+    "id": "TC-11",
+    "title": "A notification failure is reported and does not reverse the payout"
+  },
+  {
+    "file": "payout-failure-no-notification.json",
+    "id": "TC-12",
+    "title": "No notification when the account's only payout failed"
+  },
+  {
+    "file": "notification-failure.json",
+    "id": "TC-13",
+    "title": "After a failed notification, re-runs deliver it once and pay nothing extra"
+  }
+]

@@ -1,0 +1,42 @@
+{
+  "id": "TC-10",
+  "title": "A task paid last week and re-sent next week is not paid again",
+  "description": "DEF-001. T-801 is paid in the 2-9 Nov run, then re-delivered with a later time in the 9-16 Nov export.",
+  "runAt": "2026-11-10T09:00:00Z",
+  "tasks": [
+    {
+      "taskId": "T-801",
+      "accountId": "acc-D",
+      "status": "completed",
+      "completedAt": "2026-11-05T10:00:00Z"
+    }
+  ],
+  "nextWeek": {
+    "runAt": "2026-11-17T09:00:00Z",
+    "tasks": [
+      {
+        "taskId": "T-801",
+        "accountId": "acc-D",
+        "status": "completed",
+        "completedAt": "2026-11-10T10:00:00Z"
+      }
+    ]
+  },
+  "expect": {
+    "paidByRun": [
+      [
+        "T-801"
+      ],
+      []
+    ],
+    "entriesPerTask": {
+      "T-801": 1
+    },
+    "balances": {
+      "acc-D": 10
+    },
+    "notifications": {
+      "acc-D": 1
+    }
+  }
+}

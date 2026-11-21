@@ -1,0 +1,42 @@
+{
+  "id": "TC-04",
+  "title": "Cut-off: Monday 00:00 start included, next Monday 00:00 excluded",
+  "description": "A task at exactly the start and one at the last millisecond are paid; one at exactly the end belongs to next week. DEF-004. Buggy: T-202 at Sun 23:59:59.999 falls after the Sun 23:59:59 window end and is not paid.",
+  "runAt": "2026-11-10T09:00:00Z",
+  "tasks": [
+    {
+      "taskId": "T-201",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-02T00:00:00.000Z"
+    },
+    {
+      "taskId": "T-202",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-08T23:59:59.999Z"
+    },
+    {
+      "taskId": "T-203",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-09T00:00:00.000Z"
+    }
+  ],
+  "expect": {
+    "paidByRun": [
+      [
+        "T-201",
+        "T-202"
+      ]
+    ],
+    "excludedByRun": [
+      [
+        "T-203"
+      ]
+    ],
+    "balances": {
+      "acc-A": 20
+    }
+  }
+}

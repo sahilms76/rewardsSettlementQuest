@@ -1,0 +1,49 @@
+{
+  "id": "TC-09",
+  "title": "A retry after a partial ledger failure pays only the failed task",
+  "description": "DEF-001. T-702's first ledger write fails. Fixed: the retry pays only T-702 (total 30). Buggy: T-701 and T-703 paid twice (50).",
+  "runAt": "2026-11-10T09:00:00Z",
+  "runs": 2,
+  "failPayoutFor": [
+    "T-702"
+  ],
+  "tasks": [
+    {
+      "taskId": "T-701",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-03T10:00:00Z"
+    },
+    {
+      "taskId": "T-702",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-03T11:00:00Z"
+    },
+    {
+      "taskId": "T-703",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-03T12:00:00Z"
+    }
+  ],
+  "expect": {
+    "paidByRun": [
+      [
+        "T-701",
+        "T-703"
+      ],
+      [
+        "T-702"
+      ]
+    ],
+    "entriesPerTask": {
+      "T-701": 1,
+      "T-702": 1,
+      "T-703": 1
+    },
+    "balances": {
+      "acc-A": 30
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "TC-13",
+  "title": "After a failed notification, re-runs deliver it once and pay nothing extra",
+  "description": "DEF-001. The notification fails on run 1 and the operator re-runs twice. Fixed: 10 credits, one notification. Buggy: run 1's payout is reversed (DEF-002), then each re-run pays again (DEF-001): 20 credits.",
+  "runAt": "2026-11-10T09:00:00Z",
+  "runs": 3,
+  "failNotifications": 1,
+  "tasks": [
+    {
+      "taskId": "T-1101",
+      "accountId": "acc-G",
+      "status": "completed",
+      "completedAt": "2026-11-04T10:00:00Z"
+    }
+  ],
+  "expect": {
+    "paidByRun": [
+      [
+        "T-1101"
+      ],
+      [],
+      []
+    ],
+    "entriesPerTask": {
+      "T-1101": 1
+    },
+    "balances": {
+      "acc-G": 10
+    },
+    "notifications": {
+      "acc-G": 1
+    }
+  }
+}

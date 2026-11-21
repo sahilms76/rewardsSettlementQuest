@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+# Playwright: heavy, regenerated on every run (CI uploads them as artifacts)
+results/e2e-artifacts-*/
+results/e2e-report-*/
+test-results/
+playwright-report/

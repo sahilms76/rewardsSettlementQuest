@@ -1,0 +1,39 @@
+{
+  "id": "TC-02",
+  "title": "A run at Tue 08:59:59 UTC settles the week before",
+  "description": "Before the 09:00 cut-off the job settles [26 Oct, 2 Nov). A task from 30 Oct is paid; one from 4 Nov waits for next week. DEF-005. Buggy: the run is treated as due from Tuesday 00:00, so it settles 2-9 Nov and pays T-022 instead of T-021.",
+  "runAt": "2026-11-10T08:59:59Z",
+  "tasks": [
+    {
+      "taskId": "T-021",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-10-30T12:00:00Z"
+    },
+    {
+      "taskId": "T-022",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-04T12:00:00Z"
+    }
+  ],
+  "expect": {
+    "window": {
+      "start": "2026-10-26T00:00:00.000Z",
+      "end": "2026-11-02T00:00:00.000Z"
+    },
+    "paidByRun": [
+      [
+        "T-021"
+      ]
+    ],
+    "excludedByRun": [
+      [
+        "T-022"
+      ]
+    ],
+    "balances": {
+      "acc-A": 10
+    }
+  }
+}

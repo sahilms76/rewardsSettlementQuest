@@ -1,0 +1,23 @@
+{
+  "id": "TC-01",
+  "title": "Tuesday 09:00 UTC run settles Mon 2 Nov to Mon 9 Nov",
+  "description": "The scheduled run on Tue 10 Nov 09:00 UTC settles [Mon 2 Nov 00:00Z, Mon 9 Nov 00:00Z), end excluded. DEF-004. Buggy: the window ends Sun 08 Nov 23:59:59 with the end included.",
+  "runAt": "2026-11-10T09:00:00Z",
+  "tasks": [
+    {
+      "taskId": "T-001",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-04T10:00:00Z"
+    }
+  ],
+  "expect": {
+    "window": {
+      "start": "2026-11-02T00:00:00.000Z",
+      "end": "2026-11-09T00:00:00.000Z"
+    },
+    "balances": {
+      "acc-A": 10
+    }
+  }
+}

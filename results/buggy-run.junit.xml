@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testsuite name="settlement window [impl=buggy]" time="0.003661" disabled="0" errors="0" tests="2" failures="2" skipped="0" timestamp="2026-11-21T07:11:17.643Z" hostname="local">
+		<testcase name="TC-01: run at Tue 09:00 UTC settles the previous Monday 00:00 to this Monday 00:00 UTC" time="0.002565" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   end: '2026-11-08T23:59:59.000Z',&#10;-   end: '2026-11-09T00:00:00.000Z',&#10;    start: '2026-11-02T00:00:00.000Z'&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   end: '2026-11-08T23:59:59.000Z',&#10;-   end: '2026-11-09T00:00:00.000Z',&#10;    start: '2026-11-02T00:00:00.000Z'&#10;  }">
+Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
++   end: '2026-11-08T23:59:59.000Z',
+-   end: '2026-11-09T00:00:00.000Z',
+    start: '2026-11-02T00:00:00.000Z'
+  }
+
+    at new Promise (&lt;anonymous>)
+    at Array.map (&lt;anonymous>) {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   end: '2026-11-08T23:59:59.000Z',
+  -   end: '2026-11-09T00:00:00.000Z',
+      start: '2026-11-02T00:00:00.000Z'
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:11:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at node:internal/test_runner/test:1867:71
+      at node:internal/per_context/primordials:504:82
+      at new Promise (&lt;anonymous>)
+      at new SafePromise (node:internal/per_context/primordials:478:3)
+      at node:internal/per_context/primordials:504:9
+      at Array.map (&lt;anonymous>) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { start: '2026-11-02T00:00:00.000Z', end: '2026-11-08T23:59:59.000Z' },
+    expected: { start: '2026-11-02T00:00:00.000Z', end: '2026-11-09T00:00:00.000Z' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+		<testcase name="TC-02: run at Tue 08:59:59 UTC is before the cut-off and settles the window one week earlier" time="0.000286" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   end: '2026-11-08T23:59:59.000Z',&#10;+   start: '2026-11-02T00:00:00.000Z'&#10;-   end: '2026-11-02T00:00:00.000Z',&#10;-   start: '2026-10-26T00:00:00.000Z'&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   end: '2026-11-08T23:59:59.000Z',&#10;+   start: '2026-11-02T00:00:00.000Z'&#10;-   end: '2026-11-02T00:00:00.000Z',&#10;-   start: '2026-10-26T00:00:00.000Z'&#10;  }">
+Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
++   end: '2026-11-08T23:59:59.000Z',
++   start: '2026-11-02T00:00:00.000Z'
+-   end: '2026-11-02T00:00:00.000Z',
+-   start: '2026-10-26T00:00:00.000Z'
+  }
+
+    at async Promise.all (index 0) {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   end: '2026-11-08T23:59:59.000Z',
+  +   start: '2026-11-02T00:00:00.000Z'
+  -   end: '2026-11-02T00:00:00.000Z',
+  -   start: '2026-10-26T00:00:00.000Z'
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:19:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1869:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { start: '2026-11-02T00:00:00.000Z', end: '2026-11-08T23:59:59.000Z' },
+    expected: { start: '2026-10-26T00:00:00.000Z', end: '2026-11-02T00:00:00.000Z' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="settlement payouts [impl=buggy]" time="0.003049" disabled="0" errors="0" tests="4" failures="4" skipped="0" timestamp="2026-11-21T07:11:17.646Z" hostname="local">
+		<testcase name="TC-03: happy path pays 10 credits per completed task and notifies each account once with its total" time="0.000939" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  [&#10;    {&#10;      accountId: 'acc-A',&#10;      credits: 20,&#10;      windowStart: '2026-11-02T00:00:00.000Z'&#10;    },&#10;-   {&#10;-     accountId: 'acc-B',&#10;-     credits: 10,&#10;-     windowStart: '2026-11-02T00:00:00.000Z'&#10;-   }&#10;  ]&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  [&#10;    {&#10;      accountId: 'acc-A',&#10;      credits: 20,&#10;      windowStart: '2026-11-02T00:00:00.000Z'&#10;    },&#10;-   {&#10;-     accountId: 'acc-B',&#10;-     credits: 10,&#10;-     windowStart: '2026-11-02T00:00:00.000Z'&#10;-   }&#10;  ]">
+Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  [
+    {
+      accountId: 'acc-A',
+      credits: 20,
+      windowStart: '2026-11-02T00:00:00.000Z'
+    },
+-   {
+-     accountId: 'acc-B',
+-     credits: 10,
+-     windowStart: '2026-11-02T00:00:00.000Z'
+-   }
+  ]
+
+    at async Promise.all (index 0) {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      {
+        accountId: 'acc-A',
+        credits: 20,
+        windowStart: '2026-11-02T00:00:00.000Z'
+      },
+  -   {
+  -     accountId: 'acc-B',
+  -     credits: 10,
+  -     windowStart: '2026-11-02T00:00:00.000Z'
+  -   }
+    ]
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:38:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1869:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ [Object] ],
+    expected: [ [Object], [Object] ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+		<testcase name="TC-04: cut-off boundary pays a task at exactly Monday 00:00 (start) and the last ms before the end, but not one at the end" time="0.000427" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 10,&#10;-   balance: 20,&#10;    excluded: [&#10;+     'T-202',&#10;      'T-203'&#10;    ],&#10;    paid: [&#10;      'T-201',&#10;-     'T-202'&#10;    ]&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 10,&#10;-   balance: 20,&#10;    excluded: [&#10;+     'T-202',&#10;      'T-203'&#10;    ],&#10;    paid: [&#10;      'T-201',&#10;-     'T-202'&#10;    ]&#10;  }">
+[Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
++   balance: 10,
+-   balance: 20,
+    excluded: [
++     'T-202',
+      'T-203'
+    ],
+    paid: [
+      'T-201',
+-     'T-202'
+    ]
+  }
+] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   balance: 10,
+  -   balance: 20,
+      excluded: [
+  +     'T-202',
+        'T-203'
+      ],
+      paid: [
+        'T-201',
+  -     'T-202'
+      ]
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:51:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { paid: [Array], excluded: [Array], balance: 10 },
+    expected: { paid: [Array], excluded: [Array], balance: 20 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+		<testcase name="TC-05: timestamps with a +05:00 offset are converted to UTC before the window check" time="0.001048" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;    balance: 10,&#10;    excluded: [&#10;+     'T-301',&#10;      'T-302',&#10;-     'T-303'&#10;    ],&#10;    paid: [&#10;+     'T-303'&#10;-     'T-301'&#10;    ]&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;    balance: 10,&#10;    excluded: [&#10;+     'T-301',&#10;      'T-302',&#10;-     'T-303'&#10;    ],&#10;    paid: [&#10;+     'T-303'&#10;-     'T-301'&#10;    ]&#10;  }">
+[Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
+    balance: 10,
+    excluded: [
++     'T-301',
+      'T-302',
+-     'T-303'
+    ],
+    paid: [
++     'T-303'
+-     'T-301'
+    ]
+  }
+] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      balance: 10,
+      excluded: [
+  +     'T-301',
+        'T-302',
+  -     'T-303'
+      ],
+      paid: [
+  +     'T-303'
+  -     'T-301'
+      ]
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:64:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { paid: [Array], excluded: [Array], balance: 10 },
+    expected: { paid: [Array], excluded: [Array], balance: 10 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+		<testcase name="TC-06: tasks that are not completed earn nothing and trigger no notification" time="0.000385" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 10,&#10;+   notified: 1,&#10;+   paid: [&#10;+     'T-401'&#10;+   ]&#10;-   balance: 0,&#10;-   notified: 0,&#10;-   paid: []&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 10,&#10;+   notified: 1,&#10;+   paid: [&#10;+     'T-401'&#10;+   ]&#10;-   balance: 0,&#10;-   notified: 0,&#10;-   paid: []&#10;  }">
+[Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
++   balance: 10,
++   notified: 1,
++   paid: [
++     'T-401'
++   ]
+-   balance: 0,
+-   notified: 0,
+-   paid: []
+  }
+] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   balance: 10,
+  +   notified: 1,
+  +   paid: [
+  +     'T-401'
+  +   ]
+  -   balance: 0,
+  -   notified: 0,
+  -   paid: []
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:76:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { paid: [Array], balance: 10, notified: 1 },
+    expected: { paid: [], balance: 0, notified: 0 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="DEF-001 duplicate payout regression [impl=buggy]" time="0.001845" disabled="0" errors="0" tests="4" failures="4" skipped="0" timestamp="2026-11-21T07:11:17.649Z" hostname="local">
+		<testcase name="TC-07: the same task ID twice in one batch is paid once (10 credits, one ledger entry)" time="0.000392" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 20,&#10;+   entriesForTask: 2,&#10;-   balance: 10,&#10;-   entriesForTask: 1,&#10;    notifiedCredits: [&#10;+     20&#10;-     10&#10;    ]&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 20,&#10;+   entriesForTask: 2,&#10;-   balance: 10,&#10;-   entriesForTask: 1,&#10;    notifiedCredits: [&#10;+     20&#10;-     10&#10;    ]&#10;  }">
+Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
++   balance: 20,
++   entriesForTask: 2,
+-   balance: 10,
+-   entriesForTask: 1,
+    notifiedCredits: [
++     20
+-     10
+    ]
+  }
+
+    at async Promise.all (index 0) {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   balance: 20,
+  +   entriesForTask: 2,
+  -   balance: 10,
+  -   entriesForTask: 1,
+      notifiedCredits: [
+  +     20
+  -     10
+      ]
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:90:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1869:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { entriesForTask: 2, balance: 20, notifiedCredits: [Array] },
+    expected: { entriesForTask: 1, balance: 10, notifiedCredits: [Array] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+		<testcase name="TC-08: re-running the whole settlement for the same window pays nothing new and sends no second notification" time="0.000393" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   A: 20,&#10;+   B: 20,&#10;+   entries: 4,&#10;-   A: 10,&#10;-   B: 10,&#10;-   entries: 2,&#10;    notifications: 2,&#10;+   retryAlreadyPaid: [],&#10;+   retryPaid: [&#10;-   retryAlreadyPaid: [&#10;      'T-601',&#10;      'T-602'&#10;    ],&#10;-   retryPaid: []&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   A: 20,&#10;+   B: 20,&#10;+   entries: 4,&#10;-   A: 10,&#10;-   B: 10,&#10;-   entries: 2,&#10;    notifications: 2,&#10;+   retryAlreadyPaid: [],&#10;+   retryPaid: [&#10;-   retryAlreadyPaid: [&#10;      'T-601',&#10;      'T-602'&#10;    ],&#10;-   retryPaid: []&#10;  }">
+[Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
++   A: 20,
++   B: 20,
++   entries: 4,
+-   A: 10,
+-   B: 10,
+-   entries: 2,
+    notifications: 2,
++   retryAlreadyPaid: [],
++   retryPaid: [
+-   retryAlreadyPaid: [
+      'T-601',
+      'T-602'
+    ],
+-   retryPaid: []
+  }
+] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   A: 20,
+  +   B: 20,
+  +   entries: 4,
+  -   A: 10,
+  -   B: 10,
+  -   entries: 2,
+      notifications: 2,
+  +   retryAlreadyPaid: [],
+  +   retryPaid: [
+  -   retryAlreadyPaid: [
+        'T-601',
+        'T-602'
+      ],
+  -   retryPaid: []
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:109:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { entries: 4, A: 20, B: 20, retryPaid: [Array], retryAlreadyPaid: [], notifications: 2 },
+    expected: { entries: 2, A: 10, B: 10, retryPaid: [], retryAlreadyPaid: [Array], notifications: 2 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+		<testcase name="TC-09: a retry after a partial ledger failure pays only the failed task, never the ones already paid" time="0.000474" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;... Skipped lines&#10;&#10;  {&#10;+   balance: 50,&#10;-   balance: 30,&#10;    firstFailed: [&#10;      'T-702'&#10;    ],&#10;    firstPaid: [&#10;      'T-701',&#10;...&#10;    perTaskEntries: [&#10;+     2,&#10;      1,&#10;+     2&#10;-     1,&#10;-     1&#10;    ],&#10;    retryPaid: [&#10;+     'T-701',&#10;      'T-702',&#10;+     'T-703'&#10;    ]&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;... Skipped lines&#10;&#10;  {&#10;+   balance: 50,&#10;-   balance: 30,&#10;    firstFailed: [&#10;      'T-702'&#10;    ],&#10;    firstPaid: [&#10;      'T-701',&#10;...&#10;    perTaskEntries: [&#10;+     2,&#10;      1,&#10;+     2&#10;-     1,&#10;-     1&#10;    ],&#10;    retryPaid: [&#10;+     'T-701',&#10;      'T-702',&#10;+     'T-703'&#10;    ]&#10;  }">
+[Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
++   balance: 50,
+-   balance: 30,
+    firstFailed: [
+      'T-702'
+    ],
+    firstPaid: [
+      'T-701',
+...
+    perTaskEntries: [
++     2,
+      1,
++     2
+-     1,
+-     1
+    ],
+    retryPaid: [
++     'T-701',
+      'T-702',
++     'T-703'
+    ]
+  }
+] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+  +   balance: 50,
+  -   balance: 30,
+      firstFailed: [
+        'T-702'
+      ],
+      firstPaid: [
+        'T-701',
+  ...
+      perTaskEntries: [
+  +     2,
+        1,
+  +     2
+  -     1,
+  -     1
+      ],
+      retryPaid: [
+  +     'T-701',
+        'T-702',
+  +     'T-703'
+      ]
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:132:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { firstPaid: [Array], firstFailed: [Array], retryPaid: [Array], perTaskEntries: [Array], balance: 50 },
+    expected: { firstPaid: [Array], firstFailed: [Array], retryPaid: [Array], perTaskEntries: [Array], balance: 30 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+		<testcase name="TC-10: a task already paid last week and re-sent in next week's export is not paid again" time="0.000376" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 20,&#10;+   entriesForTask: 2,&#10;+   nextWeekNotifications: 1,&#10;+   nextWeekPaid: [&#10;+     'T-801'&#10;+   ]&#10;-   balance: 10,&#10;-   entriesForTask: 1,&#10;-   nextWeekNotifications: 0,&#10;-   nextWeekPaid: []&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 20,&#10;+   entriesForTask: 2,&#10;+   nextWeekNotifications: 1,&#10;+   nextWeekPaid: [&#10;+     'T-801'&#10;+   ]&#10;-   balance: 10,&#10;-   entriesForTask: 1,&#10;-   nextWeekNotifications: 0,&#10;-   nextWeekPaid: []&#10;  }">
+[Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
++   balance: 20,
++   entriesForTask: 2,
++   nextWeekNotifications: 1,
++   nextWeekPaid: [
++     'T-801'
++   ]
+-   balance: 10,
+-   entriesForTask: 1,
+-   nextWeekNotifications: 0,
+-   nextWeekPaid: []
+  }
+] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   balance: 20,
+  +   entriesForTask: 2,
+  +   nextWeekNotifications: 1,
+  +   nextWeekPaid: [
+  +     'T-801'
+  +   ]
+  -   balance: 10,
+  -   entriesForTask: 1,
+  -   nextWeekNotifications: 0,
+  -   nextWeekPaid: []
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:148:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { entriesForTask: 2, balance: 20, nextWeekPaid: [Array], nextWeekNotifications: 1 },
+    expected: { entriesForTask: 1, balance: 10, nextWeekPaid: [], nextWeekNotifications: 0 },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="notification partial failure [impl=buggy]" time="0.001045" disabled="0" errors="0" tests="3" failures="3" skipped="0" timestamp="2026-11-21T07:11:17.650Z" hostname="local">
+		<testcase name="TC-11: a notification failure is reported and does not reverse the payout" time="0.000423" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 0,&#10;-   balance: 10,&#10;    delivered: 0,&#10;    failures: [&#10;      'acc-E'&#10;    ],&#10;    logState: 'failed'&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 0,&#10;-   balance: 10,&#10;    delivered: 0,&#10;    failures: [&#10;      'acc-E'&#10;    ],&#10;    logState: 'failed'">
+Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
++   balance: 0,
+-   balance: 10,
+    delivered: 0,
+    failures: [
+      'acc-E'
+    ],
+    logState: 'failed'
+
+    at async Promise.all (index 0) {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   balance: 0,
+  -   balance: 10,
+      delivered: 0,
+      failures: [
+        'acc-E'
+      ],
+      logState: 'failed'
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:165:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Promise.all (index 0)
+      at async Suite.run (node:internal/test_runner/test:1869:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { balance: 0, delivered: 0, failures: [Array], logState: 'failed' },
+    expected: { balance: 10, delivered: 0, failures: [Array], logState: 'failed' },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+		<testcase name="TC-12: no notification is sent when the account's only payout failed" time="0.000258" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;    balance: 0,&#10;+   notified: 1,&#10;-   notified: 0,&#10;    payoutFailures: [&#10;      'T-1001'&#10;    ]&#10;  }&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;    balance: 0,&#10;+   notified: 1,&#10;-   notified: 0,&#10;    payoutFailures: [&#10;      'T-1001'&#10;    ]&#10;  }">
+[Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
+    balance: 0,
++   notified: 1,
+-   notified: 0,
+    payoutFailures: [
+      'T-1001'
+    ]
+  }
+] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+      balance: 0,
+  +   notified: 1,
+  -   notified: 0,
+      payoutFailures: [
+        'T-1001'
+      ]
+    }
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:180:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { balance: 0, notified: 1, payoutFailures: [Array] },
+    expected: { balance: 0, notified: 0, payoutFailures: [Array] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+		<testcase name="TC-13: after a failed notification, the retry run delivers it exactly once and pays nothing extra" time="0.000264" classname="test" file="<repo>\test\settlement.test.js" failure="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 20,&#10;-   balance: 10,&#10;    sent: [&#10;      {&#10;        accountId: 'acc-G',&#10;        credits: 10,&#10;        windowStart: '2026-11-02T00:00:00.000Z'&#10;">
+			<failure type="testCodeFailure" message="Expected values to be strictly deep-equal:&#10;+ actual - expected&#10;&#10;  {&#10;+   balance: 20,&#10;-   balance: 10,&#10;    sent: [&#10;      {&#10;        accountId: 'acc-G',&#10;        credits: 10,&#10;        windowStart: '2026-11-02T00:00:00.000Z'">
+[Error [ERR_TEST_FAILURE]: Expected values to be strictly deep-equal:
++ actual - expected
+
+  {
++   balance: 20,
+-   balance: 10,
+    sent: [
+      {
+        accountId: 'acc-G',
+        credits: 10,
+        windowStart: '2026-11-02T00:00:00.000Z'
+] {
+  code: 'ERR_TEST_FAILURE',
+  failureType: 'testCodeFailure',
+  cause: AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   balance: 20,
+  -   balance: 10,
+      sent: [
+        {
+          accountId: 'acc-G',
+          credits: 10,
+          windowStart: '2026-11-02T00:00:00.000Z'
+  
+      at TestContext.&lt;anonymous> (<repo>/test/settlement.test.js:197:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { balance: 20, sent: [Array] },
+    expected: { balance: 10, sent: [Array] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+}
+			</failure>
+		</testcase>
+	</testsuite>
+	<!-- tests 13 -->
+	<!-- suites 4 -->
+	<!-- pass 0 -->
+	<!-- fail 13 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 107.9515 -->
+</testsuites>

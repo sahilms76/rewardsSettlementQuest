@@ -1,0 +1,2 @@
+# keep LF line endings so diffs and test output look the same on Windows and Linux
+* text=auto eol=lf

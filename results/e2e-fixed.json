@@ -1,0 +1,642 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "<repo>\\node_modules\\@playwright\\test\\cli.js",
+      "test"
+    ],
+    "configFile": "<repo>\\playwright.config.ts",
+    "rootDir": "<repo>/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "impl": "fixed",
+      "actualWorkers": 11
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "<repo>/results/e2e-artifacts-fixed",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "impl": "fixed",
+          "actualWorkers": 11
+        },
+        "id": "chromium-fixed",
+        "name": "chromium-fixed",
+        "testDir": "<repo>/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "outputFolder": "results/e2e-report-fixed",
+          "open": "never"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "results/e2e-fixed.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 11,
+    "webServer": {
+      "command": "node scripts/serve.js",
+      "url": "http://localhost:4173",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "settlement.spec.ts",
+      "file": "settlement.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Settlement window and qualification [fixed build]",
+          "file": "settlement.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-01: the Tuesday 09:00 UTC run settles Mon 02 Nov 00:00 to Mon 09 Nov 00:00 UTC and pays the task inside it",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1173,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.697Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-affdbebc396a5a8574ff",
+              "file": "settlement.spec.ts",
+              "line": 7,
+              "column": 3
+            },
+            {
+              "title": "TC-02: a run at Tue 08:59:59 UTC settles the previous week, paying a 30 Oct task and leaving a 4 Nov task",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1267,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.766Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-b86c38c349ed7e5bbaad",
+              "file": "settlement.spec.ts",
+              "line": 15,
+              "column": 3
+            },
+            {
+              "title": "TC-03: happy path pays 10 credits per completed task and notifies each account once with its total",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1376,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.767Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-00fd57e3f68202d20c9a",
+              "file": "settlement.spec.ts",
+              "line": 27,
+              "column": 3
+            },
+            {
+              "title": "TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1359,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.729Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-69356070aefe665e5b04",
+              "file": "settlement.spec.ts",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
+                      "status": "passed",
+                      "duration": 2392,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.716Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-94e07d14223593dd2e14",
+              "file": "settlement.spec.ts",
+              "line": 46,
+              "column": 3
+            },
+            {
+              "title": "TC-06: in-progress and cancelled tasks earn nothing, create no ledger entry and trigger no notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1280,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.836Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-1a7c089eac41a37fa1d1",
+              "file": "settlement.spec.ts",
+              "line": 57,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "DEF-001 duplicate payout [fixed build]",
+          "file": "settlement.spec.ts",
+          "line": 68,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-07: the same task ID twice in one export is paid once: one ledger entry, 10 credits, the duplicate row skipped",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 6,
+                      "status": "passed",
+                      "duration": 1906,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.765Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-6a084280275b896925ae",
+              "file": "settlement.spec.ts",
+              "line": 69,
+              "column": 3
+            },
+            {
+              "title": "TC-08: re-running the job for the same week pays nothing new and sends no second notification",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 7,
+                      "status": "passed",
+                      "duration": 1401,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.766Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-9656282b5b741906f72a",
+              "file": "settlement.spec.ts",
+              "line": 78,
+              "column": 3
+            },
+            {
+              "title": "TC-09: after T-702's ledger write fails, the retry pays only T-702 and the account ends on 30 credits",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 8,
+                      "status": "passed",
+                      "duration": 1983,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.801Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-004301c64641523e4fc3",
+              "file": "settlement.spec.ts",
+              "line": 90,
+              "column": 3
+            },
+            {
+              "title": "TC-10: a task paid in the 2-9 Nov run and re-sent in the 9-16 Nov export is not paid or notified again",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 9,
+                      "status": "passed",
+                      "duration": 1420,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.782Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-976eed2a37eebecc18d4",
+              "file": "settlement.spec.ts",
+              "line": 101,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Notification partial failure [fixed build]",
+          "file": "settlement.spec.ts",
+          "line": 115,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-11: a failed notification is reported and the 10-credit payout stays",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 10,
+                      "parallelIndex": 10,
+                      "status": "passed",
+                      "duration": 1305,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:06.833Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-a8d23c116580b6de4fe4",
+              "file": "settlement.spec.ts",
+              "line": 116,
+              "column": 3
+            },
+            {
+              "title": "TC-12: when the account's only payout fails, no credits are recorded and no notification is sent",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 937,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:08.145Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-bc8c54da88e372c396a4",
+              "file": "settlement.spec.ts",
+              "line": 126,
+              "column": 3
+            },
+            {
+              "title": "TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1032,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:08.378Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-874328dc2109b3516591",
+              "file": "settlement.spec.ts",
+              "line": 135,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "Manual input in the test bench [fixed build]",
+          "file": "settlement.spec.ts",
+          "line": 149,
+          "column": 6,
+          "specs": [
+            {
+              "title": "UI-01: a custom task at 00:30 +01:00 on Mon 09 Nov counts as Sun 08 Nov 23:30 UTC and is paid; one at 00:30 +01:00 on Mon 02 Nov is not",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 1107,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:08.509Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-0dba77364dd8815f5888",
+              "file": "settlement.spec.ts",
+              "line": 150,
+              "column": 3
+            },
+            {
+              "title": "UI-02: an invalid completed-at time is rejected with its exact message and nothing is settled",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium-fixed",
+                  "projectName": "chromium-fixed",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 918,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-11-21T07:12:08.545Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "de12aa92550dfc05fc63-7f60759e276ba7b3f06d",
+              "file": "settlement.spec.ts",
+              "line": 175,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-11-21T07:12:05.934Z",
+    "duration": 3771.2830000000004,
+    "expected": 15,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

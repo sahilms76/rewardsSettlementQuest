@@ -1,0 +1,43 @@
+{
+  "id": "TC-03",
+  "title": "Happy path: 10 credits per completed task, one notification per account",
+  "description": "3 completed tasks for 2 accounts. acc-A earns 20, acc-B earns 10, each gets one notification with its total. DEF-008. Buggy: only acc-A is notified; acc-B is paid but never told.",
+  "runAt": "2026-11-10T09:00:00Z",
+  "tasks": [
+    {
+      "taskId": "T-101",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-03T10:00:00Z"
+    },
+    {
+      "taskId": "T-102",
+      "accountId": "acc-A",
+      "status": "completed",
+      "completedAt": "2026-11-05T15:30:00Z"
+    },
+    {
+      "taskId": "T-103",
+      "accountId": "acc-B",
+      "status": "completed",
+      "completedAt": "2026-11-06T08:00:00Z"
+    }
+  ],
+  "expect": {
+    "balances": {
+      "acc-A": 20,
+      "acc-B": 10
+    },
+    "notifications": {
+      "acc-A": 1,
+      "acc-B": 1
+    },
+    "paidByRun": [
+      [
+        "T-101",
+        "T-102",
+        "T-103"
+      ]
+    ]
+  }
+}

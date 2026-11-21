@@ -1,0 +1,31 @@
+{
+  "id": "TC-06",
+  "title": "Tasks that are not completed earn nothing and trigger no notification",
+  "description": "An in_progress and a cancelled task inside the window are excluded. DEF-007. Buggy: the in-progress task T-401 is paid and notified.",
+  "runAt": "2026-11-10T09:00:00Z",
+  "tasks": [
+    {
+      "taskId": "T-401",
+      "accountId": "acc-C",
+      "status": "in_progress",
+      "completedAt": "2026-11-04T12:00:00Z"
+    },
+    {
+      "taskId": "T-402",
+      "accountId": "acc-C",
+      "status": "cancelled",
+      "completedAt": "2026-11-04T13:00:00Z"
+    }
+  ],
+  "expect": {
+    "balances": {
+      "acc-C": 0
+    },
+    "notifications": {
+      "acc-C": 0
+    },
+    "paidByRun": [
+      []
+    ]
+  }
+}
