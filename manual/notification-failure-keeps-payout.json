@@ -1,7 +1,7 @@
 {
   "id": "TC-11",
   "title": "A notification failure is reported and does not reverse the payout",
-  "description": "DEF-002. The notification provider fails once. Fixed: the 10 credits stay and the failure is reported. Buggy: the payout is reversed (0 credits, no ledger entry).",
+  "description": "The notification provider fails once. The 10 credits stay and the failure is reported. Same result on both builds (control).",
   "runAt": "2026-11-10T09:00:00Z",
   "failNotifications": 1,
   "tasks": [

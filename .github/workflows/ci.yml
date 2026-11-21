@@ -17,7 +17,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - name: "Gate 1: unit regression on the shipped build"
         run: npm test
-      - name: "Gate 2: unit suite detects DEF-001..DEF-008 on the faulty build"
+      - name: "Gate 2: unit suite detects DEF-001 on the faulty build"
         run: npm run evidence
       - name: Upload unit evidence
         if: always()
@@ -40,7 +40,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: "Gate 3: Playwright regression on the shipped build"
         run: npm run e2e
-      - name: "Gate 4: Playwright suite detects DEF-001..DEF-008 on the faulty build"
+      - name: "Gate 4: Playwright suite detects DEF-001 on the faulty build"
         run: npm run e2e:evidence
       - name: Upload E2E evidence and HTML reports
         if: always()

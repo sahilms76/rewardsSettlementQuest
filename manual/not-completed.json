@@ -1,7 +1,7 @@
 {
   "id": "TC-06",
   "title": "Tasks that are not completed earn nothing and trigger no notification",
-  "description": "An in_progress and a cancelled task inside the window are excluded. DEF-007. Buggy: the in-progress task T-401 is paid and notified.",
+  "description": "An in_progress and a cancelled task inside the window are excluded. Same result on both builds (control).",
   "runAt": "2026-11-10T09:00:00Z",
   "tasks": [
     {

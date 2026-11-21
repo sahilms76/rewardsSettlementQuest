@@ -2,7 +2,7 @@ import { spawnSync } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-const EXPECTED_BUGGY_FAILURES = ["TC-01", "TC-02", "TC-03", "TC-04", "TC-05", "TC-06", "TC-07", "TC-08", "TC-09", "TC-10", "TC-11", "TC-12", "TC-13", "UI-01"];
+const EXPECTED_BUGGY_FAILURES = ["TC-07", "TC-08", "TC-09", "TC-10", "TC-13"];
 const cli = join("node_modules", "@playwright", "test", "cli.js");
 mkdirSync("results", { recursive: true });
 
@@ -48,7 +48,7 @@ writeFileSync(
     `| Case | Outcome asserted | Faulty build | Fixed build |\n|---|---|---|---|\n${rows}\n\n` +
     `- Faulty build failures: ${buggyFailures.join(", ") || "none"} (expected ${EXPECTED_BUGGY_FAILURES.join(", ")})\n` +
     `- Fixed build not passing: ${fixedNotPassing.join(", ") || "none"}\n` +
-    `- Verdict: ${ok ? "PASS: the E2E regression detects DEF-001..DEF-008 and the fix resolves them" : "UNEXPECTED: inspect results/e2e-*-run.txt"}\n` +
+    `- Verdict: ${ok ? "PASS: the E2E regression detects DEF-001 and the fix resolves it" : "UNEXPECTED: inspect results/e2e-*-run.txt"}\n` +
     `\nHTML reports: \`results/e2e-report-buggy/index.html\`, \`results/e2e-report-fixed/index.html\` (open with \`npx playwright show-report results/e2e-report-buggy\`).\n`,
 );
 

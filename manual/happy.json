@@ -1,7 +1,7 @@
 {
   "id": "TC-03",
   "title": "Happy path: 10 credits per completed task, one notification per account",
-  "description": "3 completed tasks for 2 accounts. acc-A earns 20, acc-B earns 10, each gets one notification with its total. DEF-008. Buggy: only acc-A is notified; acc-B is paid but never told.",
+  "description": "3 completed tasks for 2 accounts. acc-A earns 20, acc-B earns 10, each gets one notification with its total. Same result on both builds (control).",
   "runAt": "2026-11-10T09:00:00Z",
   "tasks": [
     {

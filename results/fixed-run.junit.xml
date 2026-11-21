@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <testsuites>
-	<testsuite name="settlement window [impl=fixed]" time="0.002935" disabled="0" errors="0" tests="2" failures="0" skipped="0" timestamp="2026-11-21T07:11:17.804Z" hostname="local">
-		<testcase name="TC-01: run at Tue 09:00 UTC settles the previous Monday 00:00 to this Monday 00:00 UTC" time="0.001899" classname="test" file="<repo>\test\settlement.test.js"/>
-		<testcase name="TC-02: run at Tue 08:59:59 UTC is before the cut-off and settles the window one week earlier" time="0.000138" classname="test" file="<repo>\test\settlement.test.js"/>
+	<testsuite name="settlement window [impl=fixed]" time="0.002710" disabled="0" errors="0" tests="2" failures="0" skipped="0" timestamp="2026-11-21T07:47:07.080Z" hostname="local">
+		<testcase name="TC-01: run at Tue 09:00 UTC settles the previous Monday 00:00 to this Monday 00:00 UTC" time="0.001786" classname="test" file="<repo>\test\settlement.test.js"/>
+		<testcase name="TC-02: run at Tue 08:59:59 UTC is before the cut-off and settles the window one week earlier" time="0.000162" classname="test" file="<repo>\test\settlement.test.js"/>
 	</testsuite>
-	<testsuite name="settlement payouts [impl=fixed]" time="0.001506" disabled="0" errors="0" tests="4" failures="0" skipped="0" timestamp="2026-11-21T07:11:17.807Z" hostname="local">
-		<testcase name="TC-03: happy path pays 10 credits per completed task and notifies each account once with its total" time="0.000703" classname="test" file="<repo>\test\settlement.test.js"/>
-		<testcase name="TC-04: cut-off boundary pays a task at exactly Monday 00:00 (start) and the last ms before the end, but not one at the end" time="0.000205" classname="test" file="<repo>\test\settlement.test.js"/>
-		<testcase name="TC-05: timestamps with a +05:00 offset are converted to UTC before the window check" time="0.000204" classname="test" file="<repo>\test\settlement.test.js"/>
-		<testcase name="TC-06: tasks that are not completed earn nothing and trigger no notification" time="0.000183" classname="test" file="<repo>\test\settlement.test.js"/>
+	<testsuite name="settlement payouts [impl=fixed]" time="0.001467" disabled="0" errors="0" tests="4" failures="0" skipped="0" timestamp="2026-11-21T07:47:07.083Z" hostname="local">
+		<testcase name="TC-03: happy path pays 10 credits per completed task and notifies each account once with its total" time="0.000645" classname="test" file="<repo>\test\settlement.test.js"/>
+		<testcase name="TC-04: cut-off boundary pays a task at exactly Monday 00:00 (start) and the last ms before the end, but not one at the end" time="0.000199" classname="test" file="<repo>\test\settlement.test.js"/>
+		<testcase name="TC-05: timestamps with a +05:00 offset are converted to UTC before the window check" time="0.000211" classname="test" file="<repo>\test\settlement.test.js"/>
+		<testcase name="TC-06: tasks that are not completed earn nothing and trigger no notification" time="0.000208" classname="test" file="<repo>\test\settlement.test.js"/>
 	</testsuite>
-	<testsuite name="DEF-001 duplicate payout regression [impl=fixed]" time="0.002051" disabled="0" errors="0" tests="4" failures="0" skipped="0" timestamp="2026-11-21T07:11:17.807Z" hostname="local">
-		<testcase name="TC-07: the same task ID twice in one batch is paid once (10 credits, one ledger entry)" time="0.000356" classname="test" file="<repo>\test\settlement.test.js"/>
-		<testcase name="TC-08: re-running the whole settlement for the same window pays nothing new and sends no second notification" time="0.000882" classname="test" file="<repo>\test\settlement.test.js"/>
-		<testcase name="TC-09: a retry after a partial ledger failure pays only the failed task, never the ones already paid" time="0.000310" classname="test" file="<repo>\test\settlement.test.js"/>
-		<testcase name="TC-10: a task already paid last week and re-sent in next week's export is not paid again" time="0.000246" classname="test" file="<repo>\test\settlement.test.js"/>
+	<testsuite name="DEF-001 duplicate payout regression [impl=fixed]" time="0.002169" disabled="0" errors="0" tests="4" failures="0" skipped="0" timestamp="2026-11-21T07:47:07.084Z" hostname="local">
+		<testcase name="TC-07: the same task ID twice in one batch is paid once (10 credits, one ledger entry)" time="0.000321" classname="test" file="<repo>\test\settlement.test.js"/>
+		<testcase name="TC-08: re-running the whole settlement for the same window pays nothing new and sends no second notification" time="0.000257" classname="test" file="<repo>\test\settlement.test.js"/>
+		<testcase name="TC-09: a retry after a partial ledger failure pays only the failed task, never the ones already paid" time="0.000379" classname="test" file="<repo>\test\settlement.test.js"/>
+		<testcase name="TC-10: a task already paid last week and re-sent in next week's export is not paid again" time="0.000245" classname="test" file="<repo>\test\settlement.test.js"/>
 	</testsuite>
-	<testsuite name="notification partial failure [impl=fixed]" time="0.000676" disabled="0" errors="0" tests="3" failures="0" skipped="0" timestamp="2026-11-21T07:11:17.810Z" hostname="local">
-		<testcase name="TC-11: a notification failure is reported and does not reverse the payout" time="0.000263" classname="test" file="<repo>\test\settlement.test.js"/>
+	<testsuite name="notification partial failure [impl=fixed]" time="0.000786" disabled="0" errors="0" tests="3" failures="0" skipped="0" timestamp="2026-11-21T07:47:07.087Z" hostname="local">
+		<testcase name="TC-11: a notification failure is reported and does not reverse the payout" time="0.000294" classname="test" file="<repo>\test\settlement.test.js"/>
 		<testcase name="TC-12: no notification is sent when the account's only payout failed" time="0.000164" classname="test" file="<repo>\test\settlement.test.js"/>
-		<testcase name="TC-13: after a failed notification, the retry run delivers it exactly once and pays nothing extra" time="0.000156" classname="test" file="<repo>\test\settlement.test.js"/>
+		<testcase name="TC-13: after a failed notification, the retry run delivers it exactly once and pays nothing extra" time="0.000169" classname="test" file="<repo>\test\settlement.test.js"/>
 	</testsuite>
 	<!-- tests 13 -->
 	<!-- suites 4 -->
@@ -28,5 +28,5 @@
 	<!-- cancelled 0 -->
 	<!-- skipped 0 -->
 	<!-- todo 0 -->
-	<!-- duration_ms 99.2492 -->
+	<!-- duration_ms 101.1864 -->
 </testsuites>

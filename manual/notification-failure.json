@@ -1,7 +1,7 @@
 {
   "id": "TC-13",
   "title": "After a failed notification, re-runs deliver it once and pay nothing extra",
-  "description": "DEF-001. The notification fails on run 1 and the operator re-runs twice. Fixed: 10 credits, one notification. Buggy: run 1's payout is reversed (DEF-002), then each re-run pays again (DEF-001): 20 credits.",
+  "description": "DEF-001. The notification fails on run 1 and the operator re-runs twice. Fixed: 10 credits, one notification. Buggy: each re-run pays again, 30 credits.",
   "runAt": "2026-11-10T09:00:00Z",
   "runs": 3,
   "failNotifications": 1,

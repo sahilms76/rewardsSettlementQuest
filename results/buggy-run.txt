@@ -1,216 +1,42 @@
 Implementation: buggy
 Node: v24.19.0
-Run at: 2026-11-21T07:11:17.676Z
+Run at: 2026-11-21T07:47:06.944Z
 Exit code: 1
 ------------------------------------------------------------
 ▶ settlement window [impl=buggy]
-  ✖ TC-01: run at Tue 09:00 UTC settles the previous Monday 00:00 to this Monday 00:00 UTC (2.5647ms)
-  ✖ TC-02: run at Tue 08:59:59 UTC is before the cut-off and settles the window one week earlier (0.2862ms)
-✖ settlement window [impl=buggy] (3.6613ms)
+  ✔ TC-01: run at Tue 09:00 UTC settles the previous Monday 00:00 to this Monday 00:00 UTC (1.5145ms)
+  ✔ TC-02: run at Tue 08:59:59 UTC is before the cut-off and settles the window one week earlier (0.1205ms)
+✔ settlement window [impl=buggy] (2.3467ms)
 ▶ settlement payouts [impl=buggy]
-  ✖ TC-03: happy path pays 10 credits per completed task and notifies each account once with its total (0.9393ms)
-  ✖ TC-04: cut-off boundary pays a task at exactly Monday 00:00 (start) and the last ms before the end, but not one at the end (0.4274ms)
-  ✖ TC-05: timestamps with a +05:00 offset are converted to UTC before the window check (1.0475ms)
-  ✖ TC-06: tasks that are not completed earn nothing and trigger no notification (0.3849ms)
-✖ settlement payouts [impl=buggy] (3.0486ms)
+  ✔ TC-03: happy path pays 10 credits per completed task and notifies each account once with its total (0.5514ms)
+  ✔ TC-04: cut-off boundary pays a task at exactly Monday 00:00 (start) and the last ms before the end, but not one at the end (0.1915ms)
+  ✔ TC-05: timestamps with a +05:00 offset are converted to UTC before the window check (0.1844ms)
+  ✔ TC-06: tasks that are not completed earn nothing and trigger no notification (0.1592ms)
+✔ settlement payouts [impl=buggy] (1.2706ms)
 ▶ DEF-001 duplicate payout regression [impl=buggy]
-  ✖ TC-07: the same task ID twice in one batch is paid once (10 credits, one ledger entry) (0.3918ms)
-  ✖ TC-08: re-running the whole settlement for the same window pays nothing new and sends no second notification (0.3934ms)
-  ✖ TC-09: a retry after a partial ledger failure pays only the failed task, never the ones already paid (0.4745ms)
-  ✖ TC-10: a task already paid last week and re-sent in next week's export is not paid again (0.376ms)
-✖ DEF-001 duplicate payout regression [impl=buggy] (1.8454ms)
+  ✖ TC-07: the same task ID twice in one batch is paid once (10 credits, one ledger entry) (1.7326ms)
+  ✖ TC-08: re-running the whole settlement for the same window pays nothing new and sends no second notification (0.3978ms)
+  ✖ TC-09: a retry after a partial ledger failure pays only the failed task, never the ones already paid (0.3903ms)
+  ✖ TC-10: a task already paid last week and re-sent in next week's export is not paid again (0.3663ms)
+✖ DEF-001 duplicate payout regression [impl=buggy] (3.0979ms)
 ▶ notification partial failure [impl=buggy]
-  ✖ TC-11: a notification failure is reported and does not reverse the payout (0.4233ms)
-  ✖ TC-12: no notification is sent when the account's only payout failed (0.2575ms)
-  ✖ TC-13: after a failed notification, the retry run delivers it exactly once and pays nothing extra (0.2639ms)
-✖ notification partial failure [impl=buggy] (1.045ms)
+  ✔ TC-11: a notification failure is reported and does not reverse the payout (0.2686ms)
+  ✔ TC-12: no notification is sent when the account's only payout failed (0.1614ms)
+  ✖ TC-13: after a failed notification, the retry run delivers it exactly once and pays nothing extra (0.2431ms)
+✖ notification partial failure [impl=buggy] (0.7769ms)
 ℹ tests 13
 ℹ suites 4
-ℹ pass 0
-ℹ fail 13
+ℹ pass 8
+ℹ fail 5
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 107.9515
+ℹ duration_ms 108.3673
 
 ✖ failing tests:
 
-test at test\settlement.test.js:9:3
-✖ TC-01: run at Tue 09:00 UTC settles the previous Monday 00:00 to this Monday 00:00 UTC (2.5647ms)
-  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-  + actual - expected
-  
-    {
-  +   end: '2026-11-08T23:59:59.000Z',
-  -   end: '2026-11-09T00:00:00.000Z',
-      start: '2026-11-02T00:00:00.000Z'
-    }
-  
-      at TestContext.<anonymous> (<repo>/test/settlement.test.js:11:12)
-      at Test.runInAsyncScope (node:async_hooks:227:14)
-      at Test.run (node:internal/test_runner/test:1382:25)
-      at Test.start (node:internal/test_runner/test:1242:17)
-      at node:internal/test_runner/test:1867:71
-      at node:internal/per_context/primordials:504:82
-      at new Promise (<anonymous>)
-      at new SafePromise (node:internal/per_context/primordials:478:3)
-      at node:internal/per_context/primordials:504:9
-      at Array.map (<anonymous>) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: { start: '2026-11-02T00:00:00.000Z', end: '2026-11-08T23:59:59.000Z' },
-    expected: { start: '2026-11-02T00:00:00.000Z', end: '2026-11-09T00:00:00.000Z' },
-    operator: 'deepStrictEqual',
-    diff: 'simple'
-  }
-
-test at test\settlement.test.js:17:3
-✖ TC-02: run at Tue 08:59:59 UTC is before the cut-off and settles the window one week earlier (0.2862ms)
-  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-  + actual - expected
-  
-    {
-  +   end: '2026-11-08T23:59:59.000Z',
-  +   start: '2026-11-02T00:00:00.000Z'
-  -   end: '2026-11-02T00:00:00.000Z',
-  -   start: '2026-10-26T00:00:00.000Z'
-    }
-  
-      at TestContext.<anonymous> (<repo>/test/settlement.test.js:19:12)
-      at Test.runInAsyncScope (node:async_hooks:227:14)
-      at Test.run (node:internal/test_runner/test:1382:25)
-      at Suite.processPendingSubtests (node:internal/test_runner/test:960:18)
-      at Test.postRun (node:internal/test_runner/test:1522:19)
-      at Test.run (node:internal/test_runner/test:1447:12)
-      at async Promise.all (index 0)
-      at async Suite.run (node:internal/test_runner/test:1869:7)
-      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: { start: '2026-11-02T00:00:00.000Z', end: '2026-11-08T23:59:59.000Z' },
-    expected: { start: '2026-10-26T00:00:00.000Z', end: '2026-11-02T00:00:00.000Z' },
-    operator: 'deepStrictEqual',
-    diff: 'simple'
-  }
-
-test at test\settlement.test.js:27:3
-✖ TC-03: happy path pays 10 credits per completed task and notifies each account once with its total (0.9393ms)
-  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-  + actual - expected
-  
-    [
-      {
-        accountId: 'acc-A',
-        credits: 20,
-        windowStart: '2026-11-02T00:00:00.000Z'
-      },
-  -   {
-  -     accountId: 'acc-B',
-  -     credits: 10,
-  -     windowStart: '2026-11-02T00:00:00.000Z'
-  -   }
-    ]
-  
-      at TestContext.<anonymous> (<repo>/test/settlement.test.js:38:12)
-      at async Test.run (node:internal/test_runner/test:1389:7)
-      at async Promise.all (index 0)
-      at async Suite.run (node:internal/test_runner/test:1869:7)
-      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: [ { accountId: 'acc-A', windowStart: '2026-11-02T00:00:00.000Z', credits: 20 } ],
-    expected: [ { accountId: 'acc-A', windowStart: '2026-11-02T00:00:00.000Z', credits: 20 }, { accountId: 'acc-B', windowStart: '2026-11-02T00:00:00.000Z', credits: 10 } ],
-    operator: 'deepStrictEqual',
-    diff: 'simple'
-  }
-
-test at test\settlement.test.js:44:3
-✖ TC-04: cut-off boundary pays a task at exactly Monday 00:00 (start) and the last ms before the end, but not one at the end (0.4274ms)
-  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-  + actual - expected
-  
-    {
-  +   balance: 10,
-  -   balance: 20,
-      excluded: [
-  +     'T-202',
-        'T-203'
-      ],
-      paid: [
-        'T-201',
-  -     'T-202'
-      ]
-    }
-  
-      at TestContext.<anonymous> (<repo>/test/settlement.test.js:51:12)
-      at async Test.run (node:internal/test_runner/test:1389:7)
-      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: { paid: [ 'T-201' ], excluded: [ 'T-202', 'T-203' ], balance: 10 },
-    expected: { paid: [ 'T-201', 'T-202' ], excluded: [ 'T-203' ], balance: 20 },
-    operator: 'deepStrictEqual',
-    diff: 'simple'
-  }
-
-test at test\settlement.test.js:57:3
-✖ TC-05: timestamps with a +05:00 offset are converted to UTC before the window check (1.0475ms)
-  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-  + actual - expected
-  
-    {
-      balance: 10,
-      excluded: [
-  +     'T-301',
-        'T-302',
-  -     'T-303'
-      ],
-      paid: [
-  +     'T-303'
-  -     'T-301'
-      ]
-    }
-  
-      at TestContext.<anonymous> (<repo>/test/settlement.test.js:64:12)
-      at async Test.run (node:internal/test_runner/test:1389:7)
-      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: { paid: [ 'T-303' ], excluded: [ 'T-301', 'T-302' ], balance: 10 },
-    expected: { paid: [ 'T-301' ], excluded: [ 'T-302', 'T-303' ], balance: 10 },
-    operator: 'deepStrictEqual',
-    diff: 'simple'
-  }
-
-test at test\settlement.test.js:70:3
-✖ TC-06: tasks that are not completed earn nothing and trigger no notification (0.3849ms)
-  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-  + actual - expected
-  
-    {
-  +   balance: 10,
-  +   notified: 1,
-  +   paid: [
-  +     'T-401'
-  +   ]
-  -   balance: 0,
-  -   notified: 0,
-  -   paid: []
-    }
-  
-      at TestContext.<anonymous> (<repo>/test/settlement.test.js:76:12)
-      at async Test.run (node:internal/test_runner/test:1389:7)
-      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: { paid: [ 'T-401' ], balance: 10, notified: 1 },
-    expected: { paid: [], balance: 0, notified: 0 },
-    operator: 'deepStrictEqual',
-    diff: 'simple'
-  }
-
 test at test\settlement.test.js:84:3
-✖ TC-07: the same task ID twice in one batch is paid once (10 credits, one ledger entry) (0.3918ms)
+✖ TC-07: the same task ID twice in one batch is paid once (10 credits, one ledger entry) (1.7326ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
   
@@ -239,7 +65,7 @@ test at test\settlement.test.js:84:3
   }
 
 test at test\settlement.test.js:101:3
-✖ TC-08: re-running the whole settlement for the same window pays nothing new and sends no second notification (0.3934ms)
+✖ TC-08: re-running the whole settlement for the same window pays nothing new and sends no second notification (0.3978ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
   
@@ -272,7 +98,7 @@ test at test\settlement.test.js:101:3
   }
 
 test at test\settlement.test.js:122:3
-✖ TC-09: a retry after a partial ledger failure pays only the failed task, never the ones already paid (0.4745ms)
+✖ TC-09: a retry after a partial ledger failure pays only the failed task, never the ones already paid (0.3903ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
   ... Skipped lines
@@ -312,7 +138,7 @@ test at test\settlement.test.js:122:3
   }
 
 test at test\settlement.test.js:144:3
-✖ TC-10: a task already paid last week and re-sent in next week's export is not paid again (0.376ms)
+✖ TC-10: a task already paid last week and re-sent in next week's export is not paid again (0.3663ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
   
@@ -340,78 +166,30 @@ test at test\settlement.test.js:144:3
     diff: 'simple'
   }
 
-test at test\settlement.test.js:161:3
-✖ TC-11: a notification failure is reported and does not reverse the payout (0.4233ms)
-  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-  + actual - expected
-  
-    {
-  +   balance: 0,
-  -   balance: 10,
-      delivered: 0,
-      failures: [
-        'acc-E'
-      ],
-      logState: 'failed'
-  
-      at TestContext.<anonymous> (<repo>/test/settlement.test.js:165:12)
-      at async Test.run (node:internal/test_runner/test:1389:7)
-      at async Promise.all (index 0)
-      at async Suite.run (node:internal/test_runner/test:1869:7)
-      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: { balance: 0, delivered: 0, failures: [ 'acc-E' ], logState: 'failed' },
-    expected: { balance: 10, delivered: 0, failures: [ 'acc-E' ], logState: 'failed' },
-    operator: 'deepStrictEqual',
-    diff: 'simple'
-  }
-
-test at test\settlement.test.js:176:3
-✖ TC-12: no notification is sent when the account's only payout failed (0.2575ms)
-  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
-  + actual - expected
-  
-    {
-      balance: 0,
-  +   notified: 1,
-  -   notified: 0,
-      payoutFailures: [
-        'T-1001'
-      ]
-    }
-  
-      at TestContext.<anonymous> (<repo>/test/settlement.test.js:180:12)
-      at async Test.run (node:internal/test_runner/test:1389:7)
-      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
-    generatedMessage: true,
-    code: 'ERR_ASSERTION',
-    actual: { balance: 0, notified: 1, payoutFailures: [ 'T-1001' ] },
-    expected: { balance: 0, notified: 0, payoutFailures: [ 'T-1001' ] },
-    operator: 'deepStrictEqual',
-    diff: 'simple'
-  }
-
 test at test\settlement.test.js:190:3
-✖ TC-13: after a failed notification, the retry run delivers it exactly once and pays nothing extra (0.2639ms)
+✖ TC-13: after a failed notification, the retry run delivers it exactly once and pays nothing extra (0.2431ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
   + actual - expected
   
     {
-  +   balance: 20,
+  +   balance: 30,
   -   balance: 10,
       sent: [
         {
           accountId: 'acc-G',
-          credits: 10,
+  +       credits: 20,
+  -       credits: 10,
           windowStart: '2026-11-02T00:00:00.000Z'
+        }
+      ]
+    }
   
       at TestContext.<anonymous> (<repo>/test/settlement.test.js:197:12)
       at async Test.run (node:internal/test_runner/test:1389:7)
       at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
     generatedMessage: true,
     code: 'ERR_ASSERTION',
-    actual: { balance: 20, sent: [ [Object] ] },
+    actual: { balance: 30, sent: [ [Object] ] },
     expected: { balance: 10, sent: [ [Object] ] },
     operator: 'deepStrictEqual',
     diff: 'simple'

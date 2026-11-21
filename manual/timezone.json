@@ -1,7 +1,7 @@
 {
   "id": "TC-05",
   "title": "+05:00 timestamps are converted to UTC before the window check",
-  "description": "04:59 PKT Mon 9 Nov is Sun 23:59 UTC (paid). 05:00 PKT is Mon 00:00 UTC (excluded). 03:00 PKT Mon 2 Nov is Sun 1 Nov 22:00 UTC (excluded). DEF-006. Buggy: the +05:00 offset is ignored, so T-303 is paid and T-301 is not.",
+  "description": "04:59 PKT Mon 9 Nov is Sun 23:59 UTC (paid). 05:00 PKT is Mon 00:00 UTC (excluded). 03:00 PKT Mon 2 Nov is Sun 1 Nov 22:00 UTC (excluded). Same result on both builds (control).",
   "runAt": "2026-11-10T09:00:00Z",
   "tasks": [
     {

@@ -1,643 +1,41 @@
 Implementation: buggy
-Run at: 2026-11-21T07:12:05.414Z
+Run at: 2026-11-21T07:47:41.757Z
 Exit code: 1
 ------------------------------------------------------------
 
 Running 15 tests using 11 workers
 
-  x   4 [chromium-buggy] › e2e\settlement.spec.ts:7:3 › Settlement window and qualification [buggy build] › TC-01: the Tuesday 09:00 UTC run settles Mon 02 Nov 00:00 to Mon 09 Nov 00:00 UTC and pays the task inside it (11.2s)
-  x  11 [chromium-buggy] › e2e\settlement.spec.ts:116:3 › Notification partial failure [buggy build] › TC-11: a failed notification is reported and the 10-credit payout stays (16.5s)
-  x   7 [chromium-buggy] › e2e\settlement.spec.ts:46:3 › Settlement window and qualification [buggy build] › TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid (16.6s)
-  x   1 [chromium-buggy] › e2e\settlement.spec.ts:27:3 › Settlement window and qualification [buggy build] › TC-03: happy path pays 10 credits per completed task and notifies each account once with its total (16.9s)
-  ok 15 [chromium-buggy] › e2e\settlement.spec.ts:175:3 › Manual input in the test bench [buggy build] › UI-02: an invalid completed-at time is rejected with its exact message and nothing is settled (523ms)
-  x   5 [chromium-buggy] › e2e\settlement.spec.ts:15:3 › Settlement window and qualification [buggy build] › TC-02: a run at Tue 08:59:59 UTC settles the previous week, paying a 30 Oct task and leaving a 4 Nov task (21.4s)
-  x   3 [chromium-buggy] › e2e\settlement.spec.ts:38:3 › Settlement window and qualification [buggy build] › TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not (21.6s)
-  x  10 [chromium-buggy] › e2e\settlement.spec.ts:69:3 › DEF-001 duplicate payout [buggy build] › TC-07: the same task ID twice in one export is paid once: one ledger entry, 10 credits, the duplicate row skipped (26.7s)
-  x  12 [chromium-buggy] › e2e\settlement.spec.ts:126:3 › Notification partial failure [buggy build] › TC-12: when the account's only payout fails, no credits are recorded and no notification is sent (15.5s)
-  x   9 [chromium-buggy] › e2e\settlement.spec.ts:101:3 › DEF-001 duplicate payout [buggy build] › TC-10: a task paid in the 2-9 Nov run and re-sent in the 9-16 Nov export is not paid or notified again (30.1s)
-  x   6 [chromium-buggy] › e2e\settlement.spec.ts:90:3 › DEF-001 duplicate payout [buggy build] › TC-09: after T-702's ledger write fails, the retry pays only T-702 and the account ends on 30 credits (30.1s)
-  x   8 [chromium-buggy] › e2e\settlement.spec.ts:78:3 › DEF-001 duplicate payout [buggy build] › TC-08: re-running the job for the same week pays nothing new and sends no second notification (30.2s)
-  x   2 [chromium-buggy] › e2e\settlement.spec.ts:57:3 › Settlement window and qualification [buggy build] › TC-06: in-progress and cancelled tasks earn nothing, create no ledger entry and trigger no notification (30.2s)
-  x  14 [chromium-buggy] › e2e\settlement.spec.ts:150:3 › Manual input in the test bench [buggy build] › UI-01: a custom task at 00:30 +01:00 on Mon 09 Nov counts as Sun 08 Nov 23:30 UTC and is paid; one at 00:30 +01:00 on Mon 02 Nov is not (15.8s)
-  x  13 [chromium-buggy] › e2e\settlement.spec.ts:135:3 › Notification partial failure [buggy build] › TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again (25.7s)
+  ok  3 [chromium-buggy] › e2e\settlement.spec.ts:38:3 › Settlement window and qualification [buggy build] › TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not (1.8s)
+  ok  1 [chromium-buggy] › e2e\settlement.spec.ts:7:3 › Settlement window and qualification [buggy build] › TC-01: the Tuesday 09:00 UTC run settles Mon 02 Nov 00:00 to Mon 09 Nov 00:00 UTC and pays the task inside it (1.8s)
+  ok  5 [chromium-buggy] › e2e\settlement.spec.ts:57:3 › Settlement window and qualification [buggy build] › TC-06: in-progress and cancelled tasks earn nothing, create no ledger entry and trigger no notification (1.8s)
+  ok  7 [chromium-buggy] › e2e\settlement.spec.ts:46:3 › Settlement window and qualification [buggy build] › TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid (1.8s)
+  ok  8 [chromium-buggy] › e2e\settlement.spec.ts:116:3 › Notification partial failure [buggy build] › TC-11: a failed notification is reported and the 10-credit payout stays (1.8s)
+  ok  2 [chromium-buggy] › e2e\settlement.spec.ts:27:3 › Settlement window and qualification [buggy build] › TC-03: happy path pays 10 credits per completed task and notifies each account once with its total (1.9s)
+  ok  6 [chromium-buggy] › e2e\settlement.spec.ts:15:3 › Settlement window and qualification [buggy build] › TC-02: a run at Tue 08:59:59 UTC settles the previous week, paying a 30 Oct task and leaving a 4 Nov task (1.6s)
+  ok 12 [chromium-buggy] › e2e\settlement.spec.ts:126:3 › Notification partial failure [buggy build] › TC-12: when the account's only payout fails, no credits are recorded and no notification is sent (729ms)
+  ok 15 [chromium-buggy] › e2e\settlement.spec.ts:175:3 › Manual input in the test bench [buggy build] › UI-02: an invalid completed-at time is rejected with its exact message and nothing is settled (739ms)
+  ok 14 [chromium-buggy] › e2e\settlement.spec.ts:150:3 › Manual input in the test bench [buggy build] › UI-01: a custom task at 00:30 +01:00 on Mon 09 Nov counts as Sun 08 Nov 23:30 UTC and is paid; one at 00:30 +01:00 on Mon 02 Nov is not (894ms)
+  x  10 [chromium-buggy] › e2e\settlement.spec.ts:69:3 › DEF-001 duplicate payout [buggy build] › TC-07: the same task ID twice in one export is paid once: one ledger entry, 10 credits, the duplicate row skipped (26.8s)
+  x   9 [chromium-buggy] › e2e\settlement.spec.ts:90:3 › DEF-001 duplicate payout [buggy build] › TC-09: after T-702's ledger write fails, the retry pays only T-702 and the account ends on 30 credits (30.2s)
+  x   4 [chromium-buggy] › e2e\settlement.spec.ts:78:3 › DEF-001 duplicate payout [buggy build] › TC-08: re-running the job for the same week pays nothing new and sends no second notification (30.2s)
+  x  11 [chromium-buggy] › e2e\settlement.spec.ts:101:3 › DEF-001 duplicate payout [buggy build] › TC-10: a task paid in the 2-9 Nov run and re-sent in the 9-16 Nov export is not paid or notified again (30.2s)
+  x  13 [chromium-buggy] › e2e\settlement.spec.ts:135:3 › Notification partial failure [buggy build] › TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again (30.1s)
 
 
-  1) [chromium-buggy] › e2e\settlement.spec.ts:7:3 › Settlement window and qualification [buggy build] › TC-01: the Tuesday 09:00 UTC run settles Mon 02 Nov 00:00 to Mon 09 Nov 00:00 UTC and pays the task inside it 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('rule-check-text')
-    Expected: "OK: no business rule broken"
-    Received: "RULE BROKEN: BR-2"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
-      - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULE BROKEN: BR-2</span>
-           - unexpected value "RULE BROKEN: BR-2"
-
-
-       7 |   test("TC-01: the Tuesday 09:00 UTC run settles Mon 02 Nov 00:00 to Mon 09 Nov 00:00 UTC and pays the task inside it", async ({ bench }) => {
-       8 |     await bench.runScenario("TC-01");
-    >  9 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-         |                                        ^
-      10 |     await expect.soft(bench.runField(1, "window")).toHaveText(WEEK_2_TO_9_NOV);
-      11 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-001");
-      12 |     await expect.soft(bench.balance("acc-A")).toHaveText("10");
-        at <repo>\e2e\settlement.spec.ts:9:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-window')
-    Expected: "Mon 02 Nov 2026 00:00 UTC to Mon 09 Nov 2026 00:00 UTC (end excluded)"
-    Received: "Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:59:59 UTC (end included)"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-window') with timeout 5000ms
-      - waiting for getByTestId('run-1-window')
-        14 × locator resolved to <dd data-testid="run-1-window">Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:5…</dd>
-           - unexpected value "Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:59:59 UTC (end included)"
-
-
-       8 |     await bench.runScenario("TC-01");
-       9 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-    > 10 |     await expect.soft(bench.runField(1, "window")).toHaveText(WEEK_2_TO_9_NOV);
-         |                                                    ^
-      11 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-001");
-      12 |     await expect.soft(bench.balance("acc-A")).toHaveText("10");
-      13 |   });
-        at <repo>\e2e\settlement.spec.ts:10:52
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-1e036-and-pays-the-task-inside-it-chromium-buggy\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: results\e2e-artifacts-buggy\settlement-Settlement-wind-1e036-and-pays-the-task-inside-it-chromium-buggy\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-1e036-and-pays-the-task-inside-it-chromium-buggy\trace.zip
-    Usage:
-
-        npx playwright show-trace results\e2e-artifacts-buggy\settlement-Settlement-wind-1e036-and-pays-the-task-inside-it-chromium-buggy\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  2) [chromium-buggy] › e2e\settlement.spec.ts:15:3 › Settlement window and qualification [buggy build] › TC-02: a run at Tue 08:59:59 UTC settles the previous week, paying a 30 Oct task and leaving a 4 Nov task 
+  1) [chromium-buggy] › e2e\settlement.spec.ts:69:3 › DEF-001 duplicate payout [buggy build] › TC-07: the same task ID twice in one export is paid once: one ledger entry, 10 credits, the duplicate row skipped 
 
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('rule-check-text')
     Expected: "OK: no business rule broken"
-    Received: "RULE BROKEN: BR-1"
+    Received: "RULE BROKEN: BR-5"
     Timeout:  5000ms
 
     Call log:
       - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
       - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULE BROKEN: BR-1</span>
-           - unexpected value "RULE BROKEN: BR-1"
-
-
-      15 |   test("TC-02: a run at Tue 08:59:59 UTC settles the previous week, paying a 30 Oct task and leaving a 4 Nov task", async ({ bench }) => {
-      16 |     await bench.runScenario("TC-02");
-    > 17 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-         |                                        ^
-      18 |     await expect.soft(bench.runAtHint).toHaveText("= Tue 10 Nov 2026 08:59:59 UTC");
-      19 |     await expect.soft(bench.runField(1, "window")).toHaveText(
-      20 |       "Mon 26 Oct 2026 00:00 UTC to Mon 02 Nov 2026 00:00 UTC (end excluded)",
-        at <repo>\e2e\settlement.spec.ts:17:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-window')
-    Expected: "Mon 26 Oct 2026 00:00 UTC to Mon 02 Nov 2026 00:00 UTC (end excluded)"
-    Received: "Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:59:59 UTC (end included)"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-window') with timeout 5000ms
-      - waiting for getByTestId('run-1-window')
-        14 × locator resolved to <dd data-testid="run-1-window">Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:5…</dd>
-           - unexpected value "Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:59:59 UTC (end included)"
-
-
-      17 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-      18 |     await expect.soft(bench.runAtHint).toHaveText("= Tue 10 Nov 2026 08:59:59 UTC");
-    > 19 |     await expect.soft(bench.runField(1, "window")).toHaveText(
-         |                                                    ^
-      20 |       "Mon 26 Oct 2026 00:00 UTC to Mon 02 Nov 2026 00:00 UTC (end excluded)",
-      21 |     );
-      22 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-021");
-        at <repo>\e2e\settlement.spec.ts:19:52
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-paid')
-    Expected: "T-021"
-    Received: "T-022"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-paid') with timeout 5000ms
-      - waiting for getByTestId('run-1-paid')
-        14 × locator resolved to <dd data-testid="run-1-paid">T-022</dd>
-           - unexpected value "T-022"
-
-
-      20 |       "Mon 26 Oct 2026 00:00 UTC to Mon 02 Nov 2026 00:00 UTC (end excluded)",
-      21 |     );
-    > 22 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-021");
-         |                                                  ^
-      23 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-022");
-      24 |     await expect.soft(bench.balance("acc-A")).toHaveText("10");
-      25 |   });
-        at <repo>\e2e\settlement.spec.ts:22:50
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-excluded')
-    Expected: "T-022"
-    Received: "T-021"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-excluded') with timeout 5000ms
-      - waiting for getByTestId('run-1-excluded')
-        14 × locator resolved to <dd data-testid="run-1-excluded">T-021</dd>
-           - unexpected value "T-021"
-
-
-      21 |     );
-      22 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-021");
-    > 23 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-022");
-         |                                                      ^
-      24 |     await expect.soft(bench.balance("acc-A")).toHaveText("10");
-      25 |   });
-      26 |
-        at <repo>\e2e\settlement.spec.ts:23:54
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-a9cd9-sk-and-leaving-a-4-Nov-task-chromium-buggy\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: results\e2e-artifacts-buggy\settlement-Settlement-wind-a9cd9-sk-and-leaving-a-4-Nov-task-chromium-buggy\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-a9cd9-sk-and-leaving-a-4-Nov-task-chromium-buggy\trace.zip
-    Usage:
-
-        npx playwright show-trace results\e2e-artifacts-buggy\settlement-Settlement-wind-a9cd9-sk-and-leaving-a-4-Nov-task-chromium-buggy\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  3) [chromium-buggy] › e2e\settlement.spec.ts:27:3 › Settlement window and qualification [buggy build] › TC-03: happy path pays 10 credits per completed task and notifies each account once with its total 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('rule-check-text')
-    Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-6"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
-      - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-6</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-6"
-
-
-      27 |   test("TC-03: happy path pays 10 credits per completed task and notifies each account once with its total", async ({ bench }) => {
-      28 |     await bench.runScenario("TC-03");
-    > 29 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-         |                                        ^
-      30 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-101, T-102, T-103");
-      31 |     await expect.soft(bench.balance("acc-A")).toHaveText("20");
-      32 |     await expect.soft(bench.balance("acc-B")).toHaveText("10");
-        at <repo>\e2e\settlement.spec.ts:29:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-notifications-sent')
-    Expected: "acc-A (20 credits), acc-B (10 credits)"
-    Received: "acc-A (20 credits)"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-notifications-sent') with timeout 5000ms
-      - waiting for getByTestId('run-1-notifications-sent')
-        14 × locator resolved to <dd data-testid="run-1-notifications-sent">acc-A (20 credits)</dd>
-           - unexpected value "acc-A (20 credits)"
-
-
-      31 |     await expect.soft(bench.balance("acc-A")).toHaveText("20");
-      32 |     await expect.soft(bench.balance("acc-B")).toHaveText("10");
-    > 33 |     await expect.soft(bench.runField(1, "notifications-sent")).toHaveText("acc-A (20 credits), acc-B (10 credits)");
-         |                                                                ^
-      34 |     await expect.soft(bench.notifications("acc-A")).toHaveText("1");
-      35 |     await expect.soft(bench.notifications("acc-B")).toHaveText("1");
-      36 |   });
-        at <repo>\e2e\settlement.spec.ts:33:64
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('notifications-acc-B')
-    Expected: "1"
-    Received: "0"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('notifications-acc-B') with timeout 5000ms
-      - waiting for getByTestId('notifications-acc-B')
-        14 × locator resolved to <td class="num" data-testid="notifications-acc-B">0</td>
-           - unexpected value "0"
-
-
-      33 |     await expect.soft(bench.runField(1, "notifications-sent")).toHaveText("acc-A (20 credits), acc-B (10 credits)");
-      34 |     await expect.soft(bench.notifications("acc-A")).toHaveText("1");
-    > 35 |     await expect.soft(bench.notifications("acc-B")).toHaveText("1");
-         |                                                     ^
-      36 |   });
-      37 |
-      38 |   test("TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not", async ({ bench }) => {
-        at <repo>\e2e\settlement.spec.ts:35:53
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-6a413-account-once-with-its-total-chromium-buggy\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: results\e2e-artifacts-buggy\settlement-Settlement-wind-6a413-account-once-with-its-total-chromium-buggy\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-6a413-account-once-with-its-total-chromium-buggy\trace.zip
-    Usage:
-
-        npx playwright show-trace results\e2e-artifacts-buggy\settlement-Settlement-wind-6a413-account-once-with-its-total-chromium-buggy\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  4) [chromium-buggy] › e2e\settlement.spec.ts:38:3 › Settlement window and qualification [buggy build] › TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('rule-check-text')
-    Expected: "OK: no business rule broken"
-    Received: "RULE BROKEN: BR-2"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
-      - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULE BROKEN: BR-2</span>
-           - unexpected value "RULE BROKEN: BR-2"
-
-
-      38 |   test("TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not", async ({ bench }) => {
-      39 |     await bench.runScenario("TC-04");
-    > 40 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-         |                                        ^
-      41 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-201, T-202");
-      42 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-203");
-      43 |     await expect.soft(bench.balance("acc-A")).toHaveText("20");
-        at <repo>\e2e\settlement.spec.ts:40:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-paid')
-    Expected: "T-201, T-202"
-    Received: "T-201"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-paid') with timeout 5000ms
-      - waiting for getByTestId('run-1-paid')
-        14 × locator resolved to <dd data-testid="run-1-paid">T-201</dd>
-           - unexpected value "T-201"
-
-
-      39 |     await bench.runScenario("TC-04");
-      40 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-    > 41 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-201, T-202");
-         |                                                  ^
-      42 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-203");
-      43 |     await expect.soft(bench.balance("acc-A")).toHaveText("20");
-      44 |   });
-        at <repo>\e2e\settlement.spec.ts:41:50
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-excluded')
-    Expected: "T-203"
-    Received: "T-202, T-203"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-excluded') with timeout 5000ms
-      - waiting for getByTestId('run-1-excluded')
-        14 × locator resolved to <dd data-testid="run-1-excluded">T-202, T-203</dd>
-           - unexpected value "T-202, T-203"
-
-
-      40 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-      41 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-201, T-202");
-    > 42 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-203");
-         |                                                      ^
-      43 |     await expect.soft(bench.balance("acc-A")).toHaveText("20");
-      44 |   });
-      45 |
-        at <repo>\e2e\settlement.spec.ts:42:54
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('balance-acc-A')
-    Expected: "20"
-    Received: "10"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('balance-acc-A') with timeout 5000ms
-      - waiting for getByTestId('balance-acc-A')
-        14 × locator resolved to <td class="num" data-testid="balance-acc-A">10</td>
-           - unexpected value "10"
-
-
-      41 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-201, T-202");
-      42 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-203");
-    > 43 |     await expect.soft(bench.balance("acc-A")).toHaveText("20");
-         |                                               ^
-      44 |   });
-      45 |
-      46 |   test("TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid", async ({ bench }) => {
-        at <repo>\e2e\settlement.spec.ts:43:47
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-aac4b-he-next-Monday-00-00-is-not-chromium-buggy\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: results\e2e-artifacts-buggy\settlement-Settlement-wind-aac4b-he-next-Monday-00-00-is-not-chromium-buggy\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-aac4b-he-next-Monday-00-00-is-not-chromium-buggy\trace.zip
-    Usage:
-
-        npx playwright show-trace results\e2e-artifacts-buggy\settlement-Settlement-wind-aac4b-he-next-Monday-00-00-is-not-chromium-buggy\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  5) [chromium-buggy] › e2e\settlement.spec.ts:46:3 › Settlement window and qualification [buggy build] › TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('rule-check-text')
-    Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-3"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
-      - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-3</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-3"
-
-
-      46 |   test("TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid", async ({ bench }) => {
-      47 |     await bench.runScenario("TC-05");
-    > 48 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-         |                                        ^
-      49 |     await expect.soft(bench.task(0).utc).toHaveText("= Sun 08 Nov 2026 23:59 UTC");
-      50 |     await expect.soft(bench.task(1).utc).toHaveText("= Mon 09 Nov 2026 00:00 UTC");
-      51 |     await expect.soft(bench.task(2).utc).toHaveText("= Sun 01 Nov 2026 22:00 UTC");
-        at <repo>\e2e\settlement.spec.ts:48:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-paid')
-    Expected: "T-301"
-    Received: "T-303"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-paid') with timeout 5000ms
-      - waiting for getByTestId('run-1-paid')
-        14 × locator resolved to <dd data-testid="run-1-paid">T-303</dd>
-           - unexpected value "T-303"
-
-
-      50 |     await expect.soft(bench.task(1).utc).toHaveText("= Mon 09 Nov 2026 00:00 UTC");
-      51 |     await expect.soft(bench.task(2).utc).toHaveText("= Sun 01 Nov 2026 22:00 UTC");
-    > 52 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-301");
-         |                                                  ^
-      53 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-302, T-303");
-      54 |     await expect.soft(bench.balance("acc-A")).toHaveText("10");
-      55 |   });
-        at <repo>\e2e\settlement.spec.ts:52:50
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-excluded')
-    Expected: "T-302, T-303"
-    Received: "T-301, T-302"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-excluded') with timeout 5000ms
-      - waiting for getByTestId('run-1-excluded')
-        14 × locator resolved to <dd data-testid="run-1-excluded">T-301, T-302</dd>
-           - unexpected value "T-301, T-302"
-
-
-      51 |     await expect.soft(bench.task(2).utc).toHaveText("= Sun 01 Nov 2026 22:00 UTC");
-      52 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-301");
-    > 53 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-302, T-303");
-         |                                                      ^
-      54 |     await expect.soft(bench.balance("acc-A")).toHaveText("10");
-      55 |   });
-      56 |
-        at <repo>\e2e\settlement.spec.ts:53:54
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-8174a-un-08-Nov-23-59-UTC-is-paid-chromium-buggy\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: results\e2e-artifacts-buggy\settlement-Settlement-wind-8174a-un-08-Nov-23-59-UTC-is-paid-chromium-buggy\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-8174a-un-08-Nov-23-59-UTC-is-paid-chromium-buggy\trace.zip
-    Usage:
-
-        npx playwright show-trace results\e2e-artifacts-buggy\settlement-Settlement-wind-8174a-un-08-Nov-23-59-UTC-is-paid-chromium-buggy\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  6) [chromium-buggy] › e2e\settlement.spec.ts:57:3 › Settlement window and qualification [buggy build] › TC-06: in-progress and cancelled tasks earn nothing, create no ledger entry and trigger no notification 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('rule-check-text')
-    Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-4"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
-      - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-4</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-4"
-
-
-      57 |   test("TC-06: in-progress and cancelled tasks earn nothing, create no ledger entry and trigger no notification", async ({ bench }) => {
-      58 |     await bench.runScenario("TC-06");
-    > 59 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-         |                                        ^
-      60 |     await expect.soft(bench.runField(1, "paid")).toHaveText("none");
-      61 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-401, T-402");
-      62 |     await expect.soft(bench.balance("acc-C")).toHaveText("0");
-        at <repo>\e2e\settlement.spec.ts:59:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-paid')
-    Expected: "none"
-    Received: "T-401"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-paid') with timeout 5000ms
-      - waiting for getByTestId('run-1-paid')
-        14 × locator resolved to <dd data-testid="run-1-paid">T-401</dd>
-           - unexpected value "T-401"
-
-
-      58 |     await bench.runScenario("TC-06");
-      59 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-    > 60 |     await expect.soft(bench.runField(1, "paid")).toHaveText("none");
-         |                                                  ^
-      61 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-401, T-402");
-      62 |     await expect.soft(bench.balance("acc-C")).toHaveText("0");
-      63 |     await expect.soft(bench.notifications("acc-C")).toHaveText("0");
-        at <repo>\e2e\settlement.spec.ts:60:50
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-excluded')
-    Expected: "T-401, T-402"
-    Received: "T-402"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-excluded') with timeout 5000ms
-      - waiting for getByTestId('run-1-excluded')
-        14 × locator resolved to <dd data-testid="run-1-excluded">T-402</dd>
-           - unexpected value "T-402"
-
-
-      59 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-      60 |     await expect.soft(bench.runField(1, "paid")).toHaveText("none");
-    > 61 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-401, T-402");
-         |                                                      ^
-      62 |     await expect.soft(bench.balance("acc-C")).toHaveText("0");
-      63 |     await expect.soft(bench.notifications("acc-C")).toHaveText("0");
-      64 |     await expect.soft(bench.entriesEmpty).toHaveText("No ledger entries.");
-        at <repo>\e2e\settlement.spec.ts:61:54
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('balance-acc-C')
-    Expected: "0"
-    Received: "10"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('balance-acc-C') with timeout 5000ms
-      - waiting for getByTestId('balance-acc-C')
-        14 × locator resolved to <td class="num" data-testid="balance-acc-C">10</td>
-           - unexpected value "10"
-
-
-      60 |     await expect.soft(bench.runField(1, "paid")).toHaveText("none");
-      61 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-401, T-402");
-    > 62 |     await expect.soft(bench.balance("acc-C")).toHaveText("0");
-         |                                               ^
-      63 |     await expect.soft(bench.notifications("acc-C")).toHaveText("0");
-      64 |     await expect.soft(bench.entriesEmpty).toHaveText("No ledger entries.");
-      65 |   });
-        at <repo>\e2e\settlement.spec.ts:62:47
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('notifications-acc-C')
-    Expected: "0"
-    Received: "1"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('notifications-acc-C') with timeout 5000ms
-      - waiting for getByTestId('notifications-acc-C')
-        14 × locator resolved to <td class="num" data-testid="notifications-acc-C">1</td>
-           - unexpected value "1"
-
-
-      61 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-401, T-402");
-      62 |     await expect.soft(bench.balance("acc-C")).toHaveText("0");
-    > 63 |     await expect.soft(bench.notifications("acc-C")).toHaveText("0");
-         |                                                     ^
-      64 |     await expect.soft(bench.entriesEmpty).toHaveText("No ledger entries.");
-      65 |   });
-      66 | });
-        at <repo>\e2e\settlement.spec.ts:63:53
-
-    Test timeout of 30000ms exceeded.
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator: getByTestId('entries-empty')
-    Expected: "No ledger entries."
-    Error: element(s) not found
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('entries-empty') with timeout 5000ms
-      - waiting for getByTestId('entries-empty')
-      - Test ended.
-
-
-      62 |     await expect.soft(bench.balance("acc-C")).toHaveText("0");
-      63 |     await expect.soft(bench.notifications("acc-C")).toHaveText("0");
-    > 64 |     await expect.soft(bench.entriesEmpty).toHaveText("No ledger entries.");
-         |                                           ^
-      65 |   });
-      66 | });
-      67 |
-        at <repo>\e2e\settlement.spec.ts:64:43
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-06980-and-trigger-no-notification-chromium-buggy\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: results\e2e-artifacts-buggy\settlement-Settlement-wind-06980-and-trigger-no-notification-chromium-buggy\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Settlement-wind-06980-and-trigger-no-notification-chromium-buggy\trace.zip
-    Usage:
-
-        npx playwright show-trace results\e2e-artifacts-buggy\settlement-Settlement-wind-06980-and-trigger-no-notification-chromium-buggy\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  7) [chromium-buggy] › e2e\settlement.spec.ts:69:3 › DEF-001 duplicate payout [buggy build] › TC-07: the same task ID twice in one export is paid once: one ledger entry, 10 credits, the duplicate row skipped 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('rule-check-text')
-    Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-5"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
-      - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-5</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-5"
+        14 × locator resolved to <span data-testid="rule-check-text">RULE BROKEN: BR-5</span>
+           - unexpected value "RULE BROKEN: BR-5"
 
 
       69 |   test("TC-07: the same task ID twice in one export is paid once: one ledger entry, 10 credits, the duplicate row skipped", async ({ bench }) => {
@@ -755,20 +153,20 @@ Running 15 tests using 11 workers
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-  8) [chromium-buggy] › e2e\settlement.spec.ts:78:3 › DEF-001 duplicate payout [buggy build] › TC-08: re-running the job for the same week pays nothing new and sends no second notification 
+  2) [chromium-buggy] › e2e\settlement.spec.ts:78:3 › DEF-001 duplicate payout [buggy build] › TC-08: re-running the job for the same week pays nothing new and sends no second notification 
 
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('rule-check-text')
     Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-5, BR-6"
+    Received: "RULE BROKEN: BR-5"
     Timeout:  5000ms
 
     Call log:
       - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
       - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-5, BR-6</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-5, BR-6"
+        14 × locator resolved to <span data-testid="rule-check-text">RULE BROKEN: BR-5</span>
+           - unexpected value "RULE BROKEN: BR-5"
 
 
       78 |   test("TC-08: re-running the job for the same week pays nothing new and sends no second notification", async ({ bench }) => {
@@ -828,29 +226,6 @@ Running 15 tests using 11 workers
 
     Error: expect(locator).toHaveText(expected) failed
 
-    Locator:  getByTestId('run-2-notifications-sent')
-    Expected: "none"
-    Received: "acc-B (10 credits)"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-2-notifications-sent') with timeout 5000ms
-      - waiting for getByTestId('run-2-notifications-sent')
-        14 × locator resolved to <dd data-testid="run-2-notifications-sent">acc-B (10 credits)</dd>
-           - unexpected value "acc-B (10 credits)"
-
-
-      81 |     await expect.soft(bench.runField(2, "paid")).toHaveText("none");
-      82 |     await expect.soft(bench.runField(2, "already-paid")).toHaveText("T-601, T-602");
-    > 83 |     await expect.soft(bench.runField(2, "notifications-sent")).toHaveText("none");
-         |                                                                ^
-      84 |     await expect.soft(bench.balance("acc-A")).toHaveText("10");
-      85 |     await expect.soft(bench.balance("acc-B")).toHaveText("10");
-      86 |     await expect.soft(bench.entries("T-601")).toHaveText("1");
-        at <repo>\e2e\settlement.spec.ts:83:64
-
-    Error: expect(locator).toHaveText(expected) failed
-
     Locator:  getByTestId('balance-acc-A')
     Expected: "10"
     Received: "20"
@@ -872,20 +247,18 @@ Running 15 tests using 11 workers
       87 |     await expect.soft(bench.entries("T-602")).toHaveText("1");
         at <repo>\e2e\settlement.spec.ts:84:47
 
-    Test timeout of 30000ms exceeded.
-
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('balance-acc-B')
     Expected: "10"
     Received: "20"
+    Timeout:  5000ms
 
     Call log:
       - Expect "soft toHaveText" getByTestId('balance-acc-B') with timeout 5000ms
       - waiting for getByTestId('balance-acc-B')
-        12 × locator resolved to <td class="num" data-testid="balance-acc-B">20</td>
+        14 × locator resolved to <td class="num" data-testid="balance-acc-B">20</td>
            - unexpected value "20"
-      - Test ended.
 
 
       83 |     await expect.soft(bench.runField(2, "notifications-sent")).toHaveText("none");
@@ -897,11 +270,20 @@ Running 15 tests using 11 workers
       88 |   });
         at <repo>\e2e\settlement.spec.ts:85:47
 
+    Test timeout of 30000ms exceeded.
+
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('entries-T-601')
     Expected: "1"
-    Received: ""
+    Received: "2"
+
+    Call log:
+      - Expect "soft toHaveText" getByTestId('entries-T-601') with timeout 5000ms
+      - waiting for getByTestId('entries-T-601')
+        11 × locator resolved to <td class="num bad" data-testid="entries-T-601">2</td>
+           - unexpected value "2"
+      - Test ended.
 
 
       84 |     await expect.soft(bench.balance("acc-A")).toHaveText("10");
@@ -943,20 +325,20 @@ Running 15 tests using 11 workers
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-  9) [chromium-buggy] › e2e\settlement.spec.ts:90:3 › DEF-001 duplicate payout [buggy build] › TC-09: after T-702's ledger write fails, the retry pays only T-702 and the account ends on 30 credits 
+  3) [chromium-buggy] › e2e\settlement.spec.ts:90:3 › DEF-001 duplicate payout [buggy build] › TC-09: after T-702's ledger write fails, the retry pays only T-702 and the account ends on 30 credits 
 
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('rule-check-text')
     Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-5, BR-6"
+    Received: "RULE BROKEN: BR-5"
     Timeout:  5000ms
 
     Call log:
       - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
       - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-5, BR-6</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-5, BR-6"
+        14 × locator resolved to <span data-testid="rule-check-text">RULE BROKEN: BR-5</span>
+           - unexpected value "RULE BROKEN: BR-5"
 
 
       90 |   test("TC-09: after T-702's ledger write fails, the retry pays only T-702 and the account ends on 30 credits", async ({ bench }) => {
@@ -1099,20 +481,20 @@ Running 15 tests using 11 workers
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-  10) [chromium-buggy] › e2e\settlement.spec.ts:101:3 › DEF-001 duplicate payout [buggy build] › TC-10: a task paid in the 2-9 Nov run and re-sent in the 9-16 Nov export is not paid or notified again 
+  4) [chromium-buggy] › e2e\settlement.spec.ts:101:3 › DEF-001 duplicate payout [buggy build] › TC-10: a task paid in the 2-9 Nov run and re-sent in the 9-16 Nov export is not paid or notified again 
 
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('rule-check-text')
     Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-5"
+    Received: "RULE BROKEN: BR-5"
     Timeout:  5000ms
 
     Call log:
       - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
       - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-5</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-5"
+        14 × locator resolved to <span data-testid="rule-check-text">RULE BROKEN: BR-5</span>
+           - unexpected value "RULE BROKEN: BR-5"
 
 
       101 |   test("TC-10: a task paid in the 2-9 Nov run and re-sent in the 9-16 Nov export is not paid or notified again", async ({ bench }) => {
@@ -1123,29 +505,6 @@ Running 15 tests using 11 workers
       105 |       "Mon 09 Nov 2026 00:00 UTC to Mon 16 Nov 2026 00:00 UTC (end excluded)",
       106 |     );
         at <repo>\e2e\settlement.spec.ts:103:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-2-window')
-    Expected: "Mon 09 Nov 2026 00:00 UTC to Mon 16 Nov 2026 00:00 UTC (end excluded)"
-    Received: "Mon 09 Nov 2026 00:00 UTC to Sun 15 Nov 2026 23:59:59 UTC (end included)"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-2-window') with timeout 5000ms
-      - waiting for getByTestId('run-2-window')
-        14 × locator resolved to <dd data-testid="run-2-window">Mon 09 Nov 2026 00:00 UTC to Sun 15 Nov 2026 23:5…</dd>
-           - unexpected value "Mon 09 Nov 2026 00:00 UTC to Sun 15 Nov 2026 23:59:59 UTC (end included)"
-
-
-      102 |     await bench.runScenario("TC-10");
-      103 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-    > 104 |     await expect.soft(bench.runField(2, "window")).toHaveText(
-          |                                                    ^
-      105 |       "Mon 09 Nov 2026 00:00 UTC to Mon 16 Nov 2026 00:00 UTC (end excluded)",
-      106 |     );
-      107 |     await expect.soft(bench.runField(2, "paid")).toHaveText("none");
-        at <repo>\e2e\settlement.spec.ts:104:52
 
     Error: expect(locator).toHaveText(expected) failed
 
@@ -1216,20 +575,18 @@ Running 15 tests using 11 workers
       112 |   });
         at <repo>\e2e\settlement.spec.ts:109:64
 
-    Test timeout of 30000ms exceeded.
-
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('entries-T-801')
     Expected: "1"
     Received: "2"
+    Timeout:  5000ms
 
     Call log:
       - Expect "soft toHaveText" getByTestId('entries-T-801') with timeout 5000ms
       - waiting for getByTestId('entries-T-801')
-        12 × locator resolved to <td class="num bad" data-testid="entries-T-801">2</td>
+        14 × locator resolved to <td class="num bad" data-testid="entries-T-801">2</td>
            - unexpected value "2"
-      - Test ended.
 
 
       108 |     await expect.soft(bench.runField(2, "already-paid")).toHaveText("T-801");
@@ -1241,11 +598,20 @@ Running 15 tests using 11 workers
       113 | });
         at <repo>\e2e\settlement.spec.ts:110:47
 
+    Test timeout of 30000ms exceeded.
+
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('balance-acc-D')
     Expected: "10"
-    Received: ""
+    Received: "20"
+
+    Call log:
+      - Expect "soft toHaveText" getByTestId('balance-acc-D') with timeout 5000ms
+      - waiting for getByTestId('balance-acc-D')
+        11 × locator resolved to <td class="num" data-testid="balance-acc-D">20</td>
+           - unexpected value "20"
+      - Test ended.
 
 
       109 |     await expect.soft(bench.runField(2, "notifications-sent")).toHaveText("none");
@@ -1271,190 +637,20 @@ Running 15 tests using 11 workers
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-  11) [chromium-buggy] › e2e\settlement.spec.ts:116:3 › Notification partial failure [buggy build] › TC-11: a failed notification is reported and the 10-credit payout stays 
+  5) [chromium-buggy] › e2e\settlement.spec.ts:135:3 › Notification partial failure [buggy build] › TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again 
 
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('rule-check-text')
     Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-7"
+    Received: "RULE BROKEN: BR-5"
     Timeout:  5000ms
 
     Call log:
       - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
       - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-7</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-7"
-
-
-      116 |   test("TC-11: a failed notification is reported and the 10-credit payout stays", async ({ bench }) => {
-      117 |     await bench.runScenario("TC-11");
-    > 118 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-          |                                        ^
-      119 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-901");
-      120 |     await expect.soft(bench.runField(1, "notification-failures")).toHaveText("acc-E");
-      121 |     await expect.soft(bench.runField(1, "notifications-sent")).toHaveText("none");
-        at <repo>\e2e\settlement.spec.ts:118:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-paid')
-    Expected: "T-901"
-    Received: "none"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-paid') with timeout 5000ms
-      - waiting for getByTestId('run-1-paid')
-        14 × locator resolved to <dd data-testid="run-1-paid">none</dd>
-           - unexpected value "none"
-
-
-      117 |     await bench.runScenario("TC-11");
-      118 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-    > 119 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-901");
-          |                                                  ^
-      120 |     await expect.soft(bench.runField(1, "notification-failures")).toHaveText("acc-E");
-      121 |     await expect.soft(bench.runField(1, "notifications-sent")).toHaveText("none");
-      122 |     await expect.soft(bench.balance("acc-E")).toHaveText("10");
-        at <repo>\e2e\settlement.spec.ts:119:50
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('balance-acc-E')
-    Expected: "10"
-    Received: "0"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('balance-acc-E') with timeout 5000ms
-      - waiting for getByTestId('balance-acc-E')
-        14 × locator resolved to <td class="num" data-testid="balance-acc-E">0</td>
-           - unexpected value "0"
-
-
-      120 |     await expect.soft(bench.runField(1, "notification-failures")).toHaveText("acc-E");
-      121 |     await expect.soft(bench.runField(1, "notifications-sent")).toHaveText("none");
-    > 122 |     await expect.soft(bench.balance("acc-E")).toHaveText("10");
-          |                                               ^
-      123 |     await expect.soft(bench.notifications("acc-E")).toHaveText("0");
-      124 |   });
-      125 |
-        at <repo>\e2e\settlement.spec.ts:122:47
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Notification-pa-78837--the-10-credit-payout-stays-chromium-buggy\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: results\e2e-artifacts-buggy\settlement-Notification-pa-78837--the-10-credit-payout-stays-chromium-buggy\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Notification-pa-78837--the-10-credit-payout-stays-chromium-buggy\trace.zip
-    Usage:
-
-        npx playwright show-trace results\e2e-artifacts-buggy\settlement-Notification-pa-78837--the-10-credit-payout-stays-chromium-buggy\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  12) [chromium-buggy] › e2e\settlement.spec.ts:126:3 › Notification partial failure [buggy build] › TC-12: when the account's only payout fails, no credits are recorded and no notification is sent 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('rule-check-text')
-    Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-6"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
-      - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-6</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-6"
-
-
-      126 |   test("TC-12: when the account's only payout fails, no credits are recorded and no notification is sent", async ({ bench }) => {
-      127 |     await bench.runScenario("TC-12");
-    > 128 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-          |                                        ^
-      129 |     await expect.soft(bench.runField(1, "payout-failures")).toHaveText("T-1001");
-      130 |     await expect.soft(bench.runField(1, "notifications-sent")).toHaveText("none");
-      131 |     await expect.soft(bench.balance("acc-F")).toHaveText("0");
-        at <repo>\e2e\settlement.spec.ts:128:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-notifications-sent')
-    Expected: "none"
-    Received: "acc-F (10 credits)"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-notifications-sent') with timeout 5000ms
-      - waiting for getByTestId('run-1-notifications-sent')
-        14 × locator resolved to <dd data-testid="run-1-notifications-sent">acc-F (10 credits)</dd>
-           - unexpected value "acc-F (10 credits)"
-
-
-      128 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-      129 |     await expect.soft(bench.runField(1, "payout-failures")).toHaveText("T-1001");
-    > 130 |     await expect.soft(bench.runField(1, "notifications-sent")).toHaveText("none");
-          |                                                                ^
-      131 |     await expect.soft(bench.balance("acc-F")).toHaveText("0");
-      132 |     await expect.soft(bench.notifications("acc-F")).toHaveText("0");
-      133 |   });
-        at <repo>\e2e\settlement.spec.ts:130:64
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('notifications-acc-F')
-    Expected: "0"
-    Received: "1"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('notifications-acc-F') with timeout 5000ms
-      - waiting for getByTestId('notifications-acc-F')
-        14 × locator resolved to <td class="num" data-testid="notifications-acc-F">1</td>
-           - unexpected value "1"
-
-
-      130 |     await expect.soft(bench.runField(1, "notifications-sent")).toHaveText("none");
-      131 |     await expect.soft(bench.balance("acc-F")).toHaveText("0");
-    > 132 |     await expect.soft(bench.notifications("acc-F")).toHaveText("0");
-          |                                                     ^
-      133 |   });
-      134 |
-      135 |   test("TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again", async ({ bench }) => {
-        at <repo>\e2e\settlement.spec.ts:132:53
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Notification-pa-4b4f6-and-no-notification-is-sent-chromium-buggy\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: results\e2e-artifacts-buggy\settlement-Notification-pa-4b4f6-and-no-notification-is-sent-chromium-buggy\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Notification-pa-4b4f6-and-no-notification-is-sent-chromium-buggy\trace.zip
-    Usage:
-
-        npx playwright show-trace results\e2e-artifacts-buggy\settlement-Notification-pa-4b4f6-and-no-notification-is-sent-chromium-buggy\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  13) [chromium-buggy] › e2e\settlement.spec.ts:135:3 › Notification partial failure [buggy build] › TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('rule-check-text')
-    Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-5, BR-7"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
-      - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-5, BR-7</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-5, BR-7"
+        14 × locator resolved to <span data-testid="rule-check-text">RULE BROKEN: BR-5</span>
+           - unexpected value "RULE BROKEN: BR-5"
 
 
       135 |   test("TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again", async ({ bench }) => {
@@ -1465,6 +661,29 @@ Running 15 tests using 11 workers
       139 |     await expect.soft(bench.runField(2, "notifications-sent")).toHaveText("acc-G (10 credits)");
       140 |     await expect.soft(bench.runField(2, "paid")).toHaveText("none");
         at <repo>\e2e\settlement.spec.ts:137:40
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('run-2-notifications-sent')
+    Expected: "acc-G (10 credits)"
+    Received: "acc-G (20 credits)"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "soft toHaveText" getByTestId('run-2-notifications-sent') with timeout 5000ms
+      - waiting for getByTestId('run-2-notifications-sent')
+        14 × locator resolved to <dd data-testid="run-2-notifications-sent">acc-G (20 credits)</dd>
+           - unexpected value "acc-G (20 credits)"
+
+
+      137 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
+      138 |     await expect.soft(bench.runField(1, "notification-failures")).toHaveText("acc-G");
+    > 139 |     await expect.soft(bench.runField(2, "notifications-sent")).toHaveText("acc-G (10 credits)");
+          |                                                                ^
+      140 |     await expect.soft(bench.runField(2, "paid")).toHaveText("none");
+      141 |     await expect.soft(bench.runField(3, "paid")).toHaveText("none");
+      142 |     await expect.soft(bench.runField(3, "notifications-sent")).toHaveText("none");
+        at <repo>\e2e\settlement.spec.ts:139:64
 
     Error: expect(locator).toHaveText(expected) failed
 
@@ -1516,14 +735,14 @@ Running 15 tests using 11 workers
 
     Locator:  getByTestId('entries-T-1101')
     Expected: "1"
-    Received: "2"
+    Received: "3"
     Timeout:  5000ms
 
     Call log:
       - Expect "soft toHaveText" getByTestId('entries-T-1101') with timeout 5000ms
       - waiting for getByTestId('entries-T-1101')
-        14 × locator resolved to <td class="num bad" data-testid="entries-T-1101">2</td>
-           - unexpected value "2"
+        14 × locator resolved to <td class="num bad" data-testid="entries-T-1101">3</td>
+           - unexpected value "3"
 
 
       141 |     await expect.soft(bench.runField(3, "paid")).toHaveText("none");
@@ -1535,18 +754,20 @@ Running 15 tests using 11 workers
       146 |   });
         at <repo>\e2e\settlement.spec.ts:143:48
 
+    Test timeout of 30000ms exceeded.
+
     Error: expect(locator).toHaveText(expected) failed
 
     Locator:  getByTestId('balance-acc-G')
     Expected: "10"
-    Received: "20"
-    Timeout:  5000ms
+    Received: "30"
 
     Call log:
       - Expect "soft toHaveText" getByTestId('balance-acc-G') with timeout 5000ms
       - waiting for getByTestId('balance-acc-G')
-        14 × locator resolved to <td class="num" data-testid="balance-acc-G">20</td>
-           - unexpected value "20"
+        13 × locator resolved to <td class="num" data-testid="balance-acc-G">30</td>
+           - unexpected value "30"
+      - Test ended.
 
 
       142 |     await expect.soft(bench.runField(3, "notifications-sent")).toHaveText("none");
@@ -1557,6 +778,22 @@ Running 15 tests using 11 workers
       146 |   });
       147 | });
         at <repo>\e2e\settlement.spec.ts:144:47
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  getByTestId('notifications-acc-G')
+    Expected: "1"
+    Received: ""
+
+
+      143 |     await expect.soft(bench.entries("T-1101")).toHaveText("1");
+      144 |     await expect.soft(bench.balance("acc-G")).toHaveText("10");
+    > 145 |     await expect.soft(bench.notifications("acc-G")).toHaveText("1");
+          |                                                     ^
+      146 |   });
+      147 | });
+      148 |
+        at <repo>\e2e\settlement.spec.ts:145:53
 
     attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
     results\e2e-artifacts-buggy\settlement-Notification-pa-c9684-d-neither-re-run-pays-again-chromium-buggy\test-failed-1.png
@@ -1572,134 +809,32 @@ Running 15 tests using 11 workers
 
     ────────────────────────────────────────────────────────────────────────────────────────────────
 
-  14) [chromium-buggy] › e2e\settlement.spec.ts:150:3 › Manual input in the test bench [buggy build] › UI-01: a custom task at 00:30 +01:00 on Mon 09 Nov counts as Sun 08 Nov 23:30 UTC and is paid; one at 00:30 +01:00 on Mon 02 Nov is not 
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('rule-check-text')
-    Expected: "OK: no business rule broken"
-    Received: "RULES BROKEN: BR-2, BR-3"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('rule-check-text') with timeout 5000ms
-      - waiting for getByTestId('rule-check-text')
-        14 × locator resolved to <span data-testid="rule-check-text">RULES BROKEN: BR-2, BR-3</span>
-           - unexpected value "RULES BROKEN: BR-2, BR-3"
-
-
-      162 |     await bench.run();
-      163 |
-    > 164 |     await expect.soft(bench.ruleCheck).toHaveText(OK);
-          |                                        ^
-      165 |     await expect.soft(inWeek.utc).toHaveText("= Sun 08 Nov 2026 23:30 UTC");
-      166 |     await expect.soft(beforeWeek.utc).toHaveText("= Sun 01 Nov 2026 23:30 UTC");
-      167 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-CET-1");
-        at <repo>\e2e\settlement.spec.ts:164:40
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-paid')
-    Expected: "T-CET-1"
-    Received: "T-CET-2"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-paid') with timeout 5000ms
-      - waiting for getByTestId('run-1-paid')
-        14 × locator resolved to <dd data-testid="run-1-paid">T-CET-2</dd>
-           - unexpected value "T-CET-2"
-
-
-      165 |     await expect.soft(inWeek.utc).toHaveText("= Sun 08 Nov 2026 23:30 UTC");
-      166 |     await expect.soft(beforeWeek.utc).toHaveText("= Sun 01 Nov 2026 23:30 UTC");
-    > 167 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-CET-1");
-          |                                                  ^
-      168 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-CET-2");
-      169 |     await expect.soft(bench.balance("acc-Z")).toHaveText("10");
-      170 |     await expect.soft(bench.expectCheck).toHaveText(
-        at <repo>\e2e\settlement.spec.ts:167:50
-
-    Error: expect(locator).toHaveText(expected) failed
-
-    Locator:  getByTestId('run-1-excluded')
-    Expected: "T-CET-2"
-    Received: "T-CET-1"
-    Timeout:  5000ms
-
-    Call log:
-      - Expect "soft toHaveText" getByTestId('run-1-excluded') with timeout 5000ms
-      - waiting for getByTestId('run-1-excluded')
-        14 × locator resolved to <dd data-testid="run-1-excluded">T-CET-1</dd>
-           - unexpected value "T-CET-1"
-
-
-      166 |     await expect.soft(beforeWeek.utc).toHaveText("= Sun 01 Nov 2026 23:30 UTC");
-      167 |     await expect.soft(bench.runField(1, "paid")).toHaveText("T-CET-1");
-    > 168 |     await expect.soft(bench.runField(1, "excluded")).toHaveText("T-CET-2");
-          |                                                      ^
-      169 |     await expect.soft(bench.balance("acc-Z")).toHaveText("10");
-      170 |     await expect.soft(bench.expectCheck).toHaveText(
-      171 |       "Custom or edited input: no expected outcome to compare. Check the values below against the rules.",
-        at <repo>\e2e\settlement.spec.ts:168:54
-
-    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Manual-input-in-8477a--01-00-on-Mon-02-Nov-is-not-chromium-buggy\test-failed-1.png
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-    Error Context: results\e2e-artifacts-buggy\settlement-Manual-input-in-8477a--01-00-on-Mon-02-Nov-is-not-chromium-buggy\error-context.md
-
-    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
-    results\e2e-artifacts-buggy\settlement-Manual-input-in-8477a--01-00-on-Mon-02-Nov-is-not-chromium-buggy\trace.zip
-    Usage:
-
-        npx playwright show-trace results\e2e-artifacts-buggy\settlement-Manual-input-in-8477a--01-00-on-Mon-02-Nov-is-not-chromium-buggy\trace.zip
-
-    ────────────────────────────────────────────────────────────────────────────────────────────────
-
-  14 failed
-    [chromium-buggy] › e2e\settlement.spec.ts:7:3 › Settlement window and qualification [buggy build] › TC-01: the Tuesday 09:00 UTC run settles Mon 02 Nov 00:00 to Mon 09 Nov 00:00 UTC and pays the task inside it 
-    [chromium-buggy] › e2e\settlement.spec.ts:15:3 › Settlement window and qualification [buggy build] › TC-02: a run at Tue 08:59:59 UTC settles the previous week, paying a 30 Oct task and leaving a 4 Nov task 
-    [chromium-buggy] › e2e\settlement.spec.ts:27:3 › Settlement window and qualification [buggy build] › TC-03: happy path pays 10 credits per completed task and notifies each account once with its total 
-    [chromium-buggy] › e2e\settlement.spec.ts:38:3 › Settlement window and qualification [buggy build] › TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not 
-    [chromium-buggy] › e2e\settlement.spec.ts:46:3 › Settlement window and qualification [buggy build] › TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid 
-    [chromium-buggy] › e2e\settlement.spec.ts:57:3 › Settlement window and qualification [buggy build] › TC-06: in-progress and cancelled tasks earn nothing, create no ledger entry and trigger no notification 
+  5 failed
     [chromium-buggy] › e2e\settlement.spec.ts:69:3 › DEF-001 duplicate payout [buggy build] › TC-07: the same task ID twice in one export is paid once: one ledger entry, 10 credits, the duplicate row skipped 
     [chromium-buggy] › e2e\settlement.spec.ts:78:3 › DEF-001 duplicate payout [buggy build] › TC-08: re-running the job for the same week pays nothing new and sends no second notification 
     [chromium-buggy] › e2e\settlement.spec.ts:90:3 › DEF-001 duplicate payout [buggy build] › TC-09: after T-702's ledger write fails, the retry pays only T-702 and the account ends on 30 credits 
     [chromium-buggy] › e2e\settlement.spec.ts:101:3 › DEF-001 duplicate payout [buggy build] › TC-10: a task paid in the 2-9 Nov run and re-sent in the 9-16 Nov export is not paid or notified again 
-    [chromium-buggy] › e2e\settlement.spec.ts:116:3 › Notification partial failure [buggy build] › TC-11: a failed notification is reported and the 10-credit payout stays 
-    [chromium-buggy] › e2e\settlement.spec.ts:126:3 › Notification partial failure [buggy build] › TC-12: when the account's only payout fails, no credits are recorded and no notification is sent 
     [chromium-buggy] › e2e\settlement.spec.ts:135:3 › Notification partial failure [buggy build] › TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again 
-    [chromium-buggy] › e2e\settlement.spec.ts:150:3 › Manual input in the test bench [buggy build] › UI-01: a custom task at 00:30 +01:00 on Mon 09 Nov counts as Sun 08 Nov 23:30 UTC and is paid; one at 00:30 +01:00 on Mon 02 Nov is not 
-  1 passed (46.5s)
-(node:20844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+  10 passed (33.2s)
+(node:23084) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:22376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:8784) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:20384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:25868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:40868) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:23412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:36652) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:23044) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:49416) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:28316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:43916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:45568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:37032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:37404) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:43572) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:12060) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:49524) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-(node:28452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:19836) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:23120) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:44360) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:45392) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(node:13056) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)

@@ -2,7 +2,7 @@ import { spawnSync } from "node:child_process";
 import { mkdirSync, readdirSync, writeFileSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-const EXPECTED_BUGGY_FAILURES = ["TC-01", "TC-02", "TC-03", "TC-04", "TC-05", "TC-06", "TC-07", "TC-08", "TC-09", "TC-10", "TC-11", "TC-12", "TC-13"];
+const EXPECTED_BUGGY_FAILURES = ["TC-07", "TC-08", "TC-09", "TC-10", "TC-13"];
 
 mkdirSync("results", { recursive: true });
 const files = readdirSync("test").filter((f) => f.endsWith(".test.js")).map((f) => join("test", f));
@@ -44,7 +44,7 @@ writeFileSync(
     `| Case | Faulty build (settlement.buggy.js) | Fixed build (settlement.fixed.js) |\n|---|---|---|\n${rows}\n\n` +
     `- Faulty build failures: ${buggyFailures.join(", ") || "none"} (expected ${EXPECTED_BUGGY_FAILURES.join(", ")})\n` +
     `- Fixed build failures: ${fixedFailures.join(", ") || "none"}\n` +
-    `- Verdict: ${ok ? "PASS: the regression detects DEF-001..DEF-008 and the fix resolves them" : "UNEXPECTED: inspect the run logs"}\n`,
+    `- Verdict: ${ok ? "PASS: the regression detects DEF-001 and the fix resolves it" : "UNEXPECTED: inspect the run logs"}\n`,
 );
 
 console.log(readFileSync(join("results", "summary.md"), "utf8"));

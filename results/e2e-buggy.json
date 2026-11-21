@@ -93,7 +93,7 @@
           "specs": [
             {
               "title": "TC-01: the Tuesday 09:00 UTC run settles Mon 02 Nov 00:00 to Mon 09 Nov 00:00 UTC and pays the task inside it",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -106,66 +106,18 @@
                     {
                       "workerIndex": 0,
                       "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 11169,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-2</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-2</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-2\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:9:40",
-                        "location": {
-                          "file": "<repo>\\e2e\\settlement.spec.ts",
-                          "column": 40,
-                          "line": 9
-                        },
-                        "snippet": "   7 |   test(\"TC-01: the Tuesday 09:00 UTC run settles Mon 02 Nov 00:00 to Mon 09 Nov 00:00 UTC and pays the task inside it\", async ({ bench }) => {\n   8 |     await bench.runScenario(\"TC-01\");\n>  9 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  10 |     await expect.soft(bench.runField(1, \"window\")).toHaveText(WEEK_2_TO_9_NOV);\n  11 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-001\");\n  12 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 40,
-                            "line": 9
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-2</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-2\"\u001b[22m\n\n\n   7 |   test(\"TC-01: the Tuesday 09:00 UTC run settles Mon 02 Nov 00:00 to Mon 09 Nov 00:00 UTC and pays the task inside it\", async ({ bench }) => {\n   8 |     await bench.runScenario(\"TC-01\");\n>  9 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  10 |     await expect.soft(bench.runField(1, \"window\")).toHaveText(WEEK_2_TO_9_NOV);\n  11 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-001\");\n  12 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n    at <repo>\\e2e\\settlement.spec.ts:9:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 52,
-                            "line": 10
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-window')\nExpected: \u001b[32m\"Mon 02 Nov 2026 00:00 UTC to \u001b[7mMo\u001b[27mn 0\u001b[7m9\u001b[27m Nov 2026 \u001b[7m00:00\u001b[27m UTC (end \u001b[7mex\u001b[27mcluded)\"\u001b[39m\nReceived: \u001b[31m\"Mon 02 Nov 2026 00:00 UTC to \u001b[7mSu\u001b[27mn 0\u001b[7m8\u001b[27m Nov 2026 \u001b[7m23:59:59\u001b[27m UTC (end \u001b[7min\u001b[27mcluded)\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-window') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-window')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-window\">Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:5…</dd>\u001b[22m\n\u001b[2m       - unexpected value \"Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:59:59 UTC (end included)\"\u001b[22m\n\n\n   8 |     await bench.runScenario(\"TC-01\");\n   9 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n> 10 |     await expect.soft(bench.runField(1, \"window\")).toHaveText(WEEK_2_TO_9_NOV);\n     |                                                    ^\n  11 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-001\");\n  12 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  13 |   });\n    at <repo>\\e2e\\settlement.spec.ts:10:52"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 1806,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.650Z",
+                      "startTime": "2026-11-21T07:47:09.172Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-1e036-and-pays-the-task-inside-it-chromium-buggy\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-1e036-and-pays-the-task-inside-it-chromium-buggy\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-1e036-and-pays-the-task-inside-it-chromium-buggy\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "<repo>\\e2e\\settlement.spec.ts",
-                        "column": 40,
-                        "line": 9
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "de12aa92550dfc05fc63-b751383df52d8bec763c",
@@ -175,7 +127,7 @@
             },
             {
               "title": "TC-02: a run at Tue 08:59:59 UTC settles the previous week, paying a 30 Oct task and leaving a 4 Nov task",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -188,82 +140,18 @@
                     {
                       "workerIndex": 1,
                       "parallelIndex": 1,
-                      "status": "failed",
-                      "duration": 21375,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-1</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-1\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-1</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-1\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:17:40",
-                        "location": {
-                          "file": "<repo>\\e2e\\settlement.spec.ts",
-                          "column": 40,
-                          "line": 17
-                        },
-                        "snippet": "  15 |   test(\"TC-02: a run at Tue 08:59:59 UTC settles the previous week, paying a 30 Oct task and leaving a 4 Nov task\", async ({ bench }) => {\n  16 |     await bench.runScenario(\"TC-02\");\n> 17 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  18 |     await expect.soft(bench.runAtHint).toHaveText(\"= Tue 10 Nov 2026 08:59:59 UTC\");\n  19 |     await expect.soft(bench.runField(1, \"window\")).toHaveText(\n  20 |       \"Mon 26 Oct 2026 00:00 UTC to Mon 02 Nov 2026 00:00 UTC (end excluded)\","
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 40,
-                            "line": 17
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-1</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-1\"\u001b[22m\n\n\n  15 |   test(\"TC-02: a run at Tue 08:59:59 UTC settles the previous week, paying a 30 Oct task and leaving a 4 Nov task\", async ({ bench }) => {\n  16 |     await bench.runScenario(\"TC-02\");\n> 17 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  18 |     await expect.soft(bench.runAtHint).toHaveText(\"= Tue 10 Nov 2026 08:59:59 UTC\");\n  19 |     await expect.soft(bench.runField(1, \"window\")).toHaveText(\n  20 |       \"Mon 26 Oct 2026 00:00 UTC to Mon 02 Nov 2026 00:00 UTC (end excluded)\",\n    at <repo>\\e2e\\settlement.spec.ts:17:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 52,
-                            "line": 19
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-window')\nExpected: \u001b[32m\"Mon \u001b[7m26 Oct\u001b[27m 2026 00:00 UTC to \u001b[7mMo\u001b[27mn 0\u001b[7m2\u001b[27m Nov 2026 \u001b[7m00:00\u001b[27m UTC (end \u001b[7mex\u001b[27mcluded)\"\u001b[39m\nReceived: \u001b[31m\"Mon \u001b[7m02 Nov\u001b[27m 2026 00:00 UTC to \u001b[7mSu\u001b[27mn 0\u001b[7m8\u001b[27m Nov 2026 \u001b[7m23:59:59\u001b[27m UTC (end \u001b[7min\u001b[27mcluded)\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-window') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-window')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-window\">Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:5…</dd>\u001b[22m\n\u001b[2m       - unexpected value \"Mon 02 Nov 2026 00:00 UTC to Sun 08 Nov 2026 23:59:59 UTC (end included)\"\u001b[22m\n\n\n  17 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n  18 |     await expect.soft(bench.runAtHint).toHaveText(\"= Tue 10 Nov 2026 08:59:59 UTC\");\n> 19 |     await expect.soft(bench.runField(1, \"window\")).toHaveText(\n     |                                                    ^\n  20 |       \"Mon 26 Oct 2026 00:00 UTC to Mon 02 Nov 2026 00:00 UTC (end excluded)\",\n  21 |     );\n  22 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-021\");\n    at <repo>\\e2e\\settlement.spec.ts:19:52"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 50,
-                            "line": 22
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-paid')\nExpected: \u001b[32m\"T-02\u001b[7m1\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"T-02\u001b[7m2\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-paid') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-paid')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-paid\">T-022</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-022\"\u001b[22m\n\n\n  20 |       \"Mon 26 Oct 2026 00:00 UTC to Mon 02 Nov 2026 00:00 UTC (end excluded)\",\n  21 |     );\n> 22 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-021\");\n     |                                                  ^\n  23 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-022\");\n  24 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  25 |   });\n    at <repo>\\e2e\\settlement.spec.ts:22:50"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 54,
-                            "line": 23
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-excluded')\nExpected: \u001b[32m\"T-02\u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"T-02\u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-excluded') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-excluded')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-excluded\">T-021</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-021\"\u001b[22m\n\n\n  21 |     );\n  22 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-021\");\n> 23 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-022\");\n     |                                                      ^\n  24 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  25 |   });\n  26 |\n    at <repo>\\e2e\\settlement.spec.ts:23:54"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 1643,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.656Z",
+                      "startTime": "2026-11-21T07:47:09.222Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-a9cd9-sk-and-leaving-a-4-Nov-task-chromium-buggy\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-a9cd9-sk-and-leaving-a-4-Nov-task-chromium-buggy\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-a9cd9-sk-and-leaving-a-4-Nov-task-chromium-buggy\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "<repo>\\e2e\\settlement.spec.ts",
-                        "column": 40,
-                        "line": 17
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "de12aa92550dfc05fc63-232406ad1479f0bd11c5",
@@ -273,7 +161,7 @@
             },
             {
               "title": "TC-03: happy path pays 10 credits per completed task and notifies each account once with its total",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -286,74 +174,18 @@
                     {
                       "workerIndex": 2,
                       "parallelIndex": 2,
-                      "status": "failed",
-                      "duration": 16850,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-6\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-6\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:29:40",
-                        "location": {
-                          "file": "<repo>\\e2e\\settlement.spec.ts",
-                          "column": 40,
-                          "line": 29
-                        },
-                        "snippet": "  27 |   test(\"TC-03: happy path pays 10 credits per completed task and notifies each account once with its total\", async ({ bench }) => {\n  28 |     await bench.runScenario(\"TC-03\");\n> 29 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  30 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-101, T-102, T-103\");\n  31 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"20\");\n  32 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 40,
-                            "line": 29
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-6\"\u001b[22m\n\n\n  27 |   test(\"TC-03: happy path pays 10 credits per completed task and notifies each account once with its total\", async ({ bench }) => {\n  28 |     await bench.runScenario(\"TC-03\");\n> 29 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  30 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-101, T-102, T-103\");\n  31 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"20\");\n  32 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");\n    at <repo>\\e2e\\settlement.spec.ts:29:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 64,
-                            "line": 33
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-notifications-sent')\nExpected: \u001b[32m\"acc-A (20 credits)\u001b[7m, acc-B (10 credits)\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"acc-A (20 credits)\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-notifications-sent') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-notifications-sent')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-notifications-sent\">acc-A (20 credits)</dd>\u001b[22m\n\u001b[2m       - unexpected value \"acc-A (20 credits)\"\u001b[22m\n\n\n  31 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"20\");\n  32 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");\n> 33 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"acc-A (20 credits), acc-B (10 credits)\");\n     |                                                                ^\n  34 |     await expect.soft(bench.notifications(\"acc-A\")).toHaveText(\"1\");\n  35 |     await expect.soft(bench.notifications(\"acc-B\")).toHaveText(\"1\");\n  36 |   });\n    at <repo>\\e2e\\settlement.spec.ts:33:64"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 53,
-                            "line": 35
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('notifications-acc-B')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('notifications-acc-B') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('notifications-acc-B')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"notifications-acc-B\">0</td>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  33 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"acc-A (20 credits), acc-B (10 credits)\");\n  34 |     await expect.soft(bench.notifications(\"acc-A\")).toHaveText(\"1\");\n> 35 |     await expect.soft(bench.notifications(\"acc-B\")).toHaveText(\"1\");\n     |                                                     ^\n  36 |   });\n  37 |\n  38 |   test(\"TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not\", async ({ bench }) => {\n    at <repo>\\e2e\\settlement.spec.ts:35:53"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 1890,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.647Z",
+                      "startTime": "2026-11-21T07:47:09.175Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-6a413-account-once-with-its-total-chromium-buggy\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-6a413-account-once-with-its-total-chromium-buggy\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-6a413-account-once-with-its-total-chromium-buggy\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "<repo>\\e2e\\settlement.spec.ts",
-                        "column": 40,
-                        "line": 29
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "de12aa92550dfc05fc63-9ddbc9592dcf3a2c3b90",
@@ -363,7 +195,7 @@
             },
             {
               "title": "TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -376,82 +208,18 @@
                     {
                       "workerIndex": 3,
                       "parallelIndex": 3,
-                      "status": "failed",
-                      "duration": 21589,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-2</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-2\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-2</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-2\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:40:40",
-                        "location": {
-                          "file": "<repo>\\e2e\\settlement.spec.ts",
-                          "column": 40,
-                          "line": 40
-                        },
-                        "snippet": "  38 |   test(\"TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not\", async ({ bench }) => {\n  39 |     await bench.runScenario(\"TC-04\");\n> 40 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  41 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-201, T-202\");\n  42 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-203\");\n  43 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"20\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 40,
-                            "line": 40
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-2</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-2\"\u001b[22m\n\n\n  38 |   test(\"TC-04: a task at exactly Monday 00:00 (start) and one at the last millisecond are paid; one at the next Monday 00:00 is not\", async ({ bench }) => {\n  39 |     await bench.runScenario(\"TC-04\");\n> 40 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  41 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-201, T-202\");\n  42 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-203\");\n  43 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"20\");\n    at <repo>\\e2e\\settlement.spec.ts:40:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 50,
-                            "line": 41
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-paid')\nExpected: \u001b[32m\"T-201\u001b[7m, T-202\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"T-201\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-paid') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-paid')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-paid\">T-201</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-201\"\u001b[22m\n\n\n  39 |     await bench.runScenario(\"TC-04\");\n  40 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n> 41 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-201, T-202\");\n     |                                                  ^\n  42 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-203\");\n  43 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"20\");\n  44 |   });\n    at <repo>\\e2e\\settlement.spec.ts:41:50"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 54,
-                            "line": 42
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-excluded')\nExpected: \u001b[32m\"T-203\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mT-202, \u001b[27mT-203\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-excluded') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-excluded')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-excluded\">T-202, T-203</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-202, T-203\"\u001b[22m\n\n\n  40 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n  41 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-201, T-202\");\n> 42 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-203\");\n     |                                                      ^\n  43 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"20\");\n  44 |   });\n  45 |\n    at <repo>\\e2e\\settlement.spec.ts:42:54"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 47,
-                            "line": 43
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-A')\nExpected: \u001b[32m\"\u001b[7m2\u001b[27m0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-A') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-A')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-A\">10</td>\u001b[22m\n\u001b[2m       - unexpected value \"10\"\u001b[22m\n\n\n  41 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-201, T-202\");\n  42 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-203\");\n> 43 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"20\");\n     |                                               ^\n  44 |   });\n  45 |\n  46 |   test(\"TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid\", async ({ bench }) => {\n    at <repo>\\e2e\\settlement.spec.ts:43:47"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 1792,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.650Z",
+                      "startTime": "2026-11-21T07:47:09.191Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-aac4b-he-next-Monday-00-00-is-not-chromium-buggy\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-aac4b-he-next-Monday-00-00-is-not-chromium-buggy\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-aac4b-he-next-Monday-00-00-is-not-chromium-buggy\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "<repo>\\e2e\\settlement.spec.ts",
-                        "column": 40,
-                        "line": 40
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "de12aa92550dfc05fc63-0c201d544fba3302a23d",
@@ -461,7 +229,7 @@
             },
             {
               "title": "TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -474,74 +242,18 @@
                     {
                       "workerIndex": 4,
                       "parallelIndex": 4,
-                      "status": "failed",
-                      "duration": 16605,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-3</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-3\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-3</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-3\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:48:40",
-                        "location": {
-                          "file": "<repo>\\e2e\\settlement.spec.ts",
-                          "column": 40,
-                          "line": 48
-                        },
-                        "snippet": "  46 |   test(\"TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid\", async ({ bench }) => {\n  47 |     await bench.runScenario(\"TC-05\");\n> 48 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  49 |     await expect.soft(bench.task(0).utc).toHaveText(\"= Sun 08 Nov 2026 23:59 UTC\");\n  50 |     await expect.soft(bench.task(1).utc).toHaveText(\"= Mon 09 Nov 2026 00:00 UTC\");\n  51 |     await expect.soft(bench.task(2).utc).toHaveText(\"= Sun 01 Nov 2026 22:00 UTC\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 40,
-                            "line": 48
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-3</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-3\"\u001b[22m\n\n\n  46 |   test(\"TC-05: +05:00 timestamps are converted to UTC, so only the one at Sun 08 Nov 23:59 UTC is paid\", async ({ bench }) => {\n  47 |     await bench.runScenario(\"TC-05\");\n> 48 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  49 |     await expect.soft(bench.task(0).utc).toHaveText(\"= Sun 08 Nov 2026 23:59 UTC\");\n  50 |     await expect.soft(bench.task(1).utc).toHaveText(\"= Mon 09 Nov 2026 00:00 UTC\");\n  51 |     await expect.soft(bench.task(2).utc).toHaveText(\"= Sun 01 Nov 2026 22:00 UTC\");\n    at <repo>\\e2e\\settlement.spec.ts:48:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 50,
-                            "line": 52
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-paid')\nExpected: \u001b[32m\"T-30\u001b[7m1\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"T-30\u001b[7m3\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-paid') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-paid')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-paid\">T-303</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-303\"\u001b[22m\n\n\n  50 |     await expect.soft(bench.task(1).utc).toHaveText(\"= Mon 09 Nov 2026 00:00 UTC\");\n  51 |     await expect.soft(bench.task(2).utc).toHaveText(\"= Sun 01 Nov 2026 22:00 UTC\");\n> 52 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-301\");\n     |                                                  ^\n  53 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-302, T-303\");\n  54 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  55 |   });\n    at <repo>\\e2e\\settlement.spec.ts:52:50"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 54,
-                            "line": 53
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-excluded')\nExpected: \u001b[32m\"T-30\u001b[7m2\u001b[27m, T-30\u001b[7m3\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"T-30\u001b[7m1\u001b[27m, T-30\u001b[7m2\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-excluded') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-excluded')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-excluded\">T-301, T-302</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-301, T-302\"\u001b[22m\n\n\n  51 |     await expect.soft(bench.task(2).utc).toHaveText(\"= Sun 01 Nov 2026 22:00 UTC\");\n  52 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-301\");\n> 53 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-302, T-303\");\n     |                                                      ^\n  54 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  55 |   });\n  56 |\n    at <repo>\\e2e\\settlement.spec.ts:53:54"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 1838,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.699Z",
+                      "startTime": "2026-11-21T07:47:09.222Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-8174a-un-08-Nov-23-59-UTC-is-paid-chromium-buggy\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-8174a-un-08-Nov-23-59-UTC-is-paid-chromium-buggy\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-8174a-un-08-Nov-23-59-UTC-is-paid-chromium-buggy\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "<repo>\\e2e\\settlement.spec.ts",
-                        "column": 40,
-                        "line": 48
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "de12aa92550dfc05fc63-ad4146a9d192b1321522",
@@ -551,7 +263,7 @@
             },
             {
               "title": "TC-06: in-progress and cancelled tasks earn nothing, create no ledger entry and trigger no notification",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -564,101 +276,18 @@
                     {
                       "workerIndex": 5,
                       "parallelIndex": 5,
-                      "status": "failed",
-                      "duration": 30155,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-4</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-4\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-4</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-4\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:59:40",
-                        "location": {
-                          "file": "<repo>\\e2e\\settlement.spec.ts",
-                          "column": 40,
-                          "line": 59
-                        },
-                        "snippet": "  57 |   test(\"TC-06: in-progress and cancelled tasks earn nothing, create no ledger entry and trigger no notification\", async ({ bench }) => {\n  58 |     await bench.runScenario(\"TC-06\");\n> 59 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  60 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"none\");\n  61 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-401, T-402\");\n  62 |     await expect.soft(bench.balance(\"acc-C\")).toHaveText(\"0\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 40,
-                            "line": 59
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-4\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-4</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-4\"\u001b[22m\n\n\n  57 |   test(\"TC-06: in-progress and cancelled tasks earn nothing, create no ledger entry and trigger no notification\", async ({ bench }) => {\n  58 |     await bench.runScenario(\"TC-06\");\n> 59 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  60 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"none\");\n  61 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-401, T-402\");\n  62 |     await expect.soft(bench.balance(\"acc-C\")).toHaveText(\"0\");\n    at <repo>\\e2e\\settlement.spec.ts:59:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 50,
-                            "line": 60
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-paid')\nExpected: \u001b[32m\"none\"\u001b[39m\nReceived: \u001b[31m\"T-401\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-paid') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-paid')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-paid\">T-401</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-401\"\u001b[22m\n\n\n  58 |     await bench.runScenario(\"TC-06\");\n  59 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n> 60 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"none\");\n     |                                                  ^\n  61 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-401, T-402\");\n  62 |     await expect.soft(bench.balance(\"acc-C\")).toHaveText(\"0\");\n  63 |     await expect.soft(bench.notifications(\"acc-C\")).toHaveText(\"0\");\n    at <repo>\\e2e\\settlement.spec.ts:60:50"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 54,
-                            "line": 61
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-excluded')\nExpected: \u001b[32m\"\u001b[7mT-401, \u001b[27mT-402\"\u001b[39m\nReceived: \u001b[31m\"T-402\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-excluded') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-excluded')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-excluded\">T-402</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-402\"\u001b[22m\n\n\n  59 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n  60 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"none\");\n> 61 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-401, T-402\");\n     |                                                      ^\n  62 |     await expect.soft(bench.balance(\"acc-C\")).toHaveText(\"0\");\n  63 |     await expect.soft(bench.notifications(\"acc-C\")).toHaveText(\"0\");\n  64 |     await expect.soft(bench.entriesEmpty).toHaveText(\"No ledger entries.\");\n    at <repo>\\e2e\\settlement.spec.ts:61:54"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 47,
-                            "line": 62
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-C')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-C') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-C')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-C\">10</td>\u001b[22m\n\u001b[2m       - unexpected value \"10\"\u001b[22m\n\n\n  60 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"none\");\n  61 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-401, T-402\");\n> 62 |     await expect.soft(bench.balance(\"acc-C\")).toHaveText(\"0\");\n     |                                               ^\n  63 |     await expect.soft(bench.notifications(\"acc-C\")).toHaveText(\"0\");\n  64 |     await expect.soft(bench.entriesEmpty).toHaveText(\"No ledger entries.\");\n  65 |   });\n    at <repo>\\e2e\\settlement.spec.ts:62:47"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 53,
-                            "line": 63
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('notifications-acc-C')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('notifications-acc-C') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('notifications-acc-C')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"notifications-acc-C\">1</td>\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  61 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-401, T-402\");\n  62 |     await expect.soft(bench.balance(\"acc-C\")).toHaveText(\"0\");\n> 63 |     await expect.soft(bench.notifications(\"acc-C\")).toHaveText(\"0\");\n     |                                                     ^\n  64 |     await expect.soft(bench.entriesEmpty).toHaveText(\"No ledger entries.\");\n  65 |   });\n  66 | });\n    at <repo>\\e2e\\settlement.spec.ts:63:53"
-                        },
-                        {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 43,
-                            "line": 64
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByTestId('entries-empty')\nExpected: \u001b[32m\"No ledger entries.\"\u001b[39m\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('entries-empty') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('entries-empty')\u001b[22m\n\u001b[2m  - Test ended.\u001b[22m\n\n\n  62 |     await expect.soft(bench.balance(\"acc-C\")).toHaveText(\"0\");\n  63 |     await expect.soft(bench.notifications(\"acc-C\")).toHaveText(\"0\");\n> 64 |     await expect.soft(bench.entriesEmpty).toHaveText(\"No ledger entries.\");\n     |                                           ^\n  65 |   });\n  66 | });\n  67 |\n    at <repo>\\e2e\\settlement.spec.ts:64:43"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 1780,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.648Z",
+                      "startTime": "2026-11-21T07:47:09.208Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-06980-and-trigger-no-notification-chromium-buggy\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-06980-and-trigger-no-notification-chromium-buggy\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Settlement-wind-06980-and-trigger-no-notification-chromium-buggy\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "<repo>\\e2e\\settlement.spec.ts",
-                        "column": 40,
-                        "line": 59
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "de12aa92550dfc05fc63-03b506c7952e13d33c84",
@@ -690,10 +319,10 @@
                       "workerIndex": 6,
                       "parallelIndex": 6,
                       "status": "failed",
-                      "duration": 26717,
+                      "duration": 26774,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:71:40",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:71:40",
                         "location": {
                           "file": "<repo>\\e2e\\settlement.spec.ts",
                           "column": 40,
@@ -708,7 +337,7 @@
                             "column": 40,
                             "line": 71
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5\"\u001b[22m\n\n\n  69 |   test(\"TC-07: the same task ID twice in one export is paid once: one ledger entry, 10 credits, the duplicate row skipped\", async ({ bench }) => {\n  70 |     await bench.runScenario(\"TC-07\");\n> 71 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  72 |     await expect.soft(bench.entries(\"T-501\")).toHaveText(\"1\");\n  73 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  74 |     await expect.soft(bench.runField(1, \"duplicates\")).toHaveText(\"T-501\");\n    at <repo>\\e2e\\settlement.spec.ts:71:40"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n\n  69 |   test(\"TC-07: the same task ID twice in one export is paid once: one ledger entry, 10 credits, the duplicate row skipped\", async ({ bench }) => {\n  70 |     await bench.runScenario(\"TC-07\");\n> 71 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  72 |     await expect.soft(bench.entries(\"T-501\")).toHaveText(\"1\");\n  73 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  74 |     await expect.soft(bench.runField(1, \"duplicates\")).toHaveText(\"T-501\");\n    at <repo>\\e2e\\settlement.spec.ts:71:40"
                         },
                         {
                           "location": {
@@ -746,7 +375,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.708Z",
+                      "startTime": "2026-11-21T07:47:09.254Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -796,10 +425,10 @@
                       "workerIndex": 7,
                       "parallelIndex": 7,
                       "status": "failed",
-                      "duration": 30170,
+                      "duration": 30158,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:80:40",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:80:40",
                         "location": {
                           "file": "<repo>\\e2e\\settlement.spec.ts",
                           "column": 40,
@@ -814,7 +443,7 @@
                             "column": 40,
                             "line": 80
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[22m\n\n\n  78 |   test(\"TC-08: re-running the job for the same week pays nothing new and sends no second notification\", async ({ bench }) => {\n  79 |     await bench.runScenario(\"TC-08\");\n> 80 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  81 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"none\");\n  82 |     await expect.soft(bench.runField(2, \"already-paid\")).toHaveText(\"T-601, T-602\");\n  83 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n    at <repo>\\e2e\\settlement.spec.ts:80:40"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n\n  78 |   test(\"TC-08: re-running the job for the same week pays nothing new and sends no second notification\", async ({ bench }) => {\n  79 |     await bench.runScenario(\"TC-08\");\n> 80 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  81 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"none\");\n  82 |     await expect.soft(bench.runField(2, \"already-paid\")).toHaveText(\"T-601, T-602\");\n  83 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n    at <repo>\\e2e\\settlement.spec.ts:80:40"
                         },
                         {
                           "location": {
@@ -835,18 +464,18 @@
                         {
                           "location": {
                             "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 64,
-                            "line": 83
+                            "column": 47,
+                            "line": 84
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-2-notifications-sent')\nExpected: \u001b[32m\"none\"\u001b[39m\nReceived: \u001b[31m\"acc-B (10 credits)\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-2-notifications-sent') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-2-notifications-sent')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-2-notifications-sent\">acc-B (10 credits)</dd>\u001b[22m\n\u001b[2m       - unexpected value \"acc-B (10 credits)\"\u001b[22m\n\n\n  81 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"none\");\n  82 |     await expect.soft(bench.runField(2, \"already-paid\")).toHaveText(\"T-601, T-602\");\n> 83 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n     |                                                                ^\n  84 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  85 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");\n  86 |     await expect.soft(bench.entries(\"T-601\")).toHaveText(\"1\");\n    at <repo>\\e2e\\settlement.spec.ts:83:64"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-A')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m2\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-A') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-A')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-A\">20</td>\u001b[22m\n\u001b[2m       - unexpected value \"20\"\u001b[22m\n\n\n  82 |     await expect.soft(bench.runField(2, \"already-paid\")).toHaveText(\"T-601, T-602\");\n  83 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n> 84 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n     |                                               ^\n  85 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");\n  86 |     await expect.soft(bench.entries(\"T-601\")).toHaveText(\"1\");\n  87 |     await expect.soft(bench.entries(\"T-602\")).toHaveText(\"1\");\n    at <repo>\\e2e\\settlement.spec.ts:84:47"
                         },
                         {
                           "location": {
                             "file": "<repo>\\e2e\\settlement.spec.ts",
                             "column": 47,
-                            "line": 84
+                            "line": 85
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-A')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m2\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-A') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-A')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-A\">20</td>\u001b[22m\n\u001b[2m       - unexpected value \"20\"\u001b[22m\n\n\n  82 |     await expect.soft(bench.runField(2, \"already-paid\")).toHaveText(\"T-601, T-602\");\n  83 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n> 84 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n     |                                               ^\n  85 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");\n  86 |     await expect.soft(bench.entries(\"T-601\")).toHaveText(\"1\");\n  87 |     await expect.soft(bench.entries(\"T-602\")).toHaveText(\"1\");\n    at <repo>\\e2e\\settlement.spec.ts:84:47"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-B')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m2\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-B') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-B')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-B\">20</td>\u001b[22m\n\u001b[2m       - unexpected value \"20\"\u001b[22m\n\n\n  83 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n  84 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n> 85 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");\n     |                                               ^\n  86 |     await expect.soft(bench.entries(\"T-601\")).toHaveText(\"1\");\n  87 |     await expect.soft(bench.entries(\"T-602\")).toHaveText(\"1\");\n  88 |   });\n    at <repo>\\e2e\\settlement.spec.ts:85:47"
                         },
                         {
                           "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
@@ -855,17 +484,9 @@
                           "location": {
                             "file": "<repo>\\e2e\\settlement.spec.ts",
                             "column": 47,
-                            "line": 85
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-B')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m2\u001b[27m0\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-B') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-B')\u001b[22m\n\u001b[2m    12 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-B\">20</td>\u001b[22m\n\u001b[2m       - unexpected value \"20\"\u001b[22m\n\u001b[2m  - Test ended.\u001b[22m\n\n\n  83 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n  84 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n> 85 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");\n     |                                               ^\n  86 |     await expect.soft(bench.entries(\"T-601\")).toHaveText(\"1\");\n  87 |     await expect.soft(bench.entries(\"T-602\")).toHaveText(\"1\");\n  88 |   });\n    at <repo>\\e2e\\settlement.spec.ts:85:47"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 47,
                             "line": 86
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('entries-T-601')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\n\n  84 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  85 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");\n> 86 |     await expect.soft(bench.entries(\"T-601\")).toHaveText(\"1\");\n     |                                               ^\n  87 |     await expect.soft(bench.entries(\"T-602\")).toHaveText(\"1\");\n  88 |   });\n  89 |\n    at <repo>\\e2e\\settlement.spec.ts:86:47"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('entries-T-601')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"2\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('entries-T-601') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('entries-T-601')\u001b[22m\n\u001b[2m    11 × locator resolved to <td class=\"num bad\" data-testid=\"entries-T-601\">2</td>\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\u001b[2m  - Test ended.\u001b[22m\n\n\n  84 |     await expect.soft(bench.balance(\"acc-A\")).toHaveText(\"10\");\n  85 |     await expect.soft(bench.balance(\"acc-B\")).toHaveText(\"10\");\n> 86 |     await expect.soft(bench.entries(\"T-601\")).toHaveText(\"1\");\n     |                                               ^\n  87 |     await expect.soft(bench.entries(\"T-602\")).toHaveText(\"1\");\n  88 |   });\n  89 |\n    at <repo>\\e2e\\settlement.spec.ts:86:47"
                         },
                         {
                           "location": {
@@ -879,7 +500,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.704Z",
+                      "startTime": "2026-11-21T07:47:09.207Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -929,10 +550,10 @@
                       "workerIndex": 8,
                       "parallelIndex": 8,
                       "status": "failed",
-                      "duration": 30123,
+                      "duration": 30158,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:92:40",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:92:40",
                         "location": {
                           "file": "<repo>\\e2e\\settlement.spec.ts",
                           "column": 40,
@@ -947,7 +568,7 @@
                             "column": 40,
                             "line": 92
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5, BR-6\"\u001b[22m\n\n\n  90 |   test(\"TC-09: after T-702's ledger write fails, the retry pays only T-702 and the account ends on 30 credits\", async ({ bench }) => {\n  91 |     await bench.runScenario(\"TC-09\");\n> 92 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  93 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-701, T-703\");\n  94 |     await expect.soft(bench.runField(1, \"payout-failures\")).toHaveText(\"T-702\");\n  95 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"T-702\");\n    at <repo>\\e2e\\settlement.spec.ts:92:40"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n\n  90 |   test(\"TC-09: after T-702's ledger write fails, the retry pays only T-702 and the account ends on 30 credits\", async ({ bench }) => {\n  91 |     await bench.runScenario(\"TC-09\");\n> 92 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n     |                                        ^\n  93 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-701, T-703\");\n  94 |     await expect.soft(bench.runField(1, \"payout-failures\")).toHaveText(\"T-702\");\n  95 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"T-702\");\n    at <repo>\\e2e\\settlement.spec.ts:92:40"
                         },
                         {
                           "location": {
@@ -996,7 +617,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.663Z",
+                      "startTime": "2026-11-21T07:47:09.255Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1046,10 +667,10 @@
                       "workerIndex": 9,
                       "parallelIndex": 9,
                       "status": "failed",
-                      "duration": 30122,
+                      "duration": 30161,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:103:40",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:103:40",
                         "location": {
                           "file": "<repo>\\e2e\\settlement.spec.ts",
                           "column": 40,
@@ -1064,15 +685,7 @@
                             "column": 40,
                             "line": 103
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5\"\u001b[22m\n\n\n  101 |   test(\"TC-10: a task paid in the 2-9 Nov run and re-sent in the 9-16 Nov export is not paid or notified again\", async ({ bench }) => {\n  102 |     await bench.runScenario(\"TC-10\");\n> 103 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  104 |     await expect.soft(bench.runField(2, \"window\")).toHaveText(\n  105 |       \"Mon 09 Nov 2026 00:00 UTC to Mon 16 Nov 2026 00:00 UTC (end excluded)\",\n  106 |     );\n    at <repo>\\e2e\\settlement.spec.ts:103:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 52,
-                            "line": 104
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-2-window')\nExpected: \u001b[32m\"Mon 09 Nov 2026 00:00 UTC to \u001b[7mMo\u001b[27mn 1\u001b[7m6\u001b[27m Nov 2026 \u001b[7m00:00\u001b[27m UTC (end \u001b[7mex\u001b[27mcluded)\"\u001b[39m\nReceived: \u001b[31m\"Mon 09 Nov 2026 00:00 UTC to \u001b[7mSu\u001b[27mn 1\u001b[7m5\u001b[27m Nov 2026 \u001b[7m23:59:59\u001b[27m UTC (end \u001b[7min\u001b[27mcluded)\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-2-window') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-2-window')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-2-window\">Mon 09 Nov 2026 00:00 UTC to Sun 15 Nov 2026 23:5…</dd>\u001b[22m\n\u001b[2m       - unexpected value \"Mon 09 Nov 2026 00:00 UTC to Sun 15 Nov 2026 23:59:59 UTC (end included)\"\u001b[22m\n\n\n  102 |     await bench.runScenario(\"TC-10\");\n  103 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n> 104 |     await expect.soft(bench.runField(2, \"window\")).toHaveText(\n      |                                                    ^\n  105 |       \"Mon 09 Nov 2026 00:00 UTC to Mon 16 Nov 2026 00:00 UTC (end excluded)\",\n  106 |     );\n  107 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"none\");\n    at <repo>\\e2e\\settlement.spec.ts:104:52"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n\n  101 |   test(\"TC-10: a task paid in the 2-9 Nov run and re-sent in the 9-16 Nov export is not paid or notified again\", async ({ bench }) => {\n  102 |     await bench.runScenario(\"TC-10\");\n> 103 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  104 |     await expect.soft(bench.runField(2, \"window\")).toHaveText(\n  105 |       \"Mon 09 Nov 2026 00:00 UTC to Mon 16 Nov 2026 00:00 UTC (end excluded)\",\n  106 |     );\n    at <repo>\\e2e\\settlement.spec.ts:103:40"
                         },
                         {
                           "location": {
@@ -1099,15 +712,15 @@
                           "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-2-notifications-sent')\nExpected: \u001b[32m\"none\"\u001b[39m\nReceived: \u001b[31m\"acc-D (10 credits)\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-2-notifications-sent') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-2-notifications-sent')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-2-notifications-sent\">acc-D (10 credits)</dd>\u001b[22m\n\u001b[2m       - unexpected value \"acc-D (10 credits)\"\u001b[22m\n\n\n  107 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"none\");\n  108 |     await expect.soft(bench.runField(2, \"already-paid\")).toHaveText(\"T-801\");\n> 109 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n      |                                                                ^\n  110 |     await expect.soft(bench.entries(\"T-801\")).toHaveText(\"1\");\n  111 |     await expect.soft(bench.balance(\"acc-D\")).toHaveText(\"10\");\n  112 |   });\n    at <repo>\\e2e\\settlement.spec.ts:109:64"
                         },
                         {
-                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
-                        },
-                        {
                           "location": {
                             "file": "<repo>\\e2e\\settlement.spec.ts",
                             "column": 47,
                             "line": 110
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('entries-T-801')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"2\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('entries-T-801') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('entries-T-801')\u001b[22m\n\u001b[2m    12 × locator resolved to <td class=\"num bad\" data-testid=\"entries-T-801\">2</td>\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\u001b[2m  - Test ended.\u001b[22m\n\n\n  108 |     await expect.soft(bench.runField(2, \"already-paid\")).toHaveText(\"T-801\");\n  109 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n> 110 |     await expect.soft(bench.entries(\"T-801\")).toHaveText(\"1\");\n      |                                               ^\n  111 |     await expect.soft(bench.balance(\"acc-D\")).toHaveText(\"10\");\n  112 |   });\n  113 | });\n    at <repo>\\e2e\\settlement.spec.ts:110:47"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('entries-T-801')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('entries-T-801') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('entries-T-801')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num bad\" data-testid=\"entries-T-801\">2</td>\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n  108 |     await expect.soft(bench.runField(2, \"already-paid\")).toHaveText(\"T-801\");\n  109 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n> 110 |     await expect.soft(bench.entries(\"T-801\")).toHaveText(\"1\");\n      |                                               ^\n  111 |     await expect.soft(bench.balance(\"acc-D\")).toHaveText(\"10\");\n  112 |   });\n  113 | });\n    at <repo>\\e2e\\settlement.spec.ts:110:47"
+                        },
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
                         },
                         {
                           "location": {
@@ -1115,13 +728,13 @@
                             "column": 47,
                             "line": 111
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-D')\nExpected: \u001b[32m\"10\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\n\n  109 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n  110 |     await expect.soft(bench.entries(\"T-801\")).toHaveText(\"1\");\n> 111 |     await expect.soft(bench.balance(\"acc-D\")).toHaveText(\"10\");\n      |                                               ^\n  112 |   });\n  113 | });\n  114 |\n    at <repo>\\e2e\\settlement.spec.ts:111:47"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-D')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m2\u001b[27m0\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-D') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-D')\u001b[22m\n\u001b[2m    11 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-D\">20</td>\u001b[22m\n\u001b[2m       - unexpected value \"20\"\u001b[22m\n\u001b[2m  - Test ended.\u001b[22m\n\n\n  109 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"none\");\n  110 |     await expect.soft(bench.entries(\"T-801\")).toHaveText(\"1\");\n> 111 |     await expect.soft(bench.balance(\"acc-D\")).toHaveText(\"10\");\n      |                                               ^\n  112 |   });\n  113 | });\n  114 |\n    at <repo>\\e2e\\settlement.spec.ts:111:47"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.707Z",
+                      "startTime": "2026-11-21T07:47:09.286Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1165,7 +778,7 @@
           "specs": [
             {
               "title": "TC-11: a failed notification is reported and the 10-credit payout stays",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1178,74 +791,18 @@
                     {
                       "workerIndex": 10,
                       "parallelIndex": 10,
-                      "status": "failed",
-                      "duration": 16540,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-7\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-7</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-7\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-7\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-7</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-7\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:118:40",
-                        "location": {
-                          "file": "<repo>\\e2e\\settlement.spec.ts",
-                          "column": 40,
-                          "line": 118
-                        },
-                        "snippet": "  116 |   test(\"TC-11: a failed notification is reported and the 10-credit payout stays\", async ({ bench }) => {\n  117 |     await bench.runScenario(\"TC-11\");\n> 118 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  119 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-901\");\n  120 |     await expect.soft(bench.runField(1, \"notification-failures\")).toHaveText(\"acc-E\");\n  121 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"none\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 40,
-                            "line": 118
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-7\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-7</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-7\"\u001b[22m\n\n\n  116 |   test(\"TC-11: a failed notification is reported and the 10-credit payout stays\", async ({ bench }) => {\n  117 |     await bench.runScenario(\"TC-11\");\n> 118 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  119 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-901\");\n  120 |     await expect.soft(bench.runField(1, \"notification-failures\")).toHaveText(\"acc-E\");\n  121 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"none\");\n    at <repo>\\e2e\\settlement.spec.ts:118:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 50,
-                            "line": 119
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-paid')\nExpected: \u001b[32m\"T-901\"\u001b[39m\nReceived: \u001b[31m\"none\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-paid') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-paid')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-paid\">none</dd>\u001b[22m\n\u001b[2m       - unexpected value \"none\"\u001b[22m\n\n\n  117 |     await bench.runScenario(\"TC-11\");\n  118 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n> 119 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-901\");\n      |                                                  ^\n  120 |     await expect.soft(bench.runField(1, \"notification-failures\")).toHaveText(\"acc-E\");\n  121 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"none\");\n  122 |     await expect.soft(bench.balance(\"acc-E\")).toHaveText(\"10\");\n    at <repo>\\e2e\\settlement.spec.ts:119:50"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 47,
-                            "line": 122
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-E')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nReceived: \u001b[31m\"0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-E') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-E')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-E\">0</td>\u001b[22m\n\u001b[2m       - unexpected value \"0\"\u001b[22m\n\n\n  120 |     await expect.soft(bench.runField(1, \"notification-failures\")).toHaveText(\"acc-E\");\n  121 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"none\");\n> 122 |     await expect.soft(bench.balance(\"acc-E\")).toHaveText(\"10\");\n      |                                               ^\n  123 |     await expect.soft(bench.notifications(\"acc-E\")).toHaveText(\"0\");\n  124 |   });\n  125 |\n    at <repo>\\e2e\\settlement.spec.ts:122:47"
-                        }
-                      ],
+                      "status": "passed",
+                      "duration": 1767,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:19.750Z",
+                      "startTime": "2026-11-21T07:47:09.238Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Notification-pa-78837--the-10-credit-payout-stays-chromium-buggy\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Notification-pa-78837--the-10-credit-payout-stays-chromium-buggy\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Notification-pa-78837--the-10-credit-payout-stays-chromium-buggy\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "<repo>\\e2e\\settlement.spec.ts",
-                        "column": 40,
-                        "line": 118
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "de12aa92550dfc05fc63-71dfb10ad27e16f9590c",
@@ -1255,7 +812,7 @@
             },
             {
               "title": "TC-12: when the account's only payout fails, no credits are recorded and no notification is sent",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1266,76 +823,20 @@
                   "projectName": "chromium-buggy",
                   "results": [
                     {
-                      "workerIndex": 11,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 15476,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-6\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-6\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:128:40",
-                        "location": {
-                          "file": "<repo>\\e2e\\settlement.spec.ts",
-                          "column": 40,
-                          "line": 128
-                        },
-                        "snippet": "  126 |   test(\"TC-12: when the account's only payout fails, no credits are recorded and no notification is sent\", async ({ bench }) => {\n  127 |     await bench.runScenario(\"TC-12\");\n> 128 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  129 |     await expect.soft(bench.runField(1, \"payout-failures\")).toHaveText(\"T-1001\");\n  130 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"none\");\n  131 |     await expect.soft(bench.balance(\"acc-F\")).toHaveText(\"0\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 40,
-                            "line": 128
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-6\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-6</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-6\"\u001b[22m\n\n\n  126 |   test(\"TC-12: when the account's only payout fails, no credits are recorded and no notification is sent\", async ({ bench }) => {\n  127 |     await bench.runScenario(\"TC-12\");\n> 128 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  129 |     await expect.soft(bench.runField(1, \"payout-failures\")).toHaveText(\"T-1001\");\n  130 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"none\");\n  131 |     await expect.soft(bench.balance(\"acc-F\")).toHaveText(\"0\");\n    at <repo>\\e2e\\settlement.spec.ts:128:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 64,
-                            "line": 130
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-notifications-sent')\nExpected: \u001b[32m\"none\"\u001b[39m\nReceived: \u001b[31m\"acc-F (10 credits)\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-notifications-sent') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-notifications-sent')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-notifications-sent\">acc-F (10 credits)</dd>\u001b[22m\n\u001b[2m       - unexpected value \"acc-F (10 credits)\"\u001b[22m\n\n\n  128 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n  129 |     await expect.soft(bench.runField(1, \"payout-failures\")).toHaveText(\"T-1001\");\n> 130 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"none\");\n      |                                                                ^\n  131 |     await expect.soft(bench.balance(\"acc-F\")).toHaveText(\"0\");\n  132 |     await expect.soft(bench.notifications(\"acc-F\")).toHaveText(\"0\");\n  133 |   });\n    at <repo>\\e2e\\settlement.spec.ts:130:64"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 53,
-                            "line": 132
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('notifications-acc-F')\nExpected: \u001b[32m\"0\"\u001b[39m\nReceived: \u001b[31m\"1\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('notifications-acc-F') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('notifications-acc-F')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"notifications-acc-F\">1</td>\u001b[22m\n\u001b[2m       - unexpected value \"1\"\u001b[22m\n\n\n  130 |     await expect.soft(bench.runField(1, \"notifications-sent\")).toHaveText(\"none\");\n  131 |     await expect.soft(bench.balance(\"acc-F\")).toHaveText(\"0\");\n> 132 |     await expect.soft(bench.notifications(\"acc-F\")).toHaveText(\"0\");\n      |                                                     ^\n  133 |   });\n  134 |\n  135 |   test(\"TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again\", async ({ bench }) => {\n    at <repo>\\e2e\\settlement.spec.ts:132:53"
-                        }
-                      ],
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 729,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:34.213Z",
+                      "startTime": "2026-11-21T07:47:11.305Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Notification-pa-4b4f6-and-no-notification-is-sent-chromium-buggy\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Notification-pa-4b4f6-and-no-notification-is-sent-chromium-buggy\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Notification-pa-4b4f6-and-no-notification-is-sent-chromium-buggy\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "<repo>\\e2e\\settlement.spec.ts",
-                        "column": 40,
-                        "line": 128
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "de12aa92550dfc05fc63-e5017d2cb42c6b059c3e",
@@ -1356,13 +857,13 @@
                   "projectName": "chromium-buggy",
                   "results": [
                     {
-                      "workerIndex": 12,
-                      "parallelIndex": 10,
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
                       "status": "failed",
-                      "duration": 25679,
+                      "duration": 30136,
                       "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5, BR-7\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5, BR-7</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5, BR-7\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5, BR-7\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5, BR-7</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5, BR-7\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:137:40",
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:137:40",
                         "location": {
                           "file": "<repo>\\e2e\\settlement.spec.ts",
                           "column": 40,
@@ -1377,7 +878,15 @@
                             "column": 40,
                             "line": 137
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-5, BR-7\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-5, BR-7</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-5, BR-7\"\u001b[22m\n\n\n  135 |   test(\"TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again\", async ({ bench }) => {\n  136 |     await bench.runScenario(\"TC-13\");\n> 137 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  138 |     await expect.soft(bench.runField(1, \"notification-failures\")).toHaveText(\"acc-G\");\n  139 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"acc-G (10 credits)\");\n  140 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"none\");\n    at <repo>\\e2e\\settlement.spec.ts:137:40"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULE BROKEN: BR-5\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULE BROKEN: BR-5</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULE BROKEN: BR-5\"\u001b[22m\n\n\n  135 |   test(\"TC-13: after a failed notification, the re-run delivers it once and neither re-run pays again\", async ({ bench }) => {\n  136 |     await bench.runScenario(\"TC-13\");\n> 137 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  138 |     await expect.soft(bench.runField(1, \"notification-failures\")).toHaveText(\"acc-G\");\n  139 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"acc-G (10 credits)\");\n  140 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"none\");\n    at <repo>\\e2e\\settlement.spec.ts:137:40"
+                        },
+                        {
+                          "location": {
+                            "file": "<repo>\\e2e\\settlement.spec.ts",
+                            "column": 64,
+                            "line": 139
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-2-notifications-sent')\nExpected: \u001b[32m\"acc-G (\u001b[7m1\u001b[27m0 credits)\"\u001b[39m\nReceived: \u001b[31m\"acc-G (\u001b[7m2\u001b[27m0 credits)\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-2-notifications-sent') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-2-notifications-sent')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-2-notifications-sent\">acc-G (20 credits)</dd>\u001b[22m\n\u001b[2m       - unexpected value \"acc-G (20 credits)\"\u001b[22m\n\n\n  137 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n  138 |     await expect.soft(bench.runField(1, \"notification-failures\")).toHaveText(\"acc-G\");\n> 139 |     await expect.soft(bench.runField(2, \"notifications-sent\")).toHaveText(\"acc-G (10 credits)\");\n      |                                                                ^\n  140 |     await expect.soft(bench.runField(2, \"paid\")).toHaveText(\"none\");\n  141 |     await expect.soft(bench.runField(3, \"paid\")).toHaveText(\"none\");\n  142 |     await expect.soft(bench.runField(3, \"notifications-sent\")).toHaveText(\"none\");\n    at <repo>\\e2e\\settlement.spec.ts:139:64"
                         },
                         {
                           "location": {
@@ -1401,7 +910,10 @@
                             "column": 48,
                             "line": 143
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('entries-T-1101')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"2\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('entries-T-1101') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('entries-T-1101')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num bad\" data-testid=\"entries-T-1101\">2</td>\u001b[22m\n\u001b[2m       - unexpected value \"2\"\u001b[22m\n\n\n  141 |     await expect.soft(bench.runField(3, \"paid\")).toHaveText(\"none\");\n  142 |     await expect.soft(bench.runField(3, \"notifications-sent\")).toHaveText(\"none\");\n> 143 |     await expect.soft(bench.entries(\"T-1101\")).toHaveText(\"1\");\n      |                                                ^\n  144 |     await expect.soft(bench.balance(\"acc-G\")).toHaveText(\"10\");\n  145 |     await expect.soft(bench.notifications(\"acc-G\")).toHaveText(\"1\");\n  146 |   });\n    at <repo>\\e2e\\settlement.spec.ts:143:48"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('entries-T-1101')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('entries-T-1101') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('entries-T-1101')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num bad\" data-testid=\"entries-T-1101\">3</td>\u001b[22m\n\u001b[2m       - unexpected value \"3\"\u001b[22m\n\n\n  141 |     await expect.soft(bench.runField(3, \"paid\")).toHaveText(\"none\");\n  142 |     await expect.soft(bench.runField(3, \"notifications-sent\")).toHaveText(\"none\");\n> 143 |     await expect.soft(bench.entries(\"T-1101\")).toHaveText(\"1\");\n      |                                                ^\n  144 |     await expect.soft(bench.balance(\"acc-G\")).toHaveText(\"10\");\n  145 |     await expect.soft(bench.notifications(\"acc-G\")).toHaveText(\"1\");\n  146 |   });\n    at <repo>\\e2e\\settlement.spec.ts:143:48"
+                        },
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded.\u001b[39m"
                         },
                         {
                           "location": {
@@ -1409,13 +921,21 @@
                             "column": 47,
                             "line": 144
                           },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-G')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m2\u001b[27m0\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-G') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-G')\u001b[22m\n\u001b[2m    14 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-G\">20</td>\u001b[22m\n\u001b[2m       - unexpected value \"20\"\u001b[22m\n\n\n  142 |     await expect.soft(bench.runField(3, \"notifications-sent\")).toHaveText(\"none\");\n  143 |     await expect.soft(bench.entries(\"T-1101\")).toHaveText(\"1\");\n> 144 |     await expect.soft(bench.balance(\"acc-G\")).toHaveText(\"10\");\n      |                                               ^\n  145 |     await expect.soft(bench.notifications(\"acc-G\")).toHaveText(\"1\");\n  146 |   });\n  147 | });\n    at <repo>\\e2e\\settlement.spec.ts:144:47"
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('balance-acc-G')\nExpected: \u001b[32m\"\u001b[7m1\u001b[27m0\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7m3\u001b[27m0\"\u001b[39m\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('balance-acc-G') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('balance-acc-G')\u001b[22m\n\u001b[2m    13 × locator resolved to <td class=\"num\" data-testid=\"balance-acc-G\">30</td>\u001b[22m\n\u001b[2m       - unexpected value \"30\"\u001b[22m\n\u001b[2m  - Test ended.\u001b[22m\n\n\n  142 |     await expect.soft(bench.runField(3, \"notifications-sent\")).toHaveText(\"none\");\n  143 |     await expect.soft(bench.entries(\"T-1101\")).toHaveText(\"1\");\n> 144 |     await expect.soft(bench.balance(\"acc-G\")).toHaveText(\"10\");\n      |                                               ^\n  145 |     await expect.soft(bench.notifications(\"acc-G\")).toHaveText(\"1\");\n  146 |   });\n  147 | });\n    at <repo>\\e2e\\settlement.spec.ts:144:47"
+                        },
+                        {
+                          "location": {
+                            "file": "<repo>\\e2e\\settlement.spec.ts",
+                            "column": 53,
+                            "line": 145
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('notifications-acc-G')\nExpected: \u001b[32m\"1\"\u001b[39m\nReceived: \u001b[31m\"\"\u001b[39m\n\n\n  143 |     await expect.soft(bench.entries(\"T-1101\")).toHaveText(\"1\");\n  144 |     await expect.soft(bench.balance(\"acc-G\")).toHaveText(\"10\");\n> 145 |     await expect.soft(bench.notifications(\"acc-G\")).toHaveText(\"1\");\n      |                                                     ^\n  146 |   });\n  147 | });\n  148 |\n    at <repo>\\e2e\\settlement.spec.ts:145:53"
                         }
                       ],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:39.297Z",
+                      "startTime": "2026-11-21T07:47:11.335Z",
                       "annotations": [],
                       "attachments": [
                         {
@@ -1459,7 +979,7 @@
           "specs": [
             {
               "title": "UI-01: a custom task at 00:30 +01:00 on Mon 09 Nov counts as Sun 08 Nov 23:30 UTC and is paid; one at 00:30 +01:00 on Mon 02 Nov is not",
-              "ok": false,
+              "ok": true,
               "tags": [],
               "tests": [
                 {
@@ -1470,76 +990,20 @@
                   "projectName": "chromium-buggy",
                   "results": [
                     {
-                      "workerIndex": 13,
-                      "parallelIndex": 4,
-                      "status": "failed",
-                      "duration": 15834,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-3</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-3\"\u001b[22m\n",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-3</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-3\"\u001b[22m\n\n    at <repo>\\e2e\\settlement.spec.ts:164:40",
-                        "location": {
-                          "file": "<repo>\\e2e\\settlement.spec.ts",
-                          "column": 40,
-                          "line": 164
-                        },
-                        "snippet": "  162 |     await bench.run();\n  163 |\n> 164 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  165 |     await expect.soft(inWeek.utc).toHaveText(\"= Sun 08 Nov 2026 23:30 UTC\");\n  166 |     await expect.soft(beforeWeek.utc).toHaveText(\"= Sun 01 Nov 2026 23:30 UTC\");\n  167 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-CET-1\");"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 40,
-                            "line": 164
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('rule-check-text')\nExpected: \u001b[32m\"OK: no business rule broken\"\u001b[39m\nReceived: \u001b[31m\"RULES BROKEN: BR-2, BR-3\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('rule-check-text') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('rule-check-text')\u001b[22m\n\u001b[2m    14 × locator resolved to <span data-testid=\"rule-check-text\">RULES BROKEN: BR-2, BR-3</span>\u001b[22m\n\u001b[2m       - unexpected value \"RULES BROKEN: BR-2, BR-3\"\u001b[22m\n\n\n  162 |     await bench.run();\n  163 |\n> 164 |     await expect.soft(bench.ruleCheck).toHaveText(OK);\n      |                                        ^\n  165 |     await expect.soft(inWeek.utc).toHaveText(\"= Sun 08 Nov 2026 23:30 UTC\");\n  166 |     await expect.soft(beforeWeek.utc).toHaveText(\"= Sun 01 Nov 2026 23:30 UTC\");\n  167 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-CET-1\");\n    at <repo>\\e2e\\settlement.spec.ts:164:40"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 50,
-                            "line": 167
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-paid')\nExpected: \u001b[32m\"T-CET-\u001b[7m1\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"T-CET-\u001b[7m2\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-paid') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-paid')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-paid\">T-CET-2</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-CET-2\"\u001b[22m\n\n\n  165 |     await expect.soft(inWeek.utc).toHaveText(\"= Sun 08 Nov 2026 23:30 UTC\");\n  166 |     await expect.soft(beforeWeek.utc).toHaveText(\"= Sun 01 Nov 2026 23:30 UTC\");\n> 167 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-CET-1\");\n      |                                                  ^\n  168 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-CET-2\");\n  169 |     await expect.soft(bench.balance(\"acc-Z\")).toHaveText(\"10\");\n  170 |     await expect.soft(bench.expectCheck).toHaveText(\n    at <repo>\\e2e\\settlement.spec.ts:167:50"
-                        },
-                        {
-                          "location": {
-                            "file": "<repo>\\e2e\\settlement.spec.ts",
-                            "column": 54,
-                            "line": 168
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByTestId('run-1-excluded')\nExpected: \u001b[32m\"T-CET-\u001b[7m2\u001b[27m\"\u001b[39m\nReceived: \u001b[31m\"T-CET-\u001b[7m1\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"soft toHaveText\" getByTestId('run-1-excluded') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByTestId('run-1-excluded')\u001b[22m\n\u001b[2m    14 × locator resolved to <dd data-testid=\"run-1-excluded\">T-CET-1</dd>\u001b[22m\n\u001b[2m       - unexpected value \"T-CET-1\"\u001b[22m\n\n\n  166 |     await expect.soft(beforeWeek.utc).toHaveText(\"= Sun 01 Nov 2026 23:30 UTC\");\n  167 |     await expect.soft(bench.runField(1, \"paid\")).toHaveText(\"T-CET-1\");\n> 168 |     await expect.soft(bench.runField(1, \"excluded\")).toHaveText(\"T-CET-2\");\n      |                                                      ^\n  169 |     await expect.soft(bench.balance(\"acc-Z\")).toHaveText(\"10\");\n  170 |     await expect.soft(bench.expectCheck).toHaveText(\n  171 |       \"Custom or edited input: no expected outcome to compare. Check the values below against the rules.\",\n    at <repo>\\e2e\\settlement.spec.ts:168:54"
-                        }
-                      ],
+                      "workerIndex": 5,
+                      "parallelIndex": 5,
+                      "status": "passed",
+                      "duration": 894,
+                      "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:39.392Z",
+                      "startTime": "2026-11-21T07:47:11.371Z",
                       "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "screenshot",
-                          "contentType": "image/png",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Manual-input-in-8477a--01-00-on-Mon-02-Nov-is-not-chromium-buggy\\test-failed-1.png"
-                        },
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Manual-input-in-8477a--01-00-on-Mon-02-Nov-is-not-chromium-buggy\\error-context.md"
-                        },
-                        {
-                          "name": "trace",
-                          "contentType": "application/zip",
-                          "path": "<repo>\\results\\e2e-artifacts-buggy\\settlement-Manual-input-in-8477a--01-00-on-Mon-02-Nov-is-not-chromium-buggy\\trace.zip"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "<repo>\\e2e\\settlement.spec.ts",
-                        "column": 40,
-                        "line": 164
-                      }
+                      "attachments": []
                     }
                   ],
-                  "status": "unexpected"
+                  "status": "expected"
                 }
               ],
               "id": "de12aa92550dfc05fc63-8798a3a9374688c1f1d1",
@@ -1560,15 +1024,15 @@
                   "projectName": "chromium-buggy",
                   "results": [
                     {
-                      "workerIndex": 14,
-                      "parallelIndex": 2,
+                      "workerIndex": 4,
+                      "parallelIndex": 4,
                       "status": "passed",
-                      "duration": 523,
+                      "duration": 739,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-11-21T07:11:39.701Z",
+                      "startTime": "2026-11-21T07:47:11.377Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1588,11 +1052,11 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-21T07:11:18.760Z",
-    "duration": 46461.508,
-    "expected": 1,
+    "startTime": "2026-11-21T07:47:08.452Z",
+    "duration": 33190.629,
+    "expected": 10,
     "skipped": 0,
-    "unexpected": 14,
+    "unexpected": 5,
     "flaky": 0
   }
 }

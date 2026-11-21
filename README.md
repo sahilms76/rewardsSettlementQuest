@@ -1,6 +1,6 @@
 # Rewards settlement QA: duplicate payout regression
 
-A fictional weekly rewards settlement service with a **test bench UI**, a **unit suite** (node:test) and a **Playwright E2E suite**. Together they reproduce and block eight defects in a faulty build, led by **DEF-001: a task paid twice when the job is retried or receives a task ID twice**. Every regression case fails on the faulty build and passes on the fixed one (index in [docs/defect-report.md](docs/defect-report.md)). Built for a Quest assessment. No live systems are involved.
+A fictional weekly rewards settlement service with a **test bench UI**, a **unit suite** (node:test) and a **Playwright E2E suite**. Together they reproduce and block **DEF-001: a task paid twice when the job is retried or receives a task ID twice** ([defect report](docs/defect-report.md)). The duplicate and retry cases fail on the faulty build and pass on the fixed one; the other cases pass on both and act as controls. Built for a Quest assessment. No live systems are involved.
 
 Start with [directive.md](directive.md) for the objective, scope, completion criteria and all links.
 
@@ -23,13 +23,13 @@ npm start            # then open http://localhost:4173
 
 - **Build under test**: switch between **Fixed** and **Buggy** (top right). The URL keeps the choice: `/?impl=buggy`.
 - **Scenario** tab: pick one of the 13 cases (TC-01..TC-13) or **Custom**, edit the run time, tasks (with a live UTC conversion), runs and failure options, then select **Run scenario**. The result shows the rule check (OK, or which of BR-1 to BR-7 are broken and why), whether it matches the case's expected outcome, final balances, ledger entries per task, and every run's details.
-- **Run all cases** tab: runs all 13 cases on the selected build and shows the broken rules for each. Fixed: 13 of 13 match. Buggy: all 13 fail.
+- **Run all cases** tab: runs all 13 cases on the selected build and shows the broken rules for each. Fixed: 13 of 13 match. Buggy: TC-07..TC-10 and TC-13 fail (BR-5), the other 8 match.
 
 ## 2. Playwright E2E suite (drives the UI)
 
 ```bash
 npm run e2e            # fixed build: 15 pass
-npm run e2e:buggy      # faulty build: every case and UI-01 fail (DEF-001..DEF-008); UI-02 passes
+npm run e2e:buggy      # faulty build: TC-07..TC-10 and TC-13 fail (DEF-001); 10 pass
 npm run e2e:evidence   # runs both, checks the failing set, writes results/e2e-summary.md
 npm run e2e -- --headed          # watch it in a browser
 npm run e2e:buggy -- -g TC-08    # one case
@@ -40,7 +40,7 @@ npx playwright show-report results/e2e-report-buggy   # HTML report with failure
 
 ```bash
 npm test             # fixed build: 13 pass
-npm run test:buggy   # faulty build: 13 fail
+npm run test:buggy   # faulty build: 5 fail (TC-07..TC-10, TC-13), 8 pass
 npm run evidence     # runs both, writes results/summary.md
 ```
 
@@ -52,7 +52,7 @@ node scripts/manual.js manual/retry.json --impl buggy   # prints each run and th
 
 ## How fixed and buggy are managed
 
-The two builds live side by side: `src/settlement.fixed.js` and `src/settlement.buggy.js`. The buggy build has its own window, filter, payout and notification code with eight marked defects (DEF-001..DEF-008); the fixed build uses `src/window.js` and `src/notifications.js`. Every entry point uses the same switch:
+The two builds live side by side: `src/settlement.fixed.js` and `src/settlement.buggy.js`. They share the window and notification code (`src/window.js`, `src/notifications.js`) and differ only in the payout write, marked `DEFECT (DEF-001)`: the buggy build uses a plain insert with no idempotency key and no in-batch dedupe. Every entry point uses the same switch:
 
 | Entry point | Fixed | Buggy |
 |---|---|---|

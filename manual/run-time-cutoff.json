@@ -1,7 +1,7 @@
 {
   "id": "TC-02",
   "title": "A run at Tue 08:59:59 UTC settles the week before",
-  "description": "Before the 09:00 cut-off the job settles [26 Oct, 2 Nov). A task from 30 Oct is paid; one from 4 Nov waits for next week. DEF-005. Buggy: the run is treated as due from Tuesday 00:00, so it settles 2-9 Nov and pays T-022 instead of T-021.",
+  "description": "Before the 09:00 cut-off the job settles [26 Oct, 2 Nov). A task from 30 Oct is paid; one from 4 Nov waits for next week. Same result on both builds (control).",
   "runAt": "2026-11-10T08:59:59Z",
   "tasks": [
     {

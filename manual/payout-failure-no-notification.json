@@ -1,7 +1,7 @@
 {
   "id": "TC-12",
   "title": "No notification when the account's only payout failed",
-  "description": "DEF-003. T-1001's ledger write fails, so acc-F has no payout. Fixed: no notification. Buggy: acc-F is told it earned 10 credits while its balance is 0.",
+  "description": "T-1001's ledger write fails, so acc-F has no payout and gets no notification. Same result on both builds (control).",
   "runAt": "2026-11-10T09:00:00Z",
   "failPayoutFor": [
     "T-1001"

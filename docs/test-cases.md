@@ -10,25 +10,25 @@ Each case is automated twice and can be run by hand:
 
 The faulty and fixed results below are the same at both levels.
 
-| ID | Category | Input | Expected outcome | Faulty build (defect · rule) | Fixed build |
+| ID | Category | Input | Expected outcome | Faulty build (DEF-001 only) | Fixed build |
 |---|---|---|---|---|---|
-| TC-01 | Happy path (window) | Run at `2026-11-10T09:00:00Z` | Window `[2026-11-02T00:00Z, 2026-11-09T00:00Z)` | **FAIL**: window ends Sun 08 Nov 23:59:59 with the end included (DEF-004 · BR-2) | PASS |
-| TC-02 | Cut-off (run time) | Run at `2026-11-10T08:59:59Z` | Not due yet: settles `[2026-10-26, 2026-11-02)` | **FAIL**: settles 2–9 Nov, pays T-022 and leaves T-021 (DEF-005 · BR-1) | PASS |
-| TC-03 | Happy path | T-101, T-102 (acc-A), T-103 (acc-B), all completed in window | acc-A 20, acc-B 10, 3 ledger entries; one notification each with 20 and 10 | **FAIL**: acc-B is paid 10 but never notified (DEF-008 · BR-6) | PASS |
-| TC-04 | Cut-off boundary | completedAt `…02T00:00:00.000Z`, `…08T23:59:59.999Z`, `…09T00:00:00.000Z` | First two paid, the third excluded (belongs to next week); balance 20 | **FAIL**: T-202 at 23:59:59.999 is not paid; balance 10 (DEF-004 · BR-2) | PASS |
-| TC-05 | Timezone conversion | `2026-11-09T04:59+05:00` (=Sun 23:59Z), `2026-11-09T05:00+05:00` (=Mon 00:00Z), `2026-11-02T03:00+05:00` (=Sun 01 Nov 22:00Z) | Only the first paid; balance 10 | **FAIL**: pays T-303 instead of T-301 (DEF-006 · BR-3) | PASS |
-| TC-06 | Filter | `in_progress` and `cancelled` tasks in window | 0 credits, no notification | **FAIL**: in-progress T-401 is paid 10 and notified (DEF-007 · BR-4) | PASS |
-| TC-07 | Duplicate input | T-501 twice in the same batch | One ledger entry, 10 credits, notification says 10 | **FAIL**: 2 entries, 20 credits (DEF-001 · BR-5) | PASS |
-| TC-08 | Retry (full job) | Same batch settled twice | Still 2 entries, 10 each; retry reports both as already paid; no second notification | **FAIL**: 4 entries, 20 each; acc-B only notified on the re-run (DEF-001, DEF-008 · BR-5, BR-6) | PASS |
-| TC-09 | Retry after partial failure | Ledger write for T-702 fails once; job re-run | Run 1 pays T-701, T-703; retry pays only T-702; one entry per task, balance 30 | **FAIL**: T-701/T-703 paid twice; told 30 credits when 20 were paid (DEF-001, DEF-003 · BR-5, BR-6) | PASS |
-| TC-10 | Duplicate across weeks | T-801 paid in week 1, re-sent in week 2 export with a later completedAt | Not paid again; no week-2 notification | **FAIL**: paid twice (DEF-001 · BR-5) | PASS |
-| TC-11 | Partial failure (notification) | Notifier fails once | Payout of 10 stays; failure reported; log = `failed` | **FAIL**: payout reversed, 0 credits, no ledger entry (DEF-002 · BR-7) | PASS |
-| TC-12 | Notify only after payout | Account's only payout write fails | 0 credits, no notification, payout failure reported | **FAIL**: told it earned 10 credits with balance 0 (DEF-003 · BR-6) | PASS |
-| TC-13 | Retry after notification failure | Notifier fails on run 1; job re-run twice | Notification delivered exactly once (10 credits); balance stays 10 | **FAIL**: run 1 payout reversed, then each re-run pays again: 20 (DEF-001, DEF-002 · BR-5, BR-7) | PASS |
-| UI-01 | Manual input, timezone (E2E only) | Custom scenario: T-CET-1 at `2026-11-09T00:30:00+01:00`, T-CET-2 at `2026-11-02T00:30:00+01:00` | UI shows `= Sun 08 Nov 2026 23:30 UTC` and `= Sun 01 Nov 2026 23:30 UTC`; T-CET-1 paid, T-CET-2 excluded; balance 10 | **FAIL**: pays T-CET-2 instead of T-CET-1 (DEF-006 · BR-3) | PASS |
+| TC-01 | Happy path (window) | Run at `2026-11-10T09:00:00Z` | Window `[2026-11-02T00:00Z, 2026-11-09T00:00Z)` | PASS (control) | PASS |
+| TC-02 | Cut-off (run time) | Run at `2026-11-10T08:59:59Z` | Not due yet: settles `[2026-10-26, 2026-11-02)` | PASS (control) | PASS |
+| TC-03 | Happy path | T-101, T-102 (acc-A), T-103 (acc-B), all completed in window | acc-A 20, acc-B 10, 3 ledger entries; one notification each with 20 and 10 | PASS (control) | PASS |
+| TC-04 | Cut-off boundary | completedAt `…02T00:00:00.000Z`, `…08T23:59:59.999Z`, `…09T00:00:00.000Z` | First two paid, the third excluded (belongs to next week); balance 20 | PASS (control) | PASS |
+| TC-05 | Timezone conversion | `2026-11-09T04:59+05:00` (=Sun 23:59Z), `2026-11-09T05:00+05:00` (=Mon 00:00Z), `2026-11-02T03:00+05:00` (=Sun 01 Nov 22:00Z) | Only the first paid; balance 10 | PASS (control) | PASS |
+| TC-06 | Filter | `in_progress` and `cancelled` tasks in window | 0 credits, no notification | PASS (control) | PASS |
+| TC-07 | Duplicate input | T-501 twice in the same batch | One ledger entry, 10 credits, notification says 10 | **FAIL**: 2 entries, 20 credits (BR-5) | PASS |
+| TC-08 | Retry (full job) | Same batch settled twice | Still 2 entries, 10 each; retry reports both as already paid; no second notification | **FAIL**: 4 entries, 20 each (BR-5) | PASS |
+| TC-09 | Retry after partial failure | Ledger write for T-702 fails once; job re-run | Run 1 pays T-701, T-703; retry pays only T-702; one entry per task, balance 30 | **FAIL**: T-701 and T-703 paid twice, balance 50 (BR-5) | PASS |
+| TC-10 | Duplicate across weeks | T-801 paid in week 1, re-sent in week 2 export with a later completedAt | Not paid again; no week-2 notification | **FAIL**: paid twice, 20 credits (BR-5) | PASS |
+| TC-11 | Partial failure (notification) | Notifier fails once | Payout of 10 stays; failure reported; log = `failed` | PASS (control) | PASS |
+| TC-12 | Notify only after payout | Account's only payout write fails | 0 credits, no notification, payout failure reported | PASS (control) | PASS |
+| TC-13 | Retry after notification failure | Notifier fails on run 1; job re-run twice | Notification delivered exactly once (10 credits); balance stays 10 | **FAIL**: each re-run pays again, 30 credits after two re-runs (BR-5) | PASS |
+| UI-01 | Manual input, timezone (E2E only) | Custom scenario: T-CET-1 at `2026-11-09T00:30:00+01:00`, T-CET-2 at `2026-11-02T00:30:00+01:00` | UI shows `= Sun 08 Nov 2026 23:30 UTC` and `= Sun 01 Nov 2026 23:30 UTC`; T-CET-1 paid, T-CET-2 excluded; balance 10 | PASS (control) | PASS |
 | UI-02 | Invalid input, negative (E2E only) | Custom task with completedAt `not-a-date` | Exact message `Task T-NEW-1: completed at is not a valid ISO 8601 time.`; nothing settled | PASS (input validation is in the UI, not in the build) | PASS |
 
-The faulty build fails every case, at both unit and E2E level, and each case names the defect that causes it. The test bench's rule check (Scenario result and the "Broken rules" column in Run all cases) shows which business rule each failure breaks. DEF-004's window is used by every faulty run, so BR-2 is listed on every faulty case as well. The table above names each case's main defect. UI-01 and UI-02 test the test bench's manual input and exist only in the Playwright suite.
+The faulty build differs from the fixed one only in DEF-001 (duplicate payout), so exactly the duplicate and retry cases fail: TC-07, TC-08, TC-09, TC-10 and TC-13, each on BR-5 alone. The other cases pass on both builds and act as controls: they show the suite fails for DEF-001 and for nothing else, and they guard the other ranked risks (window boundary, timezone, notification rules) against future regressions. UI-01 and UI-02 test the test bench's manual input and exist only in the Playwright suite. All data is synthetic.
 
 ## Assumptions
 
