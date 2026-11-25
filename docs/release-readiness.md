@@ -26,7 +26,6 @@
 | G3 | Changing the admin credits-per-task setting between runs not tested | Medium | Case: change 10 to 15 mid-week, retry the old window, and confirm paid tasks keep 10 |
 | G4 | No reconciliation (`sum(credits) = 10 × distinct paid tasks` per window) | Medium | Post-run assertion and alert |
 | G5 | Timestamps without an offset, and DST changeover dates, are not tested (`+05:00` and `+01:00` are covered by TC-05 and UI-01) | Low | Add a DST-changeover case and reject offset-less input upstream |
-| G8 | Playwright runs on Chromium only; the "Run all cases" view is used manually but not asserted by Playwright (it repeats the 13 scenario tests) | Low | Add Firefox/WebKit projects if the bench becomes a shared tool |
 | G6 | Notification content (template, locale) and provider retries/backoff not tested | Low | Contract test against the notification provider |
 | G7 | Large batches and performance not tested | Low | Load test with a realistic weekly volume |
 
